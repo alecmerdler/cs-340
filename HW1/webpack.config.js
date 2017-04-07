@@ -8,7 +8,7 @@ var config = {
         filename: "bundle.js"
     },
     resolve: {
-        extensions: [".ts", ".js"],
+        extensions: [".ts", ".css", ".js"],
     },
     module: {
         rules: [
@@ -18,6 +18,13 @@ var config = {
                     "ts-loader",
                 ],
                 exclude: /node_modules/
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                ],
             },
         ]
     },
