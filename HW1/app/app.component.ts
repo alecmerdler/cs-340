@@ -10,6 +10,6 @@ import { Component } from 'ng-metadata/core';
 export class AppComponent {
 
     constructor() {
-
+        console.log("a;lsdjf;la");
     }
 }
