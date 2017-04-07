@@ -12,7 +12,8 @@
   "dependencies": {
     "angular": "^1.6.3",
     "core-js": "^2.4.1",
-    "ng-metadata": "^4.0.1"
+    "ng-metadata": "^4.0.1",
+    "rxjs": "^5.3.0"
   },
   "devDependencies": {
     "@types/angular": "^1.6.14",
