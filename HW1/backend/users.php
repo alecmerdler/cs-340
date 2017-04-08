@@ -1,5 +1,8 @@
 <?php
 
+
+echo filter_input(INPUT_SERVER, "REQUEST_METHOD");
+
 switch(filter_input(INPUT_SERVER, "REQUEST_METHOD")) {
     case "GET":
         echo list_users();
