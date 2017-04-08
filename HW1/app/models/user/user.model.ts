@@ -1,4 +1,4 @@
-import { Injectable, Inject } from 'ng-metadata';
+import { Injectable, Inject } from 'ng-metadata/core';
 
 
 export type UserInstance = {
@@ -17,15 +17,11 @@ export class UserModel {
 
     }
 
-    public create(username: string,
-                  firstName: string,
-                  lastName: string,
-                  email: string,
-                  age?: number): ng.IHttpPromise {
+    public create(user: UserInstance): ng.IHttpPromise<UserInstance> {
         return this.$http.post<UserInstance>('/~merdlera/cs340/HW1/backend/api.php/Users', user);
     }
 
-    public list(): ng.IHttpPromise {
-        return $http.get<UserInstance[]>('/~merdlera/cs340/HW1/backend/api.php/Users');
+    public list(): ng.IHttpPromise<UserInstance[]> {
+        return this.$http.get<UserInstance[]>('/~merdlera/cs340/HW1/backend/api.php/Users');
     }
 }
