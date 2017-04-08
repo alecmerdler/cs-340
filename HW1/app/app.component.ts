@@ -1,4 +1,4 @@
-import { Component } from 'ng-metadata/core';
+import { Component, Inject } from 'ng-metadata/core';
 
 
 @Component({
@@ -27,7 +27,13 @@ import { Component } from 'ng-metadata/core';
 })
 export class AppComponent {
 
-    constructor() {
-
+    constructor(@Inject('$http') private $http: ng.IHttpService) {
+        this.$http.get<any>('/backend/api.php/users')
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 }

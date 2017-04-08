@@ -9,6 +9,9 @@ var config = {
     },
     resolve: {
         extensions: [".ts", ".css", ".js"],
+        alias: {
+            'angular-material': 'angular-material/index.js'
+        }
     },
     module: {
         rules: [

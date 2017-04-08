@@ -3,7 +3,7 @@ import { AppComponent } from './app.component';
 import * as ngAnimate from 'angular-animate';
 import * as ngAria from 'angular-aria';
 import * as ngMessages from 'angular-messages';
-import * as ngMaterial from 'angular-material'
+import ngMaterial from 'angular-material'
 
 
 @NgModule({
