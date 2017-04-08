@@ -1,5 +1,5 @@
 import { Component, Inject } from 'ng-metadata/core';
-import { User } from './services/user.service';
+import { UserModel, UserInstance } from './models/user/user.model';
 
 
 @Component({
@@ -62,11 +62,11 @@ import { User } from './services/user.service';
 })
 export class AppComponent {
 
-    public userList: User[] = [];
+    public userList: UserInstance[] = [];
 
-    constructor(@Inject('$http') private $http: ng.IHttpService,
-                @Inject('retrieveUsers') private retrieveUsers) {
-        this.retrieveUsers(this.$http)
+    constructor(@Inject(UserModel) private userModel: UserModel) {
+
+        this.userModel.list()
             .then((response) => {
                 console.log(response.data);
                 this.userList = response.data;

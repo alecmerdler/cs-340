@@ -1,6 +1,6 @@
 import { NgModule } from 'ng-metadata/core';
 import { AppComponent } from './app.component';
-import { retrieveUsers, createUser } from './services/user.service';
+import { UserModel } from './models/user/user.model';
 
 
 @NgModule({
@@ -11,8 +11,7 @@ import { retrieveUsers, createUser } from './services/user.service';
         AppComponent,
     ],
     providers: [
-        {provide: 'retrieveUsers', useValue: retrieveUsers},
-        {provide: 'createUser',    useValue: createUser},
+        {provide: UserModel, useClass: UserModel},
     ]
 })
 export class AppModule {
