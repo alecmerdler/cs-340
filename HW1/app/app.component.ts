@@ -1,4 +1,5 @@
 import { Component, Inject } from 'ng-metadata/core';
+import { User } from './services/user.service';
 
 
 @Component({
@@ -48,7 +49,9 @@ import { Component, Inject } from 'ng-metadata/core';
                         </md-card-title>
                         <md-card-content>
                             <md-list>
-                            
+                                <md-list-item ng-repeat="user in $ctrl.userList">
+                                
+                                </md-list-item>
                             </md-list>
                         </md-card-content>
                     </md-card>
@@ -59,10 +62,14 @@ import { Component, Inject } from 'ng-metadata/core';
 })
 export class AppComponent {
 
-    constructor(@Inject('$http') private $http: ng.IHttpService) {
-        this.$http.get<any>('/backend/api.php/users')
+    public userList: User[] = [];
+
+    constructor(@Inject('$http') private $http: ng.IHttpService,
+                @Inject('retrieveUsers') private retrieveUsers) {
+        this.retrieveUsers(this.$http)
             .then((response) => {
                 console.log(response.data);
+                this.userList = response.data;
             })
             .catch((error) => {
                 console.log(error);
