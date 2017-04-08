@@ -1,6 +1,6 @@
 import { NgModule } from 'ng-metadata/core';
 import { AppComponent } from './app.component';
-import { retreiveUsers, createUser } from './services/user.service';
+import { retrieveUsers, createUser } from './services/user.service';
 
 
 @NgModule({
