@@ -19,14 +19,14 @@ export class UserModel {
     }
 
     public create(user: UserInstance): ng.IPromise<UserInstance> {
-        return this.$http.post<UserInstance>('/~merdlera/cs340/HW1/backend/api.php/Users', user)
+        return this.$http.post<UserInstance>('/~merdlera/cs340/HW1/backend/users.php', user)
             .then((response) => {
                 return this.$q.resolve(response.data);
             });
     }
 
     public list(): ng.IPromise<UserInstance[]> {
-        return this.$http.get<UserInstance[]>('/~merdlera/cs340/HW1/backend/api.php/Users')
+        return this.$http.get<UserInstance[]>('/~merdlera/cs340/HW1/backend/users.php')
             .then((response) => {
                 return this.$q.resolve(response.data['Users']['records']);
             });
