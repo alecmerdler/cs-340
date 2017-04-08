@@ -67,12 +67,9 @@ export class AppComponent {
     constructor(@Inject(UserModel) private userModel: UserModel) {
 
         this.userModel.list()
-            .then((response) => {
-                console.log(response.data);
-                this.userList = response.data;
-            })
-            .catch((error) => {
-                console.log(error);
+            .then((userList) => {
+                console.log(userList);
+                this.userList = userList;
             });
     }
 }
