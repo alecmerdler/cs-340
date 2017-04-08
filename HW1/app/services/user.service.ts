@@ -1,6 +1,3 @@
-import { Injectable, Inject } from 'ng-metadata/core';
-
-
 export type User = {
     username: string;
     firstName: string;
@@ -10,13 +7,11 @@ export type User = {
 };
 
 
-@Injectable()
-export function createUser($http: ng.IHttpService, user: User): Promise<User> {
-    return $http.post<User>('backend/api.php/Users');
+export function createUser($http: ng.IHttpService, user: User): ng.IHttpPromise<User> {
+    return $http.post<User>('backend/api.php/Users', user);
 }
 
 
-@Injectable()
-export function retrieveUsers($http: ng.IHttpService): Promise<User[]> {
+export function retrieveUsers($http: ng.IHttpService): ng.IHttpPromise<User[]> {
     return $http.get<User[]>('/backend/api.php/Users');
 }

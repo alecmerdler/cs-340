@@ -11,7 +11,7 @@ import { retrieveUsers, createUser } from './services/user.service';
         AppComponent,
     ],
     providers: [
-        {provide: 'retrieveUsers', useValue: retreiveUsers},
+        {provide: 'retrieveUsers', useValue: retrieveUsers},
         {provide: 'createUser',    useValue: createUser},
     ]
 })
