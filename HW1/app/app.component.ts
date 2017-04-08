@@ -1,4 +1,4 @@
-import { Component, Inject } from 'ng-metadata/core';
+import { Component, Inject, OnInit } from 'ng-metadata/core';
 import { UserModel, UserInstance } from './models/user/user.model';
 
 
@@ -37,6 +37,11 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                     <label>Email</label>
                                     <input ng-model="$ctrl.email">
                                 </md-input-container>
+                                
+                                <md-button class="md-primary"
+                                           ng-click="$ctrl.createUser()">
+                                    Sign Up
+                                </md-button>
                             </div>
                         </md-card-content>
                     </md-card>
@@ -60,16 +65,27 @@ import { UserModel, UserInstance } from './models/user/user.model';
         </md-content>
     `,
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
     public userList: UserInstance[] = [];
+    public newUser: UserInstance;
 
     constructor(@Inject(UserModel) private userModel: UserModel) {
 
+    }
+
+    public ngOnInit(): void {
         this.userModel.list()
             .then((userList) => {
                 console.log(userList);
                 this.userList = userList;
+            });
+    }
+
+    public createUser(): void {
+        this.userModel.create(this.newUser)
+            .then((newUser) => {
+                console.log(newUser);
             });
     }
 }
