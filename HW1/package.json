@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "./node_modules/.bin/webpack --watch",
-    "build": "./node_modules/.bin/webpack --progress"
+    "build": "git pull && ./node_modules/.bin/webpack --progress && chmod 777 build/bundle.js.map && chmod 777 build/bundle.js && chmod 777 index.html"
   },
   "author": "Alec Merdler",
   "license": "ISC",
