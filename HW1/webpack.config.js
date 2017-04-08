@@ -10,6 +10,10 @@ var config = {
     resolve: {
         extensions: [".ts", ".css", ".js"],
     },
+    // Use window.angular to maintain compatibility with non-Webpack components
+    externals: {
+        angular: "angular",
+    },
     module: {
         rules: [
             {
