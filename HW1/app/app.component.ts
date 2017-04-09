@@ -54,8 +54,9 @@ import { UserModel, UserInstance } from './models/user/user.model';
                         </md-card-title>
                         <md-card-content>
                             <md-list>
-                                <md-list-item ng-repeat="user in $ctrl.userList">
-                                
+                                <md-list-item ng-repeat="user in $ctrl.userList"
+                                              ng-click="null">
+                                    <h3>{{ user.username }}</h3>
                                 </md-list-item>
                             </md-list>
                         </md-card-content>
@@ -85,6 +86,11 @@ export class AppComponent implements OnInit {
         this.userModel.create(this.newUser)
             .then((newUser) => {
                 console.log(newUser);
+                
+                return this.userModel.list();
+            })
+            .then((userList) => {
+                this.userList = userList;
             });
     }
 }
