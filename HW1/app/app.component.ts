@@ -77,7 +77,6 @@ export class AppComponent implements OnInit {
     public ngOnInit(): void {
         this.userModel.list()
             .then((userList) => {
-                console.log(userList);
                 this.userList = userList;
             });
     }

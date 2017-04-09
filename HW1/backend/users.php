@@ -10,7 +10,7 @@ switch($method) {
         break;
 
     case "POST":
-        echo create_user();
+        echo create_user(json_decode(file_get_contents('php://input'), TRUE));
         break;
 
     default:
@@ -42,7 +42,6 @@ function list_users() {
 function create_user($user) {
     $conn = create_db_connection();
 
-    // FIXME: Vulnerable to SQL injection, need to clean values
     $stmt = $conn->prepare("INSERT INTO Users (username, firstName, lastName, email, age) VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param("sssss", $user["username"], $user["firstName"], $user["lastName"], $user["email"], $user["age"]);
     $stmt->execute();
