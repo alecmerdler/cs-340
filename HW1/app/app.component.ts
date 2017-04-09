@@ -20,22 +20,22 @@ import { UserModel, UserInstance } from './models/user/user.model';
                             <div>
                                 <md-input-container>
                                     <label>Username</label>
-                                    <input ng-model="$ctrl.username">
+                                    <input ng-model="$ctrl.newUser.username">
                                 </md-input-container>
                                 
                                 <md-input-container>
                                     <label>First Name</label>
-                                    <input ng-model="$ctrl.firstName">
+                                    <input ng-model="$ctrl.newUser.firstName">
                                 </md-input-container>
                                 
                                 <md-input-container>
                                     <label>Last Name</label>
-                                    <input ng-model="$ctrl.lastName">
+                                    <input ng-model="$ctrl.newUser.lastName">
                                 </md-input-container>
                                 
                                 <md-input-container>
                                     <label>Email</label>
-                                    <input ng-model="$ctrl.email">
+                                    <input ng-model="$ctrl.newUser.email">
                                 </md-input-container>
                                 
                                 <md-button class="md-primary"
@@ -69,7 +69,7 @@ import { UserModel, UserInstance } from './models/user/user.model';
 export class AppComponent implements OnInit {
 
     public userList: UserInstance[] = [];
-    public newUser: UserInstance;
+    public newUser: UserInstance = {};
 
     constructor(@Inject(UserModel) private userModel: UserModel) {
 
@@ -85,8 +85,8 @@ export class AppComponent implements OnInit {
     public createUser(): void {
         this.userModel.create(this.newUser)
             .then((newUser) => {
-                console.log(newUser);
-                
+                this.newUser = {};
+
                 return this.userModel.list();
             })
             .then((userList) => {

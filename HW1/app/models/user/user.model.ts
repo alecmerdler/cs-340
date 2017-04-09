@@ -28,7 +28,7 @@ export class UserModel {
     public list(): ng.IPromise<UserInstance[]> {
         return this.$http.get<UserInstance[]>('/~merdlera/cs340/HW1/backend/users.php')
             .then((response) => {
-                return this.$q.resolve(response.data['Users']['records']);
+                return this.$q.resolve(response.data);
             });
     }
 }
