@@ -2,6 +2,7 @@
 
 $method = $_SERVER['REQUEST_METHOD'];
 $request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
+header('Content-Type: application/json');
 
 switch($method) {
     case "GET":
