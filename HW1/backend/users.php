@@ -13,6 +13,7 @@ switch($method) {
         break;
 
     default:
+        http_response_code(405);
         echo json_encode(array("error" => "method not supported"));
         break;
 }
@@ -37,10 +38,18 @@ function list_users() {
 }
 
 
-function create_user() {
+function create_user($user) {
     $conn = create_db_connection();
 
-    $response = array();
+    // FIXME: Vulnerable to SQL injection, need to clean values
+    $stmt = $conn->prepare("INSERT INTO Users (username, firstName, lastName, email, age) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $user["username"], $user["firstName"], $user["lastName"], $user["email"], $user["age"]);
+    $stmt->execute();
+
+    $stmt->close();
+    $conn->close();
+
+    $response = $user;
 
     return json_encode($response);
 }
