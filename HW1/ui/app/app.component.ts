@@ -22,9 +22,11 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                     <label>Username</label>
                                     <input ng-model="$ctrl.newUser.username"
                                            type="text"
+                                           name="username"
                                            md-maxlength="20"
+                                           maxlength="20"
                                            required>
-                                        <div ng-messages="$ctrl.newUserForm.$error">
+                                        <div ng-messages="$ctrl.newUserForm.username.$error">
                                             <div ng-message="required">This is required.</div>
                                             <div ng-message="md-maxlength">Must not be longer than 20 characters.</div>
                                         </div>
@@ -34,9 +36,10 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                     <label>First Name</label>
                                     <input ng-model="$ctrl.newUser.firstName"
                                            type="text"
+                                           name="firstName"
                                            md-maxlength="20"
                                            required>
-                                        <div ng-messages="$ctrl.newUserForm.$error">
+                                        <div ng-messages="$ctrl.newUserForm.firstName.$error">
                                             <div ng-message="required">This is required.</div>
                                             <div ng-message="md-maxlength">Must not be longer than 20 characters.</div>
                                         </div>
@@ -46,9 +49,10 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                     <label>Last Name</label>
                                     <input ng-model="$ctrl.newUser.lastName"
                                            type="text"
+                                           name="lastName"
                                            md-maxlength="20"
                                            required>
-                                        <div ng-messages="$ctrl.newUserForm.$error">
+                                        <div ng-messages="$ctrl.newUserForm.lastName.$error">
                                             <div ng-message="required">This is required.</div>
                                             <div ng-message="md-maxlength">Must not be longer than 20 characters.</div>
                                         </div>
@@ -58,8 +62,9 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                     <label>Email</label>
                                     <input ng-model="$ctrl.newUser.email"
                                            type="email"
+                                           name="email"
                                            required>
-                                        <div ng-messages="$ctrl.newUserForm.$error">
+                                        <div ng-messages="$ctrl.newUserForm.email.$error">
                                             <div ng-message="required">This is required.</div>
                                             <div ng-message="md-maxlength">Must not be longer than 20 characters.</div>
                                         </div>
@@ -68,11 +73,13 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                 <md-input-container>
                                     <label>Age</label>
                                     <input ng-model="$ctrl.newUser.email"
-                                           type="number">
+                                           type="number"
+                                           name="age">
                                 </md-input-container>
                                 
                                 <md-button class="md-primary"
-                                           ng-click="$ctrl.createUser()">
+                                           ng-click="$ctrl.createUser()"
+                                           ng-disabled="$ctrl.newUserForm.>
                                     Sign Up
                                 </md-button>
                             </form>

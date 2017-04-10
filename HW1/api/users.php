@@ -23,8 +23,8 @@ switch($method) {
 function list_users() {
     $conn = create_db_connection();
 
-    $sql = "SELECT * from Users";
-    $result = $conn->query($sql);
+    $stmt = "SELECT * from Users";
+    $result = $conn->query($stmt);
 
     $response = array();
     if ($result->num_rows > 0) {
@@ -46,10 +46,10 @@ function create_user($user) {
     $stmt->bind_param("sssss", $user["username"], $user["firstName"], $user["lastName"], $user["email"], $user["age"]);
     $stmt->execute();
 
+    $response = $user;
+
     $stmt->close();
     $conn->close();
-
-    $response = $user;
 
     return json_encode($response);
 }
