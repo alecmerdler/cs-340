@@ -12,6 +12,6 @@
     "node_modules"
   ],
   "include": [
-    "./app/**/*.ts"
+    "./ui/**/*.ts"
   ]
 }
