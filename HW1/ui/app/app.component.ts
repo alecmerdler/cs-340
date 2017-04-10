@@ -54,12 +54,14 @@ import { UserModel, UserInstance } from './models/user/user.model';
                         </md-card-title>
                         <md-card-content>
                             <md-list>
-                                <md-list-item ng-repeat="user in $ctrl.userList"
+                                <md-list-item class="md-3-line"
+                                              ng-repeat="user in $ctrl.userList"
                                               ng-click="null">
-                                    <h3>{{ user.username}}</h3>
-                                    <h4>{{ user.email }}</h4>
-                                    <h4>{{ user.firstName }} {{ user.lastName }}</h4>
-                                    <p ng-if="user.age">{{ user.age }}</p>
+                                    <div class="md-list-item-text" layout="column">
+                                        <h3>{{ user.username}}</h3>
+                                        <h4>{{ user.email }}</h4>
+                                        <p>{{ user.firstName }}</p>
+                                    </div>                                    
                                 </md-list-item>
                             </md-list>
                         </md-card-content>
