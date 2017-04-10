@@ -24,7 +24,6 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                            type="text"
                                            name="username"
                                            md-maxlength="20"
-                                           maxlength="20"
                                            required>
                                         <div ng-messages="$ctrl.newUserForm.username.$error">
                                             <div ng-message="required">This is required.</div>
