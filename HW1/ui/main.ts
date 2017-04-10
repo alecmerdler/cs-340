@@ -6,7 +6,7 @@ import * as ngMessages from 'angular-messages';
 import * as ngMaterial from 'angular-material'
 import { platformBrowserDynamic } from 'ng-metadata/platform-browser-dynamic';
 import { bundle } from 'ng-metadata/core';
-import { AppModule } from './app.module.ts';
+import { AppModule } from './app/app.module.ts';
 
 // FIXME: Not working
 // platformBrowserDynamic().bootstrapModule(AppModule);
