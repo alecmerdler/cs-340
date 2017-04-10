@@ -14,7 +14,7 @@ import { UserModel, UserInstance } from './models/user/user.model';
                 <div flex="50">
                     <md-card>
                         <md-card-title>
-                            <h1>Create New User</h1>
+                            <span class="md-headline">Create New User</span>
                         </md-card-title>
                         <md-card-content>
                             <div>
@@ -50,13 +50,16 @@ import { UserModel, UserInstance } from './models/user/user.model';
                 <div flex="50">
                     <md-card>
                         <md-card-title>
-                            <h1>View All Users</h1>
+                            <span class="md-headline">View All Users</span>
                         </md-card-title>
                         <md-card-content>
                             <md-list>
                                 <md-list-item ng-repeat="user in $ctrl.userList"
                                               ng-click="null">
-                                    <h3>{{ user.username }}</h3>
+                                    <h3>{{ user.username}}</h3>
+                                    <h4>{{ user.email }}</h4>
+                                    <h4>{{ user.firstName }} {{ user.lastName }}</h4>
+                                    <p ng-if="user.age">{{ user.age }}</p>
                                 </md-list-item>
                             </md-list>
                         </md-card-content>
@@ -69,7 +72,7 @@ import { UserModel, UserInstance } from './models/user/user.model';
 export class AppComponent implements OnInit {
 
     public userList: UserInstance[] = [];
-    public newUser: UserInstance = {};
+    public newUser: UserInstance;
 
     constructor(@Inject(UserModel) private userModel: UserModel) {
 
