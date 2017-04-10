@@ -72,13 +72,11 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                 <md-input-container>
                                     <label>Age</label>
                                     <input ng-model="$ctrl.newUser.email"
-                                           type="number"
-                                           name="age">
+                                           type="number">
                                 </md-input-container>
                                 
                                 <md-button class="md-primary"
-                                           ng-click="$ctrl.createUser()"
-                                           ng-disabled="$ctrl.newUserForm.>
+                                           ng-click="$ctrl.createUser()">
                                     Sign Up
                                 </md-button>
                             </form>
@@ -97,7 +95,7 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                               ng-repeat="user in $ctrl.userList"
                                               ng-click="null">
                                     <div class="md-list-item-text" layout="column">
-                                        <h3>{{ user.username}}</h3>
+                                        <h3>{{ user.username }}</h3>
                                         <h4>{{ user.email }}</h4>
                                         <p>{{ user.firstName }}</p>
                                     </div>                                    
