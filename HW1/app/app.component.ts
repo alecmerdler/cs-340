@@ -88,7 +88,7 @@ export class AppComponent implements OnInit {
     public createUser(): void {
         this.userModel.create(this.newUser)
             .then((newUser) => {
-                this.newUser = {};
+                this.newUser = null;
 
                 return this.userModel.list();
             })
