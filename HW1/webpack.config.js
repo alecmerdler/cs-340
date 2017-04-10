@@ -2,9 +2,9 @@ var webpack = require('webpack');
 var path = require("path");
 
 var config = {
-    entry: "./app/main.ts",
+    entry: "./ui/main.ts",
     output: {
-        path: path.resolve(__dirname, "build"),
+        path: path.resolve(__dirname, "ui/build"),
         filename: "bundle.js"
     },
     resolve: {
