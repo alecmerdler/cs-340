@@ -1,31 +1,38 @@
 <?php
 
-$method = $_SERVER['REQUEST_METHOD'];
-header('Content-Type: application/json');
+/*
+ * Respond to HTTP request.
+ */
+function handle_request($method) {
+    header('Content-Type: application/json');
 
-try {
-    switch($method) {
-        case "GET":
-            http_response_code(200);
-            echo list_users();
-            break;
+    try {
+        switch($method) {
+            case "GET":
+                http_response_code(200);
+                echo list_users();
+                break;
 
-        case "POST":
-            http_response_code(201);
-            echo create_user(json_decode(file_get_contents('php://input'), TRUE));
-            break;
+            case "POST":
+                http_response_code(201);
+                echo create_user(json_decode(file_get_contents('php://input'), TRUE));
+                break;
 
-        default:
-            http_response_code(405);
-            echo json_encode(array("error" => "method not supported"));
-            break;
+            default:
+                http_response_code(405);
+                echo json_encode(array("error" => "method not supported"));
+                break;
+        }
+    } catch (Exception $e) {
+        http_response_code(400);
+        echo json_encode(array("error" => $e->getMessage()));
     }
-} catch (Exception $e) {
-    http_response_code(400);
-    echo json_encode($e->getMessage());
 }
 
 
+/*
+ * List all users in database.
+ */
 function list_users() {
     $response = array();
     $conn = create_db_connection();
@@ -45,6 +52,9 @@ function list_users() {
 }
 
 
+/*
+ * Add a new user into the database.
+ */
 function create_user($user) {
     $response = $user;
     $conn = create_db_connection();
@@ -63,6 +73,9 @@ function create_user($user) {
 }
 
 
+/*
+ * Return a new database connection.
+ */
 function create_db_connection() {
     $servername = "classmysql.engr.oregonstate.edu";
     $username = "cs340_merdlera";
@@ -77,5 +90,8 @@ function create_db_connection() {
 
     return $conn;
 }
+
+
+handle_request($_SERVER['REQUEST_METHOD']);
 
 ?>
