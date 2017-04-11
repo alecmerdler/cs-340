@@ -51,10 +51,9 @@ function create_user($user) {
 
     $stmt = $conn->prepare("INSERT INTO Users (username, firstName, lastName, email, age) VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param("sssss", $user["username"], $user["firstName"], $user["lastName"], $user["email"], $user["age"]);
-    $success = $stmt->execute();
 
-    if (!$success) {
-        throw new Exception($stmt->error());
+    if (!$stmt->execute()) {
+        throw new Exception($stmt->error);
     }
 
     $stmt->close();
