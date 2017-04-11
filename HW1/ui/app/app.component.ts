@@ -28,6 +28,7 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                         <div ng-messages="$ctrl.newUserForm.username.$error">
                                             <div ng-message="required">This is required.</div>
                                             <div ng-message="md-maxlength">Must not be longer than 20 characters.</div>
+                                            <div ng-message="unique">This username has already been taken.</div>
                                         </div>
                                 </md-input-container>
                                 
@@ -116,6 +117,7 @@ export class AppComponent implements OnInit {
 
     public userList: UserInstance[] = [];
     public newUser: UserInstance;
+    private newUserForm: ng.IFormController;
 
     constructor(@Inject(UserModel) private userModel: UserModel) {
 
@@ -130,6 +132,9 @@ export class AppComponent implements OnInit {
 
     public createUser(): void {
         this.userModel.create(this.newUser)
+            .catch((error) => {
+                this.newUserForm.username.$setValidity = "unique";
+            })
             .then((newUser) => {
                 this.newUser = null;
 
