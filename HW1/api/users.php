@@ -1,34 +1,28 @@
 <?php
 
 $method = $_SERVER['REQUEST_METHOD'];
-$request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 header('Content-Type: application/json');
 
-switch($method) {
-    case "GET":
-        try {
+try {
+    switch($method) {
+        case "GET":
             http_response_code(200);
             echo list_users();
-        } catch (Exception $e) {
-            http_response_code(400);
-            echo json_encode($e->getMessage());
-        }
-        break;
+            break;
 
-    case "POST":
-        try {
+        case "POST":
             http_response_code(201);
             echo create_user(json_decode(file_get_contents('php://input'), TRUE));
-        } catch (Exception $e) {
-            http_response_code(400);
-            echo json_encode($e->getMessage());
-        }
-        break;
+            break;
 
-    default:
-        http_response_code(405);
-        echo json_encode(array("error" => "method not supported"));
-        break;
+        default:
+            http_response_code(405);
+            echo json_encode(array("error" => "method not supported"));
+            break;
+    }
+} catch (Exception $e) {
+    http_response_code(400);
+    echo json_encode($e->getMessage());
 }
 
 
@@ -57,9 +51,11 @@ function create_user($user) {
 
     $stmt = $conn->prepare("INSERT INTO Users (username, firstName, lastName, email, age) VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param("sssss", $user["username"], $user["firstName"], $user["lastName"], $user["email"], $user["age"]);
-    $stmt->execute();
+    $success = $stmt->execute();
 
-    // TODO: Throw exception if bad query
+    if (!$success) {
+        throw new Exception($stmt->error());
+    }
 
     $stmt->close();
     $conn->close();
