@@ -17,7 +17,7 @@ import { UserModel, UserInstance } from './models/user/user.model';
                             <span class="md-headline">Create New User</span>
                         </md-card-title>
                         <md-card-content>
-                            <form name="newUserForm">
+                            <form name="$ctrl.newUserForm">
                                 <md-input-container>
                                     <label>Username</label>
                                     <input ng-model="$ctrl.newUser.username"
