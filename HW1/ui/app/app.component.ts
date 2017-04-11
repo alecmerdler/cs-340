@@ -71,8 +71,9 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                 
                                 <md-input-container>
                                     <label>Age</label>
-                                    <input ng-model="$ctrl.newUser.email"
-                                           type="number">
+                                    <input ng-model="$ctrl.newUser.age"
+                                           type="number"
+                                           name="age">
                                 </md-input-container>
                                 
                                 <md-button class="md-primary"
