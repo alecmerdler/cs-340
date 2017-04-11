@@ -94,6 +94,9 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                 <md-list-item class="md-3-line"
                                               ng-repeat="user in $ctrl.userList"
                                               ng-click="null">
+                                    <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png" 
+                                         class="md-avatar" 
+                                         alt="{{item.who}}" />
                                     <div class="md-list-item-text" layout="column">
                                         <h3>{{ user.username }}</h3>
                                         <h4>{{ user.email }}</h4>
