@@ -33,7 +33,7 @@ var config = {
             {
                 test: /\.html$/,
                 use: [
-                    "html-loader"
+                    "html-loader?exportAsEs6Default"
                 ],
                 exclude: /node_modules/
             }
