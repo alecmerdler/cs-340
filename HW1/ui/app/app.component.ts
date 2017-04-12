@@ -89,7 +89,7 @@ import { UserModel, UserInstance } from './models/user/user.model';
                             </form>
                         </md-card-content>
 
-                        <md-card-actions>
+                        <md-card-actions layout-align="end">
                             <md-button class="md-primary"
                                        ng-disabled="$ctrl.newUserForm.$invalid"
                                        ng-click="$ctrl.createUser()">
