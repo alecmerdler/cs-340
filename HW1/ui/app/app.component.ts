@@ -36,11 +36,11 @@ export class AppComponent implements OnInit {
 
                 return this.userModel.list();
             })
-            .catch((error) => {
-                this.newUserForm.username.$setValidity("unique", false);
-            })
             .then((userList) => {
                 this.userList = userList;
+            })
+            .catch((error) => {
+                this.newUserForm.username.$setValidity("unique", false);
             })
             .finally(() => {
                 this.isLoading = false;
