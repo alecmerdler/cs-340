@@ -9,7 +9,7 @@ import { UserModel, UserInstance } from './models/user/user.model';
             <md-toolbar class="md-hue-2">
                 <h2 class="md-toolbar-tools"><span>CS340 Assignment #1</span></h2>
             </md-toolbar>
-            
+
             <div layout="row">
                 <div flex="50">
                     <md-card>
@@ -31,7 +31,7 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                             <div ng-message="unique">This username has already been taken.</div>
                                         </div>
                                 </md-input-container>
-                                
+
                                 <md-input-container>
                                     <label>First Name</label>
                                     <input ng-model="$ctrl.newUser.firstName"
@@ -44,7 +44,7 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                             <div ng-message="md-maxlength">Must not be longer than 20 characters.</div>
                                         </div>
                                 </md-input-container>
-                                
+
                                 <md-input-container>
                                     <label>Last Name</label>
                                     <input ng-model="$ctrl.newUser.lastName"
@@ -57,7 +57,7 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                             <div ng-message="md-maxlength">Must not be longer than 20 characters.</div>
                                         </div>
                                 </md-input-container>
-                                
+
                                 <md-input-container>
                                     <label>Email</label>
                                     <input ng-model="$ctrl.newUser.email"
@@ -69,15 +69,16 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                             <div ng-message="md-maxlength">Must not be longer than 20 characters.</div>
                                         </div>
                                 </md-input-container>
-                                
+
                                 <md-input-container>
                                     <label>Age</label>
                                     <input ng-model="$ctrl.newUser.age"
                                            type="number"
                                            name="age">
                                 </md-input-container>
-                                
+
                                 <md-button class="md-primary"
+                                           ng-disabled="!$ctrl.newUserForm.$valid"
                                            ng-click="$ctrl.createUser()">
                                     Sign Up
                                 </md-button>
@@ -85,7 +86,7 @@ import { UserModel, UserInstance } from './models/user/user.model';
                         </md-card-content>
                     </md-card>
                 </div>
-                
+
                 <div flex="50">
                     <md-card>
                         <md-card-title>
@@ -96,14 +97,14 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                 <md-list-item class="md-3-line"
                                               ng-repeat="user in $ctrl.userList"
                                               ng-click="null">
-                                    <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png" 
-                                         class="md-avatar" 
+                                    <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
+                                         class="md-avatar"
                                          alt="{{item.who}}" />
                                     <div class="md-list-item-text" layout="column">
                                         <h3>{{ user.username }}</h3>
                                         <h4>{{ user.email }}</h4>
                                         <p>{{ user.firstName }}</p>
-                                    </div>                                    
+                                    </div>
                                 </md-list-item>
                             </md-list>
                         </md-card-content>
@@ -132,16 +133,18 @@ export class AppComponent implements OnInit {
 
     public createUser(): void {
         this.userModel.create(this.newUser)
-            .catch((error) => {
-                this.newUserForm.username.$setValidity = "unique";
-            })
             .then((newUser) => {
-                this.newUser = null;
+                console.log("asldfas");
+                this.newUserForm.$setPristine();
 
                 return this.userModel.list();
             })
             .then((userList) => {
                 this.userList = userList;
-            });
+            })
+            .catch((error) => {
+                console.log(error);
+                this.newUserForm.username.$setValidity("unique", false);
+            })
     }
 }
