@@ -30,16 +30,16 @@ export class AppComponent implements OnInit {
         this.isLoading = true;
 
         this.userModel.create(this.newUser)
-            .then((newUser) => {
+            .then((newUser: UserInstance) => {
                 this.newUser = null;
                 this.newUserForm.$setUntouched();
 
                 return this.userModel.list();
             })
-            .then((userList) => {
+            .then((userList: UserInstance[]) => {
                 this.userList = userList;
             })
-            .catch((error) => {
+            .catch((error: any) => {
                 switch (error['type']) {
                     case "duplicate":
                         this.newUserForm.username.$setValidity("unique", false);
@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
             .then(() => {
                 return this.userModel.list();
             })
-            .then((userList) => {
+            .then((userList: UserInstance[]) => {
                 this.userList = userList;
                 this.isLoading = false;
             });

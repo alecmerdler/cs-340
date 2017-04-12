@@ -75,7 +75,7 @@ function create_user($user) {
 //        else {
 //            array_push($error, array("type" => "general"));
 //        }
-        throw new Exception($stmt->error);
+        throw new Exception($error);
     }
 
     $stmt->close();
