@@ -35,7 +35,7 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                 </div>
 
                                 <div layout="row">
-                                    <md-input-container>
+                                    <md-input-container flex="50">
                                         <label>Email</label>
                                         <input ng-model="$ctrl.newUser.email"
                                                type="email"
@@ -89,7 +89,7 @@ import { UserModel, UserInstance } from './models/user/user.model';
                             </form>
                         </md-card-content>
 
-                        <md-card-actions layout-align="end center">
+                        <md-card-actions>
                             <md-button class="md-primary"
                                        ng-disabled="$ctrl.newUserForm.$invalid"
                                        ng-click="$ctrl.createUser()">
