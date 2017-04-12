@@ -30,7 +30,7 @@ function handle_request($method) {
         }
     } catch (Exception $e) {
         http_response_code(400);
-        echo json_encode(array("error" => $e->getMessage()));
+        echo json_encode(array("error" => json_decode($e->getMessage())));
     }
 }
 
@@ -75,8 +75,7 @@ function create_user($user) {
         else {
             array_push($error, array("type" => "general"));
         }
-//        throw new Exception($error);
-        throw new Exception($stmt->error);
+        throw new Exception(json_encode($error));
     }
 
     $stmt->close();
@@ -100,7 +99,7 @@ function remove_user($username) {
         $error = array("message" => $stmt->error);
         array_push($error, array("type" => "general"));
 
-        throw new Exception($error);
+        throw new Exception(json_decode($error));
     }
 
     $stmt->close();
