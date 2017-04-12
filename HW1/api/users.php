@@ -69,13 +69,14 @@ function create_user($user) {
 
     if (!$stmt->execute()) {
         $error = array("message" => $stmt->error);
-//        if (strpos($stmt->error, "Duplicate") !== false) {
-//            array_push($error, array("type" => "duplicate"));
-//        }
-//        else {
-//            array_push($error, array("type" => "general"));
-//        }
-        throw new Exception($error);
+        if (strpos($stmt->error, "Duplicate") !== false) {
+            array_push($error, array("type" => "duplicate"));
+        }
+        else {
+            array_push($error, array("type" => "general"));
+        }
+//        throw new Exception($error);
+        throw new Exception($stmt->error);
     }
 
     $stmt->close();
