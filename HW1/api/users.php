@@ -68,7 +68,14 @@ function create_user($user) {
     $stmt->bind_param("sssss", $user["username"], $user["firstName"], $user["lastName"], $user["email"], $user["age"]);
 
     if (!$stmt->execute()) {
-        throw new Exception($stmt->error);
+        $error = array("message" => $stmt->error);
+        if (strpos($stmt->error, "Duplicate") !== false) {
+            array_push($error, array("type" => "duplicate"));
+        }
+        else {
+            array_push($error, array("type" => "general"));
+        }
+        throw new Exception($error);
     }
 
     $stmt->close();
@@ -89,7 +96,10 @@ function remove_user($username) {
     $stmt->bind_param("s", $username);
 
     if (!$stmt->execute()) {
-        throw new Exception($stmt->error);
+        $error = array("message" => $stmt->error);
+        array_push($error, array("type" => "general"));
+
+        throw new Exception($error);
     }
 
     $stmt->close();

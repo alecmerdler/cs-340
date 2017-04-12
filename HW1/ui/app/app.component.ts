@@ -40,8 +40,11 @@ export class AppComponent implements OnInit {
                 this.userList = userList;
             })
             .catch((error) => {
-                console.log(error);
-                this.newUserForm.username.$setValidity("unique", false);
+                switch (error['type']) {
+                    case "duplicate":
+                        this.newUserForm.username.$setValidity("unique", false);
+                        break;
+                }
             })
             .finally(() => {
                 this.isLoading = false;
