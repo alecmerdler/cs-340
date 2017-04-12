@@ -31,8 +31,8 @@ export class AppComponent implements OnInit {
 
         this.userModel.create(this.newUser)
             .then((newUser) => {
-                this.newUserForm.$setPristine();
                 this.newUser = null;
+                this.newUserForm.$setUntouched();
 
                 return this.userModel.list();
             })
