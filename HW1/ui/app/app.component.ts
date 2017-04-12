@@ -89,7 +89,7 @@ import { UserModel, UserInstance } from './models/user/user.model';
                             </form>
                         </md-card-content>
 
-                        <md-card-actions layout-align="end">
+                        <md-card-actions layout="row" layout-align="end center">
                             <md-button class="md-primary"
                                        ng-disabled="$ctrl.newUserForm.$invalid"
                                        ng-click="$ctrl.createUser()">
@@ -117,7 +117,7 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                         <h4>{{ user.email }}</h4>
                                         <p>{{ user.firstName }}</p>
                                     </div>
-                                    <md-icon md-svg-icon="action:delete"
+                                    <md-icon md-svg-icon="delete"
                                              ng-click="$ctrl.removeUser(user)">
                                     </md-icon>
                                 </md-list-item>
