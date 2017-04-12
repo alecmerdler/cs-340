@@ -33,15 +33,16 @@ export class AppComponent implements OnInit {
             .then((newUser) => {
                 this.newUserForm.$setPristine();
                 this.newUser = null;
+
+                return this.userModel.list();
             })
             .catch((error) => {
                 this.newUserForm.username.$setValidity("unique", false);
             })
-            .finally(() => {
-                return this.userModel.list();
-            })
             .then((userList) => {
                 this.userList = userList;
+            })
+            .finally(() => {
                 this.isLoading = false;
             });
     }
