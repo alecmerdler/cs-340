@@ -26,23 +26,25 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                                name="username"
                                                md-maxlength="20"
                                                required>
-                                            <div ng-messages="$ctrl.newUserForm.username.$error">
-                                                <div ng-message="required">This is required.</div>
-                                                <div ng-message="md-maxlength">Must not be longer than 20 characters.</div>
-                                                <div ng-message="unique">This username has already been taken.</div>
-                                            </div>
+                                        <div ng-messages="$ctrl.newUserForm.username.$error">
+                                            <div ng-message="required">This is required.</div>
+                                            <div ng-message="md-maxlength">Must not be longer than 20 characters.</div>
+                                            <div ng-message="unique">This username has already been taken.</div>
+                                        </div>
                                     </md-input-container>
+                                </div>
 
+                                <div layout="row">
                                     <md-input-container>
                                         <label>Email</label>
                                         <input ng-model="$ctrl.newUser.email"
                                                type="email"
                                                name="email"
                                                required>
-                                            <div ng-messages="$ctrl.newUserForm.email.$error">
-                                                <div ng-message="required">This is required.</div>
-                                                <div ng-message="md-maxlength">Must not be longer than 20 characters.</div>
-                                            </div>
+                                        <div ng-messages="$ctrl.newUserForm.email.$error">
+                                            <div ng-message="required">This is required.</div>
+                                            <div ng-message="md-maxlength">Must not be longer than 20 characters.</div>
+                                        </div>
                                     </md-input-container>
                                 </div>
 
@@ -54,10 +56,10 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                                name="firstName"
                                                md-maxlength="20"
                                                required>
-                                            <div ng-messages="$ctrl.newUserForm.firstName.$error">
-                                                <div ng-message="required">This is required.</div>
-                                                <div ng-message="md-maxlength">Must not be longer than 20 characters.</div>
-                                            </div>
+                                        <div ng-messages="$ctrl.newUserForm.firstName.$error">
+                                            <div ng-message="required">This is required.</div>
+                                            <div ng-message="md-maxlength">Must not be longer than 20 characters.</div>
+                                        </div>
                                     </md-input-container>
 
                                     <md-input-container>
@@ -67,17 +69,21 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                                name="lastName"
                                                md-maxlength="20"
                                                required>
-                                            <div ng-messages="$ctrl.newUserForm.lastName.$error">
-                                                <div ng-message="required">This is required.</div>
-                                                <div ng-message="md-maxlength">Must not be longer than 20 characters.</div>
-                                            </div>
+                                        <div ng-messages="$ctrl.newUserForm.lastName.$error">
+                                            <div ng-message="required">This is required.</div>
+                                            <div ng-message="md-maxlength">Must not be longer than 20 characters.</div>
+                                        </div>
                                     </md-input-container>
 
                                     <md-input-container>
                                         <label>Age</label>
                                         <input ng-model="$ctrl.newUser.age"
                                                type="number"
-                                               name="age">
+                                               name="age"
+                                               min="1" max="100">
+                                        <div ng-messages="$ctrl.newUserForm.age.$error">
+                                            <div ng-message="min">You need to be older than that!</div>
+                                        </div>
                                     </md-input-container>
                                 </div>
                             </form>
