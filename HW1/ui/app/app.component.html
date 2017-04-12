@@ -96,6 +96,10 @@
             <md-card>
                 <md-card-title>
                     <span class="md-headline">View All Users</span>
+                    <md-button class="md-icon-button"
+                               ng-click="$ctrl.refreshUserList()">
+                        <md-icon>refresh</md-icon>
+                    </md-button>
                 </md-card-title>
                 <md-card-content>
                     <div layout="row" layout-align="space-around"

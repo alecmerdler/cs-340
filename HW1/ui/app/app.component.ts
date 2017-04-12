@@ -54,4 +54,14 @@ export class AppComponent implements OnInit {
                 this.isLoading = false;
             });
     }
+
+    public refreshUserList(): void {
+        this.isLoading = true;
+
+        this.userModel.list()
+            .then((userList) => {
+                this.userList = userList;
+                this.isLoading = false;
+            });
+    }
 }
