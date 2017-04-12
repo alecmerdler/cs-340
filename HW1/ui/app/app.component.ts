@@ -10,7 +10,7 @@ import { UserModel, UserInstance } from './models/user/user.model';
                 <h2 class="md-toolbar-tools"><span>CS340 Assignment #1</span></h2>
             </md-toolbar>
 
-            <div layout="row" layout-xs="column">
+            <div layout-gt-xs="row" layout-xs="column">
                 <div flex="50">
                     <md-card>
                         <md-card-title>
