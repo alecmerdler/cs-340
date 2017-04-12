@@ -31,4 +31,11 @@ export class UserModel {
                 return this.$q.resolve(response.data);
             });
     }
+
+    public destroy(username: string): ng.IPromise<void> {
+        return this.$http.delete<void>(`/~merdlera/cs340/HW1/api/users.php`)
+            .then((response) => {
+                return this.$q.resolve();
+            });
+    }
 }

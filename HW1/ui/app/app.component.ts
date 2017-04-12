@@ -111,6 +111,9 @@ import { UserModel, UserInstance } from './models/user/user.model';
                                         <h4>{{ user.email }}</h4>
                                         <p>{{ user.firstName }}</p>
                                     </div>
+                                    <md-icon md-svg-icon="action:delete"
+                                             ng-click="$ctrl.removeUser(user)">
+                                    </md-icon>
                                 </md-list-item>
                             </md-list>
                         </md-card-content>
@@ -140,7 +143,6 @@ export class AppComponent implements OnInit {
     public createUser(): void {
         this.userModel.create(this.newUser)
             .then((newUser) => {
-                console.log("asldfas");
                 this.newUserForm.$setPristine();
 
                 return this.userModel.list();
@@ -149,8 +151,17 @@ export class AppComponent implements OnInit {
                 this.userList = userList;
             })
             .catch((error) => {
-                console.log(error);
                 this.newUserForm.username.$setValidity("unique", false);
             })
+    }
+
+    public removeUser(user: UserInstance): void {
+        this.userModel.destroy(user.username)
+            .then(() => {
+                return this.userModel.list();
+            })
+            .then((userList) => {
+                this.userList = userList;
+            });
     }
 }
