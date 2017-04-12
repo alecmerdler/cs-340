@@ -100,8 +100,7 @@
                 <md-card-content>
                     <md-list>
                         <md-list-item class="md-3-line"
-                                      ng-repeat="user in $ctrl.userList"
-                                      ng-click="null">
+                                      ng-repeat="user in $ctrl.userList">
                             <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
                                  class="md-avatar"
                                  alt="{{ user.username }}" />
@@ -110,9 +109,6 @@
                                 <h4>{{ user.email }}</h4>
                                 <p>{{ user.username }}</p>
                             </div>
-                            <md-icon md-font-icon="delete"
-                                     ng-click="$ctrl.removeUser(user)">
-                            </md-icon>
                             <span ng-click="$ctrl.removeUser(user)">
                                 <i class="material-icons">delete</i>
                             </span>

@@ -18,6 +18,11 @@ function handle_request($method) {
                 echo create_user(json_decode(file_get_contents('php://input'), TRUE));
                 break;
 
+            case "DELETE":
+                http_response_code(204);
+                echo remove_user($_GET["username"]);
+                break;
+
             default:
                 http_response_code(405);
                 echo json_encode(array("error" => "method not supported"));
@@ -61,6 +66,27 @@ function create_user($user) {
 
     $stmt = $conn->prepare("INSERT INTO Users (username, firstName, lastName, email, age) VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param("sssss", $user["username"], $user["firstName"], $user["lastName"], $user["email"], $user["age"]);
+
+    if (!$stmt->execute()) {
+        throw new Exception($stmt->error);
+    }
+
+    $stmt->close();
+    $conn->close();
+
+    return json_encode($response);
+}
+
+
+/*
+ * Remove a user from the database by username.
+ */
+function remove_user($username) {
+    $response = array();
+    $conn = create_db_connection();
+
+    $stmt = $conn->prepare("DELETE from Users WHERE username = ?");
+    $stmt->bind_param("s", $username);
 
     if (!$stmt->execute()) {
         throw new Exception($stmt->error);

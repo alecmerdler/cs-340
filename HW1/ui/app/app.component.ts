@@ -38,4 +38,14 @@ export class AppComponent implements OnInit {
                 this.newUserForm.username.$setValidity("unique", false);
             })
     }
+
+    public removeUser(user: UserInstance): void {
+        this.userModel.destroy(user.username)
+            .then(() => {
+                return this.userModel.list();
+            })
+            .then((userList) => {
+                this.userList = userList;
+            });
+    }
 }
