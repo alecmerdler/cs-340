@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
 
     public userList: UserInstance[] = [];
     public newUser: UserInstance;
+    public isLoading: boolean = true;
     private newUserForm: ng.IFormController;
 
     constructor(@Inject(UserModel) private userModel: UserModel) {
@@ -21,10 +22,13 @@ export class AppComponent implements OnInit {
         this.userModel.list()
             .then((userList) => {
                 this.userList = userList;
+                this.isLoading = false;
             });
     }
 
     public createUser(): void {
+        this.isLoading = true;
+
         this.userModel.create(this.newUser)
             .then((newUser) => {
                 this.newUserForm.$setPristine();
@@ -33,6 +37,7 @@ export class AppComponent implements OnInit {
             })
             .then((userList) => {
                 this.userList = userList;
+                this.isLoading = false;
             })
             .catch((error) => {
                 this.newUserForm.username.$setValidity("unique", false);
@@ -46,6 +51,7 @@ export class AppComponent implements OnInit {
             })
             .then((userList) => {
                 this.userList = userList;
+                this.isLoading = false;
             });
     }
 }

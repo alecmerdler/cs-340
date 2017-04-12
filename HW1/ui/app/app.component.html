@@ -98,6 +98,10 @@
                     <span class="md-headline">View All Users</span>
                 </md-card-title>
                 <md-card-content>
+                    <div layout="row" layout-align="space-around"
+                         ng-if="$ctrl.isLoading">
+                        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                    </div>
                     <md-list>
                         <md-list-item class="md-3-line"
                                       ng-repeat="user in $ctrl.userList">
