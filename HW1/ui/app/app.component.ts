@@ -36,13 +36,13 @@ export class AppComponent implements OnInit {
 
                 return this.userModel.list();
             })
-            .then((userList) => {
-                this.userList = userList;
-                this.isLoading = false;
-            })
             .catch((error) => {
                 this.newUserForm.username.$setValidity("unique", false);
             })
+            .finally((userList) => {
+                this.userList = userList;
+                this.isLoading = false;
+            });
     }
 
     public removeUser(user: UserInstance): void {
