@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 396);
+/******/ 	return __webpack_require__(__webpack_require__.s = 397);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -3417,8 +3417,8 @@ exports.NgModuleMetadata = NgModuleMetadata;
 
 "use strict";
 
-var reflector_1 = __webpack_require__(377);
-var reflection_capabilities_1 = __webpack_require__(376);
+var reflector_1 = __webpack_require__(378);
+var reflection_capabilities_1 = __webpack_require__(377);
 /**
  * The {@link Reflector} used internally in Angular to access metadata
  * about symbols.
@@ -3493,8 +3493,8 @@ module.exports = exporter;
 
 var lang_1 = __webpack_require__(4);
 var reflection_1 = __webpack_require__(47);
-var pipe_provider_1 = __webpack_require__(375);
-var directive_provider_1 = __webpack_require__(366);
+var pipe_provider_1 = __webpack_require__(376);
+var directive_provider_1 = __webpack_require__(367);
 var collections_1 = __webpack_require__(20);
 var forward_ref_1 = __webpack_require__(55);
 var exceptions_1 = __webpack_require__(146);
@@ -3904,10 +3904,10 @@ exports.isNgModule = isNgModule;
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
-__export(__webpack_require__(357));
-var util_1 = __webpack_require__(379);
+__export(__webpack_require__(358));
+var util_1 = __webpack_require__(380);
 exports.bundle = util_1.bundle;
-var directives_1 = __webpack_require__(360);
+var directives_1 = __webpack_require__(361);
 exports.Directive = directives_1.Directive;
 exports.Component = directives_1.Component;
 exports.NgModule = directives_1.NgModule;
@@ -3920,12 +3920,12 @@ exports.ViewChild = directives_1.ViewChild;
 exports.ViewChildren = directives_1.ViewChildren;
 exports.ContentChild = directives_1.ContentChild;
 exports.ContentChildren = directives_1.ContentChildren;
-var pipes_1 = __webpack_require__(373);
+var pipes_1 = __webpack_require__(374);
 exports.Pipe = pipes_1.Pipe;
-__export(__webpack_require__(354));
+__export(__webpack_require__(355));
 var lang_1 = __webpack_require__(4);
 exports.enableProdMode = lang_1.enableProdMode;
-var facade_1 = __webpack_require__(381);
+var facade_1 = __webpack_require__(382);
 exports.EventEmitter = facade_1.EventEmitter;
 //# sourceMappingURL=core.js.map
 
@@ -4667,7 +4667,7 @@ exports.ViewChildMetadata = ViewChildMetadata;
 var lang_1 = __webpack_require__(4);
 var reflection_1 = __webpack_require__(47);
 var metadata_1 = __webpack_require__(35);
-var key_1 = __webpack_require__(358);
+var key_1 = __webpack_require__(359);
 function makeDecorator(AnnotationCls, chainFn) {
     if (chainFn === void 0) { chainFn = null; }
     function DecoratorFactory(objOrType) {
@@ -5762,12 +5762,12 @@ exports.PipeMetadata = PipeMetadata;
 
 "use strict";
 
-var isArray_1 = __webpack_require__(388);
-var isObject_1 = __webpack_require__(389);
+var isArray_1 = __webpack_require__(389);
+var isObject_1 = __webpack_require__(390);
 var isFunction_1 = __webpack_require__(152);
-var tryCatch_1 = __webpack_require__(391);
+var tryCatch_1 = __webpack_require__(392);
 var errorObject_1 = __webpack_require__(151);
-var UnsubscriptionError_1 = __webpack_require__(387);
+var UnsubscriptionError_1 = __webpack_require__(388);
 /**
  * Represents a disposable resource, such as the execution of an Observable. A
  * Subscription has one important method, `unsubscribe`, that takes no argument
@@ -7181,7 +7181,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var lang_1 = __webpack_require__(4);
-var Subject_1 = __webpack_require__(383);
+var Subject_1 = __webpack_require__(384);
 /**
  * Use by directives and components to emit custom Events.
  *
@@ -7810,6 +7810,13 @@ var UserModel = (function () {
             return _this.$q.resolve(response.data);
         });
     };
+    UserModel.prototype.destroy = function (username) {
+        var _this = this;
+        return this.$http.delete("/~merdlera/cs340/HW1/api/users.php")
+            .then(function (response) {
+            return _this.$q.resolve();
+        });
+    };
     return UserModel;
 }());
 UserModel = __decorate([
@@ -7832,7 +7839,7 @@ __webpack_require__(108);
 __webpack_require__(109);
 
 // Now load Angular Material
-__webpack_require__(394);
+__webpack_require__(395);
 
 // Export namespace
 module.exports = 'ngMaterial';
@@ -7881,7 +7888,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(57);
-var app_component_1 = __webpack_require__(395);
+var app_component_1 = __webpack_require__(396);
 var user_model_1 = __webpack_require__(153);
 var AppModule = (function () {
     function AppModule() {
@@ -7907,25 +7914,11 @@ exports.AppModule = AppModule;
 /***/ (function(module, exports) {
 
 /**
- * @license AngularJS v1.5.5
- * (c) 2010-2016 Google, Inc. http://angularjs.org
+ * @license AngularJS v1.5.11
+ * (c) 2010-2017 Google, Inc. http://angularjs.org
  * License: MIT
  */
 (function(window, angular) {'use strict';
-
-/* jshint ignore:start */
-var noop        = angular.noop;
-var copy        = angular.copy;
-var extend      = angular.extend;
-var jqLite      = angular.element;
-var forEach     = angular.forEach;
-var isArray     = angular.isArray;
-var isString    = angular.isString;
-var isObject    = angular.isObject;
-var isUndefined = angular.isUndefined;
-var isDefined   = angular.isDefined;
-var isFunction  = angular.isFunction;
-var isElement   = angular.isElement;
 
 var ELEMENT_NODE = 1;
 var COMMENT_NODE = 8;
@@ -7951,7 +7944,7 @@ var CSS_PREFIX = '', TRANSITION_PROP, TRANSITIONEND_EVENT, ANIMATION_PROP, ANIMA
 // Also, the only modern browser that uses vendor prefixes for transitions/keyframes is webkit
 // therefore there is no reason to test anymore for other vendor prefixes:
 // http://caniuse.com/#search=transition
-if (isUndefined(window.ontransitionend) && isDefined(window.onwebkittransitionend)) {
+if ((window.ontransitionend === undefined) && (window.onwebkittransitionend !== undefined)) {
   CSS_PREFIX = '-webkit-';
   TRANSITION_PROP = 'WebkitTransition';
   TRANSITIONEND_EVENT = 'webkitTransitionEnd transitionend';
@@ -7960,7 +7953,7 @@ if (isUndefined(window.ontransitionend) && isDefined(window.onwebkittransitionen
   TRANSITIONEND_EVENT = 'transitionend';
 }
 
-if (isUndefined(window.onanimationend) && isDefined(window.onwebkitanimationend)) {
+if ((window.onanimationend === undefined) && (window.onwebkitanimationend !== undefined)) {
   CSS_PREFIX = '-webkit-';
   ANIMATION_PROP = 'WebkitAnimation';
   ANIMATIONEND_EVENT = 'webkitAnimationEnd animationend';
@@ -7982,14 +7975,10 @@ var ANIMATION_DURATION_PROP = ANIMATION_PROP + DURATION_KEY;
 var TRANSITION_DELAY_PROP = TRANSITION_PROP + DELAY_KEY;
 var TRANSITION_DURATION_PROP = TRANSITION_PROP + DURATION_KEY;
 
-var isPromiseLike = function(p) {
-  return p && p.then ? true : false;
-};
-
 var ngMinErr = angular.$$minErr('ng');
 function assertArg(arg, name, reason) {
   if (!arg) {
-    throw ngMinErr('areq', "Argument '{0}' is {1}", (name || '?'), (reason || "required"));
+    throw ngMinErr('areq', 'Argument \'{0}\' is {1}', (name || '?'), (reason || 'required'));
   }
   return arg;
 }
@@ -8040,8 +8029,7 @@ function stripCommentsFromElement(element) {
   if (element instanceof jqLite) {
     switch (element.length) {
       case 0:
-        return [];
-        break;
+        return element;
 
       case 1:
         // there is no point of stripping anything if the element
@@ -8054,7 +8042,6 @@ function stripCommentsFromElement(element) {
 
       default:
         return jqLite(extractElementNode(element));
-        break;
     }
   }
 
@@ -8067,7 +8054,7 @@ function extractElementNode(element) {
   if (!element[0]) return element;
   for (var i = 0; i < element.length; i++) {
     var elm = element[i];
-    if (elm.nodeType == ELEMENT_NODE) {
+    if (elm.nodeType === ELEMENT_NODE) {
       return elm;
     }
   }
@@ -8095,7 +8082,7 @@ function applyAnimationClassesFactory($$jqLite) {
       $$removeClass($$jqLite, element, options.removeClass);
       options.removeClass = null;
     }
-  }
+  };
 }
 
 function prepareAnimationOptions(options) {
@@ -8198,10 +8185,10 @@ function resolveElementClasses(existing, toAdd, toRemove) {
     var prop, allow;
     if (val === ADD_CLASS) {
       prop = 'addClass';
-      allow = !existing[klass];
+      allow = !existing[klass] || existing[klass + REMOVE_CLASS_SUFFIX];
     } else if (val === REMOVE_CLASS) {
       prop = 'removeClass';
-      allow = existing[klass];
+      allow = existing[klass] || existing[klass + ADD_CLASS_SUFFIX];
     }
     if (allow) {
       if (classes[prop].length) {
@@ -8231,7 +8218,7 @@ function resolveElementClasses(existing, toAdd, toRemove) {
 }
 
 function getDomNode(element) {
-  return (element instanceof angular.element) ? element[0] : element;
+  return (element instanceof jqLite) ? element[0] : element;
 }
 
 function applyGeneratedPreparationClasses(element, event, options) {
@@ -8351,7 +8338,7 @@ var $$rAFSchedulerFactory = ['$$rAF', function($$rAF) {
  * of the children's parents are currently animating. By default, when an element has an active `enter`, `leave`, or `move`
  * (structural) animation, child elements that also have an active structural animation are not animated.
  *
- * Note that even if `ngAnimteChildren` is set, no child animations will run when the parent element is removed from the DOM (`leave` animation).
+ * Note that even if `ngAnimateChildren` is set, no child animations will run when the parent element is removed from the DOM (`leave` animation).
  *
  *
  * @param {string} ngAnimateChildren If the value is empty, `true` or `on`,
@@ -8360,7 +8347,7 @@ var $$rAFSchedulerFactory = ['$$rAF', function($$rAF) {
  * @example
  * <example module="ngAnimateChildren" name="ngAnimateChildren" deps="angular-animate.js" animations="true">
      <file name="index.html">
-       <div ng-controller="mainController as main">
+       <div ng-controller="MainController as main">
          <label>Show container? <input type="checkbox" ng-model="main.enterElement" /></label>
          <label>Animate children? <input type="checkbox" ng-model="main.animateChildren" /></label>
          <hr>
@@ -8410,7 +8397,7 @@ var $$rAFSchedulerFactory = ['$$rAF', function($$rAF) {
     </file>
     <file name="script.js">
       angular.module('ngAnimateChildren', ['ngAnimate'])
-        .controller('mainController', function() {
+        .controller('MainController', function MainController() {
           this.animateChildren = false;
           this.enterElement = false;
         });
@@ -8421,7 +8408,7 @@ var $$AnimateChildrenDirective = ['$interpolate', function($interpolate) {
   return {
     link: function(scope, element, attrs) {
       var val = attrs.ngAnimateChildren;
-      if (angular.isString(val) && val.length === 0) { //empty attribute
+      if (isString(val) && val.length === 0) { //empty attribute
         element.data(NG_ANIMATE_CHILDREN_DATA, true);
       } else {
         // Interpolate and set the value, so that it is available to
@@ -8437,6 +8424,8 @@ var $$AnimateChildrenDirective = ['$interpolate', function($interpolate) {
     }
   };
 }];
+
+/* exported $AnimateCssProvider */
 
 var ANIMATE_TIMER_KEY = '$$animateCss';
 
@@ -8655,7 +8644,6 @@ var ANIMATE_TIMER_KEY = '$$animateCss';
  * * `end` - This method will cancel the animation and remove all applied CSS classes and styles.
  */
 var ONE_SECOND = 1000;
-var BASE_TEN = 10;
 
 var ELAPSED_TIME_MAX_DECIMAL_PLACES = 3;
 var CLOSING_TIME_BUFFER = 1.5;
@@ -8717,7 +8705,7 @@ function parseMaxTime(str) {
   forEach(values, function(value) {
     // it's always safe to consider only second values and omit `ms` values since
     // getComputedStyle will always handle the conversion for us
-    if (value.charAt(value.length - 1) == 's') {
+    if (value.charAt(value.length - 1) === 's') {
       value = value.substring(0, value.length - 1);
     }
     value = parseFloat(value) || 0;
@@ -8785,7 +8773,7 @@ function registerRestorableStyles(backup, node, properties) {
   });
 }
 
-var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
+var $AnimateCssProvider = ['$animateProvider', /** @this */ function($animateProvider) {
   var gcsLookup = createLocalCacheLookup();
   var gcsStaggerLookup = createLocalCacheLookup();
 
@@ -8798,7 +8786,7 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
 
     var parentCounter = 0;
     function gcsHashFn(node, extraClasses) {
-      var KEY = "$$ngAnimateParentKey";
+      var KEY = '$$ngAnimateParentKey';
       var parentNode = node.parentNode;
       var parentID = parentNode[KEY] || (parentNode[KEY] = ++parentCounter);
       return parentID + '-' + node.getAttribute('class') + '-' + extraClasses;
@@ -8849,7 +8837,6 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
       return stagger || {};
     }
 
-    var cancelLastRAFRequest;
     var rafWaitQueue = [];
     function waitUntilQuiet(callback) {
       rafWaitQueue.push(callback);
@@ -9038,7 +9025,7 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
       var flags = {};
       flags.hasTransitions          = timings.transitionDuration > 0;
       flags.hasAnimations           = timings.animationDuration > 0;
-      flags.hasTransitionAll        = flags.hasTransitions && timings.transitionProperty == 'all';
+      flags.hasTransitionAll        = flags.hasTransitions && timings.transitionProperty === 'all';
       flags.applyTransitionDuration = hasToStyles && (
                                         (flags.hasTransitions && !flags.hasTransitionAll)
                                          || (flags.hasAnimations && !flags.hasTransitions));
@@ -9070,7 +9057,7 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
 
       if (options.delay != null) {
         var delayStyle;
-        if (typeof options.delay !== "boolean") {
+        if (typeof options.delay !== 'boolean') {
           delayStyle = parseFloat(options.delay);
           // number in options.delay means we have to recalculate the delay for the closing timeout
           maxDelay = Math.max(delayStyle, 0);
@@ -9148,7 +9135,7 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
         close(true);
       }
 
-      function close(rejected) { // jshint ignore:line
+      function close(rejected) {
         // if the promise has been called already then we shouldn't close
         // the animation again
         if (animationClosed || (animationCompleted && animationPaused)) return;
@@ -9175,8 +9162,11 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
 
         if (Object.keys(restoreStyles).length) {
           forEach(restoreStyles, function(value, prop) {
-            value ? node.style.setProperty(prop, value)
-                  : node.style.removeProperty(prop);
+            if (value) {
+              node.style.setProperty(prop, value);
+            } else {
+              node.style.removeProperty(prop);
+            }
           });
         }
 
@@ -9279,9 +9269,11 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
             animationPaused = !playAnimation;
             if (timings.animationDuration) {
               var value = blockKeyframeAnimations(node, animationPaused);
-              animationPaused
-                  ? temporaryStyles.push(value)
-                  : removeFromArray(temporaryStyles, value);
+              if (animationPaused) {
+                temporaryStyles.push(value);
+              } else {
+                removeFromArray(temporaryStyles, value);
+              }
             }
           } else if (animationPaused && playAnimation) {
             animationPaused = false;
@@ -9348,7 +9340,7 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
           }
 
           if (flags.applyAnimationDelay) {
-            relativeDelay = typeof options.delay !== "boolean" && truthyTimingValue(options.delay)
+            relativeDelay = typeof options.delay !== 'boolean' && truthyTimingValue(options.delay)
                   ? parseFloat(options.delay)
                   : relativeDelay;
 
@@ -9440,7 +9432,7 @@ var $AnimateCssProvider = ['$animateProvider', function($animateProvider) {
   }];
 }];
 
-var $$AnimateCssDriverProvider = ['$$animationProvider', function($$animationProvider) {
+var $$AnimateCssDriverProvider = ['$$animationProvider', /** @this */ function($$animationProvider) {
   $$animationProvider.drivers.push('$$animateCssDriver');
 
   var NG_ANIMATE_SHIM_CLASS_NAME = 'ng-animate-shim';
@@ -9468,8 +9460,6 @@ var $$AnimateCssDriverProvider = ['$$animationProvider', function($$animationPro
       // appends the $rootElement to the body after the app has been bootstrapped
       isDocumentFragment(rootNode) || bodyNode.contains(rootNode) ? rootNode : bodyNode
     );
-
-    var applyAnimationClasses = applyAnimationClassesFactory($$jqLite);
 
     return function initDriverFn(animationDetails) {
       return animationDetails.from && animationDetails.to
@@ -9712,7 +9702,7 @@ var $$AnimateCssDriverProvider = ['$$animationProvider', function($$animationPro
 // TODO(matsko): add documentation
 //  by the time...
 
-var $$AnimateJsProvider = ['$animateProvider', function($animateProvider) {
+var $$AnimateJsProvider = ['$animateProvider', /** @this */ function($animateProvider) {
   this.$get = ['$injector', '$$AnimateRunner', '$$jqLite',
        function($injector,   $$AnimateRunner,   $$jqLite) {
 
@@ -9751,7 +9741,7 @@ var $$AnimateJsProvider = ['$animateProvider', function($animateProvider) {
       var before, after;
       if (animations.length) {
         var afterFn, beforeFn;
-        if (event == 'leave') {
+        if (event === 'leave') {
           beforeFn = 'leave';
           afterFn = 'afterLeave'; // TODO(matsko): get rid of this
         } else {
@@ -9936,7 +9926,7 @@ var $$AnimateJsProvider = ['$animateProvider', function($animateProvider) {
       function packageAnimations(element, event, options, animations, fnName) {
         var operations = groupEventedAnimations(element, event, options, animations, fnName);
         if (operations.length === 0) {
-          var a,b;
+          var a, b;
           if (fnName === 'beforeSetClass') {
             a = groupEventedAnimations(element, 'removeClass', options, animations, 'beforeRemoveClass');
             b = groupEventedAnimations(element, 'addClass', options, animations, 'beforeAddClass');
@@ -9964,11 +9954,19 @@ var $$AnimateJsProvider = ['$animateProvider', function($animateProvider) {
             });
           }
 
-          runners.length ? $$AnimateRunner.all(runners, callback) : callback();
+          if (runners.length) {
+            $$AnimateRunner.all(runners, callback);
+          }  else {
+            callback();
+          }
 
           return function endFn(reject) {
             forEach(runners, function(runner) {
-              reject ? runner.cancel() : runner.end();
+              if (reject) {
+                runner.cancel();
+              } else {
+                runner.end();
+              }
             });
           };
         };
@@ -9978,7 +9976,7 @@ var $$AnimateJsProvider = ['$animateProvider', function($animateProvider) {
     function lookupAnimations(classes) {
       classes = isArray(classes) ? classes : classes.split(' ');
       var matches = [], flagMap = {};
-      for (var i=0; i < classes.length; i++) {
+      for (var i = 0; i < classes.length; i++) {
         var klass = classes[i],
             animationFactory = $animateProvider.$$registeredAnimations[klass];
         if (animationFactory && !flagMap[klass]) {
@@ -9991,7 +9989,7 @@ var $$AnimateJsProvider = ['$animateProvider', function($animateProvider) {
   }];
 }];
 
-var $$AnimateJsDriverProvider = ['$$animationProvider', function($$animationProvider) {
+var $$AnimateJsDriverProvider = ['$$animationProvider', /** @this */ function($$animationProvider) {
   $$animationProvider.drivers.push('$$animateJsDriver');
   this.$get = ['$$animateJs', '$$AnimateRunner', function($$animateJs, $$AnimateRunner) {
     return function initDriverFn(animationDetails) {
@@ -10053,7 +10051,7 @@ var $$AnimateJsDriverProvider = ['$$animationProvider', function($$animationProv
 
 var NG_ANIMATE_ATTR_NAME = 'data-ng-animate';
 var NG_ANIMATE_PIN_DATA = '$ngAnimatePin';
-var $$AnimateQueueProvider = ['$animateProvider', function($animateProvider) {
+var $$AnimateQueueProvider = ['$animateProvider', /** @this */ function($animateProvider) {
   var PRE_DIGEST_STATE = 1;
   var RUNNING_STATE = 2;
   var ONE_SPACE = ' ';
@@ -10113,7 +10111,7 @@ var $$AnimateQueueProvider = ['$animateProvider', function($animateProvider) {
   rules.skip.push(function(element, newAnimation, currentAnimation) {
     // why should we trigger a new structural animation if the element will
     // be removed from the DOM anyway?
-    return currentAnimation.event == 'leave' && newAnimation.structural;
+    return currentAnimation.event === 'leave' && newAnimation.structural;
   });
 
   rules.skip.push(function(element, newAnimation, currentAnimation) {
@@ -10207,7 +10205,7 @@ var $$AnimateQueueProvider = ['$animateProvider', function($animateProvider) {
       }
     );
 
-    var callbackRegistry = {};
+    var callbackRegistry = Object.create(null);
 
     // remember that the classNameFilter is set during the provider/config
     // stage therefore we can optimize here and setup a helper function
@@ -10225,10 +10223,9 @@ var $$AnimateQueueProvider = ['$animateProvider', function($animateProvider) {
     }
 
     // IE9-11 has no method "contains" in SVG element and in Node.prototype. Bug #10259.
-    var contains = window.Node.prototype.contains || function(arg) {
-      // jshint bitwise: false
+    var contains = window.Node.prototype.contains || /** @this */ function(arg) {
+      // eslint-disable-next-line no-bitwise
       return this === arg || !!(this.compareDocumentPosition(arg) & 16);
-      // jshint bitwise: true
     };
 
     function findCallbacks(parent, element, event) {
@@ -10290,7 +10287,7 @@ var $$AnimateQueueProvider = ['$animateProvider', function($animateProvider) {
       },
 
       off: function(event, container, callback) {
-        if (arguments.length === 1 && !angular.isString(arguments[0])) {
+        if (arguments.length === 1 && !isString(arguments[0])) {
           container = arguments[0];
           for (var eventType in callbackRegistry) {
             callbackRegistry[eventType] = filterFromRegistry(callbackRegistry[eventType], container);
@@ -10338,11 +10335,10 @@ var $$AnimateQueueProvider = ['$animateProvider', function($animateProvider) {
             bool = animationsEnabled = !!element;
           } else {
             var node = getDomNode(element);
-            var recordExists = disabledElementsLookup.get(node);
 
             if (argCount === 1) {
               // (element) - Element getter
-              bool = !recordExists;
+              bool = !disabledElementsLookup.get(node);
             } else {
               // (element, bool) - Element setter
               disabledElementsLookup.put(node, !bool);
@@ -10431,7 +10427,7 @@ var $$AnimateQueueProvider = ['$animateProvider', function($animateProvider) {
 
       // there is no point in traversing the same collection of parent ancestors if a followup
       // animation will be run on the same element that already did all that checking work
-      if (!skipAnimations && (!hasExistingAnimation || existingAnimation.state != PRE_DIGEST_STATE)) {
+      if (!skipAnimations && (!hasExistingAnimation || existingAnimation.state !== PRE_DIGEST_STATE)) {
         skipAnimations = !areAnimationsAllowed(element, parent, event);
       }
 
@@ -10627,7 +10623,7 @@ var $$AnimateQueueProvider = ['$animateProvider', function($animateProvider) {
         runner.progress(event, phase, data);
       }
 
-      function close(reject) { // jshint ignore:line
+      function close(reject) {
         clearGeneratedClasses(element, options);
         applyAnimationClasses(element, options);
         applyAnimationStyles(element, options);
@@ -10640,7 +10636,7 @@ var $$AnimateQueueProvider = ['$animateProvider', function($animateProvider) {
       var node = getDomNode(element);
       var children = node.querySelectorAll('[' + NG_ANIMATE_ATTR_NAME + ']');
       forEach(children, function(child) {
-        var state = parseInt(child.getAttribute(NG_ANIMATE_ATTR_NAME));
+        var state = parseInt(child.getAttribute(NG_ANIMATE_ATTR_NAME), 10);
         var animationDetails = activeAnimationsLookup.get(child);
         if (animationDetails) {
           switch (state) {
@@ -10773,7 +10769,9 @@ var $$AnimateQueueProvider = ['$animateProvider', function($animateProvider) {
   }];
 }];
 
-var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
+/* exported $$AnimationProvider */
+
+var $$AnimationProvider = ['$animateProvider', /** @this */ function($animateProvider) {
   var NG_ANIMATE_REF_ATTR = 'ng-animate-ref';
 
   var drivers = this.drivers = [];
@@ -11121,8 +11119,6 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
         // may attempt more elements, but custom drivers are more particular
         for (var i = drivers.length - 1; i >= 0; i--) {
           var driverName = drivers[i];
-          if (!$injector.has(driverName)) continue; // TODO(matsko): remove this check
-
           var factory = $injector.get(driverName);
           var driver = factory(animationDetails);
           if (driver) {
@@ -11151,7 +11147,8 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
         }
 
         function update(element) {
-          getRunner(element).setHost(newRunner);
+          var runner = getRunner(element);
+          if (runner) runner.setHost(newRunner);
         }
       }
 
@@ -11162,7 +11159,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
         }
       }
 
-      function close(rejected) { // jshint ignore:line
+      function close(rejected) {
         element.off('$destroy', handleDestroyedElement);
         removeRunner(element);
 
@@ -11296,20 +11293,6 @@ var ngAnimateSwapDirective = ['$animate', '$rootScope', function($animate, $root
   };
 }];
 
-/* global angularAnimateModule: true,
-
-   ngAnimateSwapDirective,
-   $$AnimateAsyncRunFactory,
-   $$rAFSchedulerFactory,
-   $$AnimateChildrenDirective,
-   $$AnimateQueueProvider,
-   $$AnimationProvider,
-   $AnimateCssProvider,
-   $$AnimateCssDriverProvider,
-   $$AnimateJsProvider,
-   $$AnimateJsDriverProvider,
-*/
-
 /**
  * @ngdoc module
  * @name ngAnimate
@@ -11347,7 +11330,7 @@ var ngAnimateSwapDirective = ['$animate', '$rootScope', function($animate, $root
  * ## CSS-based Animations
  *
  * CSS-based animations with ngAnimate are unique since they require no JavaScript code at all. By using a CSS class that we reference between our HTML
- * and CSS code we can create an animation that will be picked up by Angular when an the underlying directive performs an operation.
+ * and CSS code we can create an animation that will be picked up by Angular when an underlying directive performs an operation.
  *
  * The example below shows how an `enter` animation can be made possible on an element using `ng-if`:
  *
@@ -11862,22 +11845,23 @@ var ngAnimateSwapDirective = ['$animate', '$rootScope', function($animate, $root
         }])
         .run(['$rootScope', function($rootScope) {
           $rootScope.records = [
-            { id:1, title: "Miss Beulah Roob" },
-            { id:2, title: "Trent Morissette" },
-            { id:3, title: "Miss Ava Pouros" },
-            { id:4, title: "Rod Pouros" },
-            { id:5, title: "Abdul Rice" },
-            { id:6, title: "Laurie Rutherford Sr." },
-            { id:7, title: "Nakia McLaughlin" },
-            { id:8, title: "Jordon Blanda DVM" },
-            { id:9, title: "Rhoda Hand" },
-            { id:10, title: "Alexandrea Sauer" }
+            { id: 1, title: 'Miss Beulah Roob' },
+            { id: 2, title: 'Trent Morissette' },
+            { id: 3, title: 'Miss Ava Pouros' },
+            { id: 4, title: 'Rod Pouros' },
+            { id: 5, title: 'Abdul Rice' },
+            { id: 6, title: 'Laurie Rutherford Sr.' },
+            { id: 7, title: 'Nakia McLaughlin' },
+            { id: 8, title: 'Jordon Blanda DVM' },
+            { id: 9, title: 'Rhoda Hand' },
+            { id: 10, title: 'Alexandrea Sauer' }
           ];
         }])
         .controller('HomeController', [function() {
           //empty
         }])
-        .controller('ProfileController', ['$rootScope', '$routeParams', function($rootScope, $routeParams) {
+        .controller('ProfileController', ['$rootScope', '$routeParams',
+            function ProfileController($rootScope, $routeParams) {
           var index = parseInt($routeParams.id, 10);
           var record = $rootScope.records[index - 1];
 
@@ -12026,6 +12010,19 @@ var ngAnimateSwapDirective = ['$animate', '$rootScope', function($animate, $root
  * (Note that you will need to trigger a digest within the callback to get angular to notice any scope-related changes.)
  */
 
+var copy;
+var extend;
+var forEach;
+var isArray;
+var isDefined;
+var isElement;
+var isFunction;
+var isObject;
+var isString;
+var isUndefined;
+var jqLite;
+var noop;
+
 /**
  * @ngdoc service
  * @name $animate
@@ -12036,7 +12033,22 @@ var ngAnimateSwapDirective = ['$animate', '$rootScope', function($animate, $root
  *
  * Click here {@link ng.$animate to learn more about animations with `$animate`}.
  */
-angular.module('ngAnimate', [])
+angular.module('ngAnimate', [], function initAngularHelpers() {
+  // Access helpers from angular core.
+  // Do it inside a `config` block to ensure `window.angular` is available.
+  noop        = angular.noop;
+  copy        = angular.copy;
+  extend      = angular.extend;
+  jqLite      = angular.element;
+  forEach     = angular.forEach;
+  isArray     = angular.isArray;
+  isString    = angular.isString;
+  isObject    = angular.isObject;
+  isUndefined = angular.isUndefined;
+  isDefined   = angular.isDefined;
+  isFunction  = angular.isFunction;
+  isElement   = angular.isElement;
+})
   .directive('ngAnimateSwap', ngAnimateSwapDirective)
 
   .directive('ngAnimateChildren', $$AnimateChildrenDirective)
@@ -12060,8 +12072,8 @@ angular.module('ngAnimate', [])
 /***/ (function(module, exports) {
 
 /**
- * @license AngularJS v1.5.5
- * (c) 2010-2016 Google, Inc. http://angularjs.org
+ * @license AngularJS v1.5.11
+ * (c) 2010-2017 Google, Inc. http://angularjs.org
  * License: MIT
  */
 (function(window, angular) {'use strict';
@@ -12093,7 +12105,7 @@ angular.module('ngAnimate', [])
  * | {@link ng.directive:ngDisabled ngDisabled}  | aria-disabled                                                                          |
  * | {@link ng.directive:ngRequired ngRequired}  | aria-required
  * | {@link ng.directive:ngChecked ngChecked}    | aria-checked
- * | {@link ng.directive:ngReadonly ngReadonly}  | aria-readonly                                                                          ||
+ * | {@link ng.directive:ngReadonly ngReadonly}  | aria-readonly                                                                          |
  * | {@link ng.directive:ngValue ngValue}        | aria-checked                                                                           |
  * | {@link ng.directive:ngShow ngShow}          | aria-hidden                                                                            |
  * | {@link ng.directive:ngHide ngHide}          | aria-hidden                                                                            |
@@ -12104,7 +12116,7 @@ angular.module('ngAnimate', [])
  * Find out more information about each directive by reading the
  * {@link guide/accessibility ngAria Developer Guide}.
  *
- * ##Example
+ * ## Example
  * Using ngDisabled with ngAria:
  * ```html
  * <md-checkbox ng-disabled="disabled">
@@ -12114,12 +12126,11 @@ angular.module('ngAnimate', [])
  * <md-checkbox ng-disabled="disabled" aria-disabled="true">
  * ```
  *
- * ##Disabling Attributes
+ * ## Disabling Attributes
  * It's possible to disable individual attributes added by ngAria with the
  * {@link ngAria.$ariaProvider#config config} method. For more details, see the
  * {@link guide/accessibility Developer Guide}.
  */
- /* global -ngAriaModule */
 var ngAriaModule = angular.module('ngAria', ['ng']).
                         provider('$aria', $AriaProvider);
 
@@ -12136,6 +12147,7 @@ var isNodeOneOf = function(elem, nodeTypeArray) {
 /**
  * @ngdoc provider
  * @name $ariaProvider
+ * @this
  *
  * @description
  *
@@ -12331,6 +12343,8 @@ ngAriaModule.directive('ngShow', ['$aria', function($aria) {
           }
 
           function getRadioReaction(newVal) {
+            // Strict comparison would cause a BC
+            // eslint-disable-next-line eqeqeq
             var boolVal = (attr.value == ngModel.$viewValue);
             elem.attr('aria-checked', boolVal);
           }
@@ -12471,19 +12485,16 @@ ngAriaModule.directive('ngShow', ['$aria', function($aria) {
 /***/ (function(module, exports) {
 
 /**
- * @license AngularJS v1.5.5
- * (c) 2010-2016 Google, Inc. http://angularjs.org
+ * @license AngularJS v1.5.11
+ * (c) 2010-2017 Google, Inc. http://angularjs.org
  * License: MIT
  */
 (function(window, angular) {'use strict';
 
-/* jshint ignore:start */
-// this code is in the core, but not in angular-messages.js
-var isArray = angular.isArray;
-var forEach = angular.forEach;
-var isString = angular.isString;
-var jqLite = angular.element;
-/* jshint ignore:end */
+var forEach;
+var isArray;
+var isString;
+var jqLite;
 
 /**
  * @ngdoc module
@@ -12544,7 +12555,7 @@ var jqLite = angular.element;
  * By default, `ngMessages` will only display one message for a particular key/value collection at any time. If more
  * than one message (or error) key is currently true, then which message is shown is determined by the order of messages
  * in the HTML template code (messages declared first are prioritised). This mechanism means the developer does not have
- * to prioritise messages using custom JavaScript code.
+ * to prioritize messages using custom JavaScript code.
  *
  * Given the following error object for our example (which informs us that the field `myField` currently has both the
  * `required` and `email` errors):
@@ -12739,377 +12750,396 @@ var jqLite = angular.element;
  *
  * {@link ngAnimate Click here} to learn how to use JavaScript animations or to learn more about ngAnimate.
  */
-angular.module('ngMessages', [])
+angular.module('ngMessages', [], function initAngularHelpers() {
+  // Access helpers from angular core.
+  // Do it inside a `config` block to ensure `window.angular` is available.
+  forEach = angular.forEach;
+  isArray = angular.isArray;
+  isString = angular.isString;
+  jqLite = angular.element;
+})
 
-   /**
-    * @ngdoc directive
-    * @module ngMessages
-    * @name ngMessages
-    * @restrict AE
-    *
-    * @description
-    * `ngMessages` is a directive that is designed to show and hide messages based on the state
-    * of a key/value object that it listens on. The directive itself complements error message
-    * reporting with the `ngModel` $error object (which stores a key/value state of validation errors).
-    *
-    * `ngMessages` manages the state of internal messages within its container element. The internal
-    * messages use the `ngMessage` directive and will be inserted/removed from the page depending
-    * on if they're present within the key/value object. By default, only one message will be displayed
-    * at a time and this depends on the prioritization of the messages within the template. (This can
-    * be changed by using the `ng-messages-multiple` or `multiple` attribute on the directive container.)
-    *
-    * A remote template can also be used to promote message reusability and messages can also be
-    * overridden.
-    *
-    * {@link module:ngMessages Click here} to learn more about `ngMessages` and `ngMessage`.
-    *
-    * @usage
-    * ```html
-    * <!-- using attribute directives -->
-    * <ANY ng-messages="expression" role="alert">
-    *   <ANY ng-message="stringValue">...</ANY>
-    *   <ANY ng-message="stringValue1, stringValue2, ...">...</ANY>
-    *   <ANY ng-message-exp="expressionValue">...</ANY>
-    * </ANY>
-    *
-    * <!-- or by using element directives -->
-    * <ng-messages for="expression" role="alert">
-    *   <ng-message when="stringValue">...</ng-message>
-    *   <ng-message when="stringValue1, stringValue2, ...">...</ng-message>
-    *   <ng-message when-exp="expressionValue">...</ng-message>
-    * </ng-messages>
-    * ```
-    *
-    * @param {string} ngMessages an angular expression evaluating to a key/value object
-    *                 (this is typically the $error object on an ngModel instance).
-    * @param {string=} ngMessagesMultiple|multiple when set, all messages will be displayed with true
-    *
-    * @example
-    * <example name="ngMessages-directive" module="ngMessagesExample"
-    *          deps="angular-messages.js"
-    *          animations="true" fixBase="true">
-    *   <file name="index.html">
-    *     <form name="myForm">
-    *       <label>
-    *         Enter your name:
-    *         <input type="text"
-    *                name="myName"
-    *                ng-model="name"
-    *                ng-minlength="5"
-    *                ng-maxlength="20"
-    *                required />
-    *       </label>
-    *       <pre>myForm.myName.$error = {{ myForm.myName.$error | json }}</pre>
-    *
-    *       <div ng-messages="myForm.myName.$error" style="color:maroon" role="alert">
-    *         <div ng-message="required">You did not enter a field</div>
-    *         <div ng-message="minlength">Your field is too short</div>
-    *         <div ng-message="maxlength">Your field is too long</div>
-    *       </div>
-    *     </form>
-    *   </file>
-    *   <file name="script.js">
-    *     angular.module('ngMessagesExample', ['ngMessages']);
-    *   </file>
-    * </example>
-    */
-   .directive('ngMessages', ['$animate', function($animate) {
-     var ACTIVE_CLASS = 'ng-active';
-     var INACTIVE_CLASS = 'ng-inactive';
+  /**
+   * @ngdoc directive
+   * @module ngMessages
+   * @name ngMessages
+   * @restrict AE
+   *
+   * @description
+   * `ngMessages` is a directive that is designed to show and hide messages based on the state
+   * of a key/value object that it listens on. The directive itself complements error message
+   * reporting with the `ngModel` $error object (which stores a key/value state of validation errors).
+   *
+   * `ngMessages` manages the state of internal messages within its container element. The internal
+   * messages use the `ngMessage` directive and will be inserted/removed from the page depending
+   * on if they're present within the key/value object. By default, only one message will be displayed
+   * at a time and this depends on the prioritization of the messages within the template. (This can
+   * be changed by using the `ng-messages-multiple` or `multiple` attribute on the directive container.)
+   *
+   * A remote template can also be used to promote message reusability and messages can also be
+   * overridden.
+   *
+   * {@link module:ngMessages Click here} to learn more about `ngMessages` and `ngMessage`.
+   *
+   * @usage
+   * ```html
+   * <!-- using attribute directives -->
+   * <ANY ng-messages="expression" role="alert">
+   *   <ANY ng-message="stringValue">...</ANY>
+   *   <ANY ng-message="stringValue1, stringValue2, ...">...</ANY>
+   *   <ANY ng-message-exp="expressionValue">...</ANY>
+   * </ANY>
+   *
+   * <!-- or by using element directives -->
+   * <ng-messages for="expression" role="alert">
+   *   <ng-message when="stringValue">...</ng-message>
+   *   <ng-message when="stringValue1, stringValue2, ...">...</ng-message>
+   *   <ng-message when-exp="expressionValue">...</ng-message>
+   * </ng-messages>
+   * ```
+   *
+   * @param {string} ngMessages an angular expression evaluating to a key/value object
+   *                 (this is typically the $error object on an ngModel instance).
+   * @param {string=} ngMessagesMultiple|multiple when set, all messages will be displayed with true
+   *
+   * @example
+   * <example name="ngMessages-directive" module="ngMessagesExample"
+   *          deps="angular-messages.js"
+   *          animations="true" fixBase="true">
+   *   <file name="index.html">
+   *     <form name="myForm">
+   *       <label>
+   *         Enter your name:
+   *         <input type="text"
+   *                name="myName"
+   *                ng-model="name"
+   *                ng-minlength="5"
+   *                ng-maxlength="20"
+   *                required />
+   *       </label>
+   *       <pre>myForm.myName.$error = {{ myForm.myName.$error | json }}</pre>
+   *
+   *       <div ng-messages="myForm.myName.$error" style="color:maroon" role="alert">
+   *         <div ng-message="required">You did not enter a field</div>
+   *         <div ng-message="minlength">Your field is too short</div>
+   *         <div ng-message="maxlength">Your field is too long</div>
+   *       </div>
+   *     </form>
+   *   </file>
+   *   <file name="script.js">
+   *     angular.module('ngMessagesExample', ['ngMessages']);
+   *   </file>
+   * </example>
+   */
+  .directive('ngMessages', ['$animate', function($animate) {
+    var ACTIVE_CLASS = 'ng-active';
+    var INACTIVE_CLASS = 'ng-inactive';
 
-     return {
-       require: 'ngMessages',
-       restrict: 'AE',
-       controller: ['$element', '$scope', '$attrs', function($element, $scope, $attrs) {
-         var ctrl = this;
-         var latestKey = 0;
-         var nextAttachId = 0;
+    return {
+      require: 'ngMessages',
+      restrict: 'AE',
+      controller: ['$element', '$scope', '$attrs', function NgMessagesCtrl($element, $scope, $attrs) {
+        var ctrl = this;
+        var latestKey = 0;
+        var nextAttachId = 0;
 
-         this.getAttachId = function getAttachId() { return nextAttachId++; };
+        this.getAttachId = function getAttachId() { return nextAttachId++; };
 
-         var messages = this.messages = {};
-         var renderLater, cachedCollection;
+        var messages = this.messages = {};
+        var renderLater, cachedCollection;
 
-         this.render = function(collection) {
-           collection = collection || {};
+        this.render = function(collection) {
+          collection = collection || {};
 
-           renderLater = false;
-           cachedCollection = collection;
+          renderLater = false;
+          cachedCollection = collection;
 
-           // this is true if the attribute is empty or if the attribute value is truthy
-           var multiple = isAttrTruthy($scope, $attrs.ngMessagesMultiple) ||
-                          isAttrTruthy($scope, $attrs.multiple);
+          // this is true if the attribute is empty or if the attribute value is truthy
+          var multiple = isAttrTruthy($scope, $attrs.ngMessagesMultiple) ||
+                         isAttrTruthy($scope, $attrs.multiple);
 
-           var unmatchedMessages = [];
-           var matchedKeys = {};
-           var messageItem = ctrl.head;
-           var messageFound = false;
-           var totalMessages = 0;
+          var unmatchedMessages = [];
+          var matchedKeys = {};
+          var messageItem = ctrl.head;
+          var messageFound = false;
+          var totalMessages = 0;
 
-           // we use != instead of !== to allow for both undefined and null values
-           while (messageItem != null) {
-             totalMessages++;
-             var messageCtrl = messageItem.message;
+          // we use != instead of !== to allow for both undefined and null values
+          while (messageItem != null) {
+            totalMessages++;
+            var messageCtrl = messageItem.message;
 
-             var messageUsed = false;
-             if (!messageFound) {
-               forEach(collection, function(value, key) {
-                 if (!messageUsed && truthy(value) && messageCtrl.test(key)) {
-                   // this is to prevent the same error name from showing up twice
-                   if (matchedKeys[key]) return;
-                   matchedKeys[key] = true;
+            var messageUsed = false;
+            if (!messageFound) {
+              forEach(collection, function(value, key) {
+                if (!messageUsed && truthy(value) && messageCtrl.test(key)) {
+                  // this is to prevent the same error name from showing up twice
+                  if (matchedKeys[key]) return;
+                  matchedKeys[key] = true;
 
-                   messageUsed = true;
-                   messageCtrl.attach();
-                 }
-               });
-             }
+                  messageUsed = true;
+                  messageCtrl.attach();
+                }
+              });
+            }
 
-             if (messageUsed) {
-               // unless we want to display multiple messages then we should
-               // set a flag here to avoid displaying the next message in the list
-               messageFound = !multiple;
-             } else {
-               unmatchedMessages.push(messageCtrl);
-             }
+            if (messageUsed) {
+              // unless we want to display multiple messages then we should
+              // set a flag here to avoid displaying the next message in the list
+              messageFound = !multiple;
+            } else {
+              unmatchedMessages.push(messageCtrl);
+            }
 
-             messageItem = messageItem.next;
-           }
+            messageItem = messageItem.next;
+          }
 
-           forEach(unmatchedMessages, function(messageCtrl) {
-             messageCtrl.detach();
-           });
+          forEach(unmatchedMessages, function(messageCtrl) {
+            messageCtrl.detach();
+          });
 
-           unmatchedMessages.length !== totalMessages
-              ? $animate.setClass($element, ACTIVE_CLASS, INACTIVE_CLASS)
-              : $animate.setClass($element, INACTIVE_CLASS, ACTIVE_CLASS);
-         };
+          if (unmatchedMessages.length !== totalMessages) {
+            $animate.setClass($element, ACTIVE_CLASS, INACTIVE_CLASS);
+          } else {
+            $animate.setClass($element, INACTIVE_CLASS, ACTIVE_CLASS);
+          }
+        };
 
-         $scope.$watchCollection($attrs.ngMessages || $attrs['for'], ctrl.render);
+        $scope.$watchCollection($attrs.ngMessages || $attrs['for'], ctrl.render);
 
-         // If the element is destroyed, proactively destroy all the currently visible messages
-         $element.on('$destroy', function() {
-           forEach(messages, function(item) {
-             item.message.detach();
-           });
-         });
+        // If the element is destroyed, proactively destroy all the currently visible messages
+        $element.on('$destroy', function() {
+          forEach(messages, function(item) {
+            item.message.detach();
+          });
+        });
 
-         this.reRender = function() {
-           if (!renderLater) {
-             renderLater = true;
-             $scope.$evalAsync(function() {
-               if (renderLater) {
-                 cachedCollection && ctrl.render(cachedCollection);
-               }
-             });
-           }
-         };
+        this.reRender = function() {
+          if (!renderLater) {
+            renderLater = true;
+            $scope.$evalAsync(function() {
+              if (renderLater && cachedCollection) {
+                ctrl.render(cachedCollection);
+              }
+            });
+          }
+        };
 
-         this.register = function(comment, messageCtrl) {
-           var nextKey = latestKey.toString();
-           messages[nextKey] = {
-             message: messageCtrl
-           };
-           insertMessageNode($element[0], comment, nextKey);
-           comment.$$ngMessageNode = nextKey;
-           latestKey++;
+        this.register = function(comment, messageCtrl) {
+          var nextKey = latestKey.toString();
+          messages[nextKey] = {
+            message: messageCtrl
+          };
+          insertMessageNode($element[0], comment, nextKey);
+          comment.$$ngMessageNode = nextKey;
+          latestKey++;
 
-           ctrl.reRender();
-         };
+          ctrl.reRender();
+        };
 
-         this.deregister = function(comment) {
-           var key = comment.$$ngMessageNode;
-           delete comment.$$ngMessageNode;
-           removeMessageNode($element[0], comment, key);
-           delete messages[key];
-           ctrl.reRender();
-         };
+        this.deregister = function(comment) {
+          var key = comment.$$ngMessageNode;
+          delete comment.$$ngMessageNode;
+          removeMessageNode($element[0], comment, key);
+          delete messages[key];
+          ctrl.reRender();
+        };
 
-         function findPreviousMessage(parent, comment) {
-           var prevNode = comment;
-           var parentLookup = [];
+        function findPreviousMessage(parent, comment) {
+          var prevNode = comment;
+          var parentLookup = [];
 
-           while (prevNode && prevNode !== parent) {
-             var prevKey = prevNode.$$ngMessageNode;
-             if (prevKey && prevKey.length) {
-               return messages[prevKey];
-             }
+          while (prevNode && prevNode !== parent) {
+            var prevKey = prevNode.$$ngMessageNode;
+            if (prevKey && prevKey.length) {
+              return messages[prevKey];
+            }
 
-             // dive deeper into the DOM and examine its children for any ngMessage
-             // comments that may be in an element that appears deeper in the list
-             if (prevNode.childNodes.length && parentLookup.indexOf(prevNode) == -1) {
-               parentLookup.push(prevNode);
-               prevNode = prevNode.childNodes[prevNode.childNodes.length - 1];
-             } else if (prevNode.previousSibling) {
-               prevNode = prevNode.previousSibling;
-             } else {
-               prevNode = prevNode.parentNode;
-               parentLookup.push(prevNode);
-             }
-           }
-         }
+            // dive deeper into the DOM and examine its children for any ngMessage
+            // comments that may be in an element that appears deeper in the list
+            if (prevNode.childNodes.length && parentLookup.indexOf(prevNode) === -1) {
+              parentLookup.push(prevNode);
+              prevNode = prevNode.childNodes[prevNode.childNodes.length - 1];
+            } else if (prevNode.previousSibling) {
+              prevNode = prevNode.previousSibling;
+            } else {
+              prevNode = prevNode.parentNode;
+              parentLookup.push(prevNode);
+            }
+          }
+        }
 
-         function insertMessageNode(parent, comment, key) {
-           var messageNode = messages[key];
-           if (!ctrl.head) {
-             ctrl.head = messageNode;
-           } else {
-             var match = findPreviousMessage(parent, comment);
-             if (match) {
-               messageNode.next = match.next;
-               match.next = messageNode;
-             } else {
-               messageNode.next = ctrl.head;
-               ctrl.head = messageNode;
-             }
-           }
-         }
+        function insertMessageNode(parent, comment, key) {
+          var messageNode = messages[key];
+          if (!ctrl.head) {
+            ctrl.head = messageNode;
+          } else {
+            var match = findPreviousMessage(parent, comment);
+            if (match) {
+              messageNode.next = match.next;
+              match.next = messageNode;
+            } else {
+              messageNode.next = ctrl.head;
+              ctrl.head = messageNode;
+            }
+          }
+        }
 
-         function removeMessageNode(parent, comment, key) {
-           var messageNode = messages[key];
+        function removeMessageNode(parent, comment, key) {
+          var messageNode = messages[key];
 
-           var match = findPreviousMessage(parent, comment);
-           if (match) {
-             match.next = messageNode.next;
-           } else {
-             ctrl.head = messageNode.next;
-           }
-         }
-       }]
-     };
+          var match = findPreviousMessage(parent, comment);
+          if (match) {
+            match.next = messageNode.next;
+          } else {
+            ctrl.head = messageNode.next;
+          }
+        }
+      }]
+    };
 
-     function isAttrTruthy(scope, attr) {
-      return (isString(attr) && attr.length === 0) || //empty attribute
-             truthy(scope.$eval(attr));
-     }
+    function isAttrTruthy(scope, attr) {
+     return (isString(attr) && attr.length === 0) || //empty attribute
+            truthy(scope.$eval(attr));
+    }
 
-     function truthy(val) {
-       return isString(val) ? val.length : !!val;
-     }
-   }])
+    function truthy(val) {
+      return isString(val) ? val.length : !!val;
+    }
+  }])
 
-   /**
-    * @ngdoc directive
-    * @name ngMessagesInclude
-    * @restrict AE
-    * @scope
-    *
-    * @description
-    * `ngMessagesInclude` is a directive with the purpose to import existing ngMessage template
-    * code from a remote template and place the downloaded template code into the exact spot
-    * that the ngMessagesInclude directive is placed within the ngMessages container. This allows
-    * for a series of pre-defined messages to be reused and also allows for the developer to
-    * determine what messages are overridden due to the placement of the ngMessagesInclude directive.
-    *
-    * @usage
-    * ```html
-    * <!-- using attribute directives -->
-    * <ANY ng-messages="expression" role="alert">
-    *   <ANY ng-messages-include="remoteTplString">...</ANY>
-    * </ANY>
-    *
-    * <!-- or by using element directives -->
-    * <ng-messages for="expression" role="alert">
-    *   <ng-messages-include src="expressionValue1">...</ng-messages-include>
-    * </ng-messages>
-    * ```
-    *
-    * {@link module:ngMessages Click here} to learn more about `ngMessages` and `ngMessage`.
-    *
-    * @param {string} ngMessagesInclude|src a string value corresponding to the remote template.
-    */
-   .directive('ngMessagesInclude',
-     ['$templateRequest', '$document', '$compile', function($templateRequest, $document, $compile) {
+  /**
+   * @ngdoc directive
+   * @name ngMessagesInclude
+   * @restrict AE
+   * @scope
+   *
+   * @description
+   * `ngMessagesInclude` is a directive with the purpose to import existing ngMessage template
+   * code from a remote template and place the downloaded template code into the exact spot
+   * that the ngMessagesInclude directive is placed within the ngMessages container. This allows
+   * for a series of pre-defined messages to be reused and also allows for the developer to
+   * determine what messages are overridden due to the placement of the ngMessagesInclude directive.
+   *
+   * @usage
+   * ```html
+   * <!-- using attribute directives -->
+   * <ANY ng-messages="expression" role="alert">
+   *   <ANY ng-messages-include="remoteTplString">...</ANY>
+   * </ANY>
+   *
+   * <!-- or by using element directives -->
+   * <ng-messages for="expression" role="alert">
+   *   <ng-messages-include src="expressionValue1">...</ng-messages-include>
+   * </ng-messages>
+   * ```
+   *
+   * {@link module:ngMessages Click here} to learn more about `ngMessages` and `ngMessage`.
+   *
+   * @param {string} ngMessagesInclude|src a string value corresponding to the remote template.
+   */
+  .directive('ngMessagesInclude',
+    ['$templateRequest', '$document', '$compile', function($templateRequest, $document, $compile) {
 
-     return {
-       restrict: 'AE',
-       require: '^^ngMessages', // we only require this for validation sake
-       link: function($scope, element, attrs) {
-         var src = attrs.ngMessagesInclude || attrs.src;
-         $templateRequest(src).then(function(html) {
-           $compile(html)($scope, function(contents) {
-             element.after(contents);
+    return {
+      restrict: 'AE',
+      require: '^^ngMessages', // we only require this for validation sake
+      link: function($scope, element, attrs) {
+        var src = attrs.ngMessagesInclude || attrs.src;
+        $templateRequest(src).then(function(html) {
+          if ($scope.$$destroyed) return;
 
-             // the anchor is placed for debugging purposes
-             var comment = $compile.$$createComment ?
-                 $compile.$$createComment('ngMessagesInclude', src) :
-                 $document[0].createComment(' ngMessagesInclude: ' + src + ' ');
-             var anchor = jqLite(comment);
-             element.after(anchor);
+          if (isString(html) && !html.trim()) {
+            // Empty template - nothing to compile
+            replaceElementWithMarker(element, src);
+          } else {
+            // Non-empty template - compile and link
+            $compile(html)($scope, function(contents) {
+              element.after(contents);
+              replaceElementWithMarker(element, src);
+            });
+          }
+        });
+      }
+    };
 
-             // we don't want to pollute the DOM anymore by keeping an empty directive element
-             element.remove();
-           });
-         });
-       }
-     };
-   }])
+    // Helpers
+    function replaceElementWithMarker(element, src) {
+      // A comment marker is placed for debugging purposes
+      var comment = $compile.$$createComment ?
+          $compile.$$createComment('ngMessagesInclude', src) :
+          $document[0].createComment(' ngMessagesInclude: ' + src + ' ');
+      var marker = jqLite(comment);
+      element.after(marker);
 
-   /**
-    * @ngdoc directive
-    * @name ngMessage
-    * @restrict AE
-    * @scope
-    *
-    * @description
-    * `ngMessage` is a directive with the purpose to show and hide a particular message.
-    * For `ngMessage` to operate, a parent `ngMessages` directive on a parent DOM element
-    * must be situated since it determines which messages are visible based on the state
-    * of the provided key/value map that `ngMessages` listens on.
-    *
-    * More information about using `ngMessage` can be found in the
-    * {@link module:ngMessages `ngMessages` module documentation}.
-    *
-    * @usage
-    * ```html
-    * <!-- using attribute directives -->
-    * <ANY ng-messages="expression" role="alert">
-    *   <ANY ng-message="stringValue">...</ANY>
-    *   <ANY ng-message="stringValue1, stringValue2, ...">...</ANY>
-    * </ANY>
-    *
-    * <!-- or by using element directives -->
-    * <ng-messages for="expression" role="alert">
-    *   <ng-message when="stringValue">...</ng-message>
-    *   <ng-message when="stringValue1, stringValue2, ...">...</ng-message>
-    * </ng-messages>
-    * ```
-    *
-    * @param {expression} ngMessage|when a string value corresponding to the message key.
-    */
+      // Don't pollute the DOM anymore by keeping an empty directive element
+      element.remove();
+    }
+  }])
+
+  /**
+   * @ngdoc directive
+   * @name ngMessage
+   * @restrict AE
+   * @scope
+   *
+   * @description
+   * `ngMessage` is a directive with the purpose to show and hide a particular message.
+   * For `ngMessage` to operate, a parent `ngMessages` directive on a parent DOM element
+   * must be situated since it determines which messages are visible based on the state
+   * of the provided key/value map that `ngMessages` listens on.
+   *
+   * More information about using `ngMessage` can be found in the
+   * {@link module:ngMessages `ngMessages` module documentation}.
+   *
+   * @usage
+   * ```html
+   * <!-- using attribute directives -->
+   * <ANY ng-messages="expression" role="alert">
+   *   <ANY ng-message="stringValue">...</ANY>
+   *   <ANY ng-message="stringValue1, stringValue2, ...">...</ANY>
+   * </ANY>
+   *
+   * <!-- or by using element directives -->
+   * <ng-messages for="expression" role="alert">
+   *   <ng-message when="stringValue">...</ng-message>
+   *   <ng-message when="stringValue1, stringValue2, ...">...</ng-message>
+   * </ng-messages>
+   * ```
+   *
+   * @param {expression} ngMessage|when a string value corresponding to the message key.
+   */
   .directive('ngMessage', ngMessageDirectiveFactory())
 
 
-   /**
-    * @ngdoc directive
-    * @name ngMessageExp
-    * @restrict AE
-    * @priority 1
-    * @scope
-    *
-    * @description
-    * `ngMessageExp` is a directive with the purpose to show and hide a particular message.
-    * For `ngMessageExp` to operate, a parent `ngMessages` directive on a parent DOM element
-    * must be situated since it determines which messages are visible based on the state
-    * of the provided key/value map that `ngMessages` listens on.
-    *
-    * @usage
-    * ```html
-    * <!-- using attribute directives -->
-    * <ANY ng-messages="expression">
-    *   <ANY ng-message-exp="expressionValue">...</ANY>
-    * </ANY>
-    *
-    * <!-- or by using element directives -->
-    * <ng-messages for="expression">
-    *   <ng-message when-exp="expressionValue">...</ng-message>
-    * </ng-messages>
-    * ```
-    *
-    * {@link module:ngMessages Click here} to learn more about `ngMessages` and `ngMessage`.
-    *
-    * @param {expression} ngMessageExp|whenExp an expression value corresponding to the message key.
-    */
+  /**
+   * @ngdoc directive
+   * @name ngMessageExp
+   * @restrict AE
+   * @priority 1
+   * @scope
+   *
+   * @description
+   * `ngMessageExp` is the same as {@link directive:ngMessage `ngMessage`}, but instead of a static
+   * value, it accepts an expression to be evaluated for the message key.
+   *
+   * @usage
+   * ```html
+   * <!-- using attribute directives -->
+   * <ANY ng-messages="expression">
+   *   <ANY ng-message-exp="expressionValue">...</ANY>
+   * </ANY>
+   *
+   * <!-- or by using element directives -->
+   * <ng-messages for="expression">
+   *   <ng-message when-exp="expressionValue">...</ng-message>
+   * </ng-messages>
+   * ```
+   *
+   * {@link module:ngMessages Click here} to learn more about `ngMessages` and `ngMessage`.
+   *
+   * @param {expression} ngMessageExp|whenExp an expression value corresponding to the message key.
+   */
   .directive('ngMessageExp', ngMessageDirectiveFactory());
 
 function ngMessageDirectiveFactory() {
@@ -13129,8 +13159,8 @@ function ngMessageDirectiveFactory() {
         var assignRecords = function(items) {
           records = items
               ? (isArray(items)
-                    ? items
-                    : items.split(/[\s,]+/))
+                  ? items
+                  : items.split(/[\s,]+/))
               : null;
           ngMessagesCtrl.reRender();
         };
@@ -13149,7 +13179,7 @@ function ngMessageDirectiveFactory() {
           },
           attach: function() {
             if (!currentElement) {
-              $transclude(scope, function(elm) {
+              $transclude(function(elm, newScope) {
                 $animate.enter(elm, null, element);
                 currentElement = elm;
 
@@ -13165,6 +13195,7 @@ function ngMessageDirectiveFactory() {
                     ngMessagesCtrl.deregister(commentNode);
                     messageCtrl.detach();
                   }
+                  newScope.$destroy();
                 });
               });
             }
@@ -13331,8 +13362,8 @@ function fromByteArray (uint8) {
 
 
 var base64 = __webpack_require__(161)
-var ieee754 = __webpack_require__(352)
-var isArray = __webpack_require__(353)
+var ieee754 = __webpack_require__(353)
+var isArray = __webpack_require__(354)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -19528,6 +19559,12 @@ function toComment(sourceMap) {
 /* 352 */
 /***/ (function(module, exports) {
 
+module.exports = "<md-content>\n    <md-toolbar class=\"md-hue-2\">\n        <h2 class=\"md-toolbar-tools\"><span>CS340 Assignment #1</span></h2>\n    </md-toolbar>\n\n    <div layout=\"row\" layout-xs=\"column\">\n        <div flex=\"50\">\n            <md-card>\n                <md-card-title>\n                    <span class=\"md-headline\">Create New User</span>\n                </md-card-title>\n                <md-card-content>\n                    <form name=\"$ctrl.newUserForm\" layout=\"column\">\n                        <div layout=\"row\">\n                            <md-input-container>\n                                <label>Username</label>\n                                <input ng-model=\"$ctrl.newUser.username\"\n                                       type=\"text\"\n                                       name=\"username\"\n                                       md-maxlength=\"20\"\n                                       required>\n                                <div ng-messages=\"$ctrl.newUserForm.username.$error\">\n                                    <div ng-message=\"required\">This is required.</div>\n                                    <div ng-message=\"md-maxlength\">Must not be longer than 20 characters.</div>\n                                    <div ng-message=\"unique\">This username has already been taken.</div>\n                                </div>\n                            </md-input-container>\n                        </div>\n\n                        <div layout=\"row\">\n                            <md-input-container flex=\"50\">\n                                <label>Email</label>\n                                <input ng-model=\"$ctrl.newUser.email\"\n                                       type=\"email\"\n                                       name=\"email\"\n                                       required>\n                                <div ng-messages=\"$ctrl.newUserForm.email.$error\">\n                                    <div ng-message=\"required\">This is required.</div>\n                                    <div ng-message=\"md-maxlength\">Must not be longer than 20 characters.</div>\n                                </div>\n                            </md-input-container>\n                        </div>\n\n                        <div layout=\"row\">\n                            <md-input-container>\n                                <label>First Name</label>\n                                <input ng-model=\"$ctrl.newUser.firstName\"\n                                       type=\"text\"\n                                       name=\"firstName\"\n                                       md-maxlength=\"20\"\n                                       required>\n                                <div ng-messages=\"$ctrl.newUserForm.firstName.$error\">\n                                    <div ng-message=\"required\">This is required.</div>\n                                    <div ng-message=\"md-maxlength\">Must not be longer than 20 characters.</div>\n                                </div>\n                            </md-input-container>\n\n                            <md-input-container>\n                                <label>Last Name</label>\n                                <input ng-model=\"$ctrl.newUser.lastName\"\n                                       type=\"text\"\n                                       name=\"lastName\"\n                                       md-maxlength=\"20\"\n                                       required>\n                                <div ng-messages=\"$ctrl.newUserForm.lastName.$error\">\n                                    <div ng-message=\"required\">This is required.</div>\n                                    <div ng-message=\"md-maxlength\">Must not be longer than 20 characters.</div>\n                                </div>\n                            </md-input-container>\n\n                            <md-input-container>\n                                <label>Age</label>\n                                <input ng-model=\"$ctrl.newUser.age\"\n                                       type=\"number\"\n                                       name=\"age\"\n                                       min=\"1\" max=\"100\">\n                                <div ng-messages=\"$ctrl.newUserForm.age.$error\">\n                                    <div ng-message=\"min\">You need to be older than that!</div>\n                                </div>\n                            </md-input-container>\n                        </div>\n                    </form>\n                </md-card-content>\n\n                <md-card-actions layout=\"row\" layout-align=\"end center\">\n                    <md-button class=\"md-primary\"\n                               ng-disabled=\"$ctrl.newUserForm.$invalid\"\n                               ng-click=\"$ctrl.createUser()\">\n                        Sign Up\n                    </md-button>\n                </md-card-actions>\n            </md-card>\n        </div>\n\n        <div flex=\"50\">\n            <md-card>\n                <md-card-title>\n                    <span class=\"md-headline\">View All Users</span>\n                </md-card-title>\n                <md-card-content>\n                    <md-list>\n                        <md-list-item class=\"md-3-line\"\n                                      ng-repeat=\"user in $ctrl.userList\"\n                                      ng-click=\"null\">\n                            <img src=\"https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png\"\n                                 class=\"md-avatar\"\n                                 alt=\"{{item.who}}\" />\n                            <div class=\"md-list-item-text\" layout=\"column\">\n                                <h3>{{ user.username }}</h3>\n                                <h4>{{ user.email }}</h4>\n                                <p>{{ user.firstName }}</p>\n                            </div>\n                            <md-icon md-svg-icon=\"delete\"\n                                     ng-click=\"$ctrl.removeUser(user)\">\n                            </md-icon>\n                        </md-list-item>\n                    </md-list>\n                </md-card-content>\n            </md-card>\n        </div>\n    </div>\n</md-content>\n";
+
+/***/ }),
+/* 353 */
+/***/ (function(module, exports) {
+
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -19615,7 +19652,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 353 */
+/* 354 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -19626,21 +19663,21 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 354 */
+/* 355 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var change_detection_util_1 = __webpack_require__(140);
 exports.SimpleChange = change_detection_util_1.SimpleChange;
-var constants_1 = __webpack_require__(356);
+var constants_1 = __webpack_require__(357);
 exports.ChangeDetectionStrategy = constants_1.ChangeDetectionStrategy;
 var change_detector_ref_1 = __webpack_require__(141);
 exports.ChangeDetectorRef = change_detector_ref_1.ChangeDetectorRef;
 //# sourceMappingURL=change_detection.js.map
 
 /***/ }),
-/* 355 */
+/* 356 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19693,7 +19730,7 @@ exports.changesQueueService = new ChangesQueue();
 //# sourceMappingURL=changes_queue.js.map
 
 /***/ }),
-/* 356 */
+/* 357 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19782,7 +19819,7 @@ exports.isDefaultChangeDetectionStrategy = isDefaultChangeDetectionStrategy;
 //# sourceMappingURL=constants.js.map
 
 /***/ }),
-/* 357 */
+/* 358 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19802,7 +19839,7 @@ exports.getInjectableName = provider_1.getInjectableName;
 //# sourceMappingURL=di.js.map
 
 /***/ }),
-/* 358 */
+/* 359 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19939,7 +19976,7 @@ exports.globalKeyRegistry = new KeyRegistry();
 //# sourceMappingURL=key.js.map
 
 /***/ }),
-/* 359 */
+/* 360 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20128,7 +20165,7 @@ exports._registerTypeProvider = _registerTypeProvider;
 //# sourceMappingURL=reflective_provider.js.map
 
 /***/ }),
-/* 360 */
+/* 361 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20136,25 +20173,25 @@ exports._registerTypeProvider = _registerTypeProvider;
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
-__export(__webpack_require__(365));
+__export(__webpack_require__(366));
 __export(__webpack_require__(71));
 __export(__webpack_require__(46));
 //# sourceMappingURL=directives.js.map
 
 /***/ }),
-/* 361 */
+/* 362 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var directives_utils_1 = __webpack_require__(101);
 var change_detection_util_1 = __webpack_require__(140);
-var changes_queue_1 = __webpack_require__(355);
+var changes_queue_1 = __webpack_require__(356);
 var collections_1 = __webpack_require__(20);
 var lang_1 = __webpack_require__(4);
 var async_1 = __webpack_require__(145);
 var constants_1 = __webpack_require__(144);
-var binding_parser_1 = __webpack_require__(362);
+var binding_parser_1 = __webpack_require__(363);
 /**
  * Create Bindings manually for both Directive/Component
  * @returns {{watchers: Array, observers: Array}}
@@ -20347,7 +20384,7 @@ exports._createDirectiveBindings = _createDirectiveBindings;
 //# sourceMappingURL=binding_factory.js.map
 
 /***/ }),
-/* 362 */
+/* 363 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20524,7 +20561,7 @@ exports._parseBindings = _parseBindings;
 //# sourceMappingURL=binding_parser.js.map
 
 /***/ }),
-/* 363 */
+/* 364 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20533,18 +20570,18 @@ exports.REQUIRE_PREFIX_REGEXP = /^(?:(\^\^?)?(\?)?(\^\^?)?)?/;
 //# sourceMappingURL=constants.js.map
 
 /***/ }),
-/* 364 */
+/* 365 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var collections_1 = __webpack_require__(20);
 var change_detector_ref_1 = __webpack_require__(141);
-var binding_factory_1 = __webpack_require__(361);
+var binding_factory_1 = __webpack_require__(362);
 var directives_utils_1 = __webpack_require__(101);
 var lang_1 = __webpack_require__(4);
 var primitives_1 = __webpack_require__(147);
-var constants_1 = __webpack_require__(363);
+var constants_1 = __webpack_require__(364);
 function directiveControllerFactory(caller, controller, $injector, locals, requireMap, _ddo, metadata) {
     var $scope = locals.$scope, $element = locals.$element, $attrs = locals.$attrs;
     var _services = {
@@ -20733,7 +20770,7 @@ function injectionArgs(fn, locals, serviceName, injects) {
 //# sourceMappingURL=controller_factory.js.map
 
 /***/ }),
-/* 365 */
+/* 366 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20766,21 +20803,21 @@ exports.NgModule = decorators_1.makeDecorator(metadata_directives_1.NgModuleMeta
 //# sourceMappingURL=decorators.js.map
 
 /***/ }),
-/* 366 */
+/* 367 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var directive_resolver_1 = __webpack_require__(371);
+var directive_resolver_1 = __webpack_require__(372);
 var lang_1 = __webpack_require__(4);
 var collections_1 = __webpack_require__(20);
-var directive_lifecycles_reflector_1 = __webpack_require__(370);
+var directive_lifecycles_reflector_1 = __webpack_require__(371);
 var directive_lifecycle_interfaces_1 = __webpack_require__(102);
 var metadata_directives_1 = __webpack_require__(46);
-var controller_factory_1 = __webpack_require__(364);
-var children_resolver_1 = __webpack_require__(369);
-var host_parser_1 = __webpack_require__(367);
-var host_resolver_1 = __webpack_require__(368);
+var controller_factory_1 = __webpack_require__(365);
+var children_resolver_1 = __webpack_require__(370);
+var host_parser_1 = __webpack_require__(368);
+var host_resolver_1 = __webpack_require__(369);
 var directives_utils_1 = __webpack_require__(101);
 /**
  * @internal
@@ -21002,7 +21039,7 @@ exports.directiveProvider = new DirectiveProvider(new directive_resolver_1.Direc
 //# sourceMappingURL=directive_provider.js.map
 
 /***/ }),
-/* 367 */
+/* 368 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21092,7 +21129,7 @@ exports._parseHost = _parseHost;
 //# sourceMappingURL=host_parser.js.map
 
 /***/ }),
-/* 368 */
+/* 369 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21242,7 +21279,7 @@ function _getTargetAndEvent(definedHostEvent, hostElement) {
 //# sourceMappingURL=host_resolver.js.map
 
 /***/ }),
-/* 369 */
+/* 370 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21514,7 +21551,7 @@ exports.getControllerOnElement = getControllerOnElement;
 //# sourceMappingURL=children_resolver.js.map
 
 /***/ }),
-/* 370 */
+/* 371 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21569,7 +21606,7 @@ exports.resolveImplementedLifeCycleHooks = resolveImplementedLifeCycleHooks;
 //# sourceMappingURL=directive_lifecycles_reflector.js.map
 
 /***/ }),
-/* 371 */
+/* 372 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21860,7 +21897,7 @@ exports.DirectiveResolver = DirectiveResolver;
 //# sourceMappingURL=directive_resolver.js.map
 
 /***/ }),
-/* 372 */
+/* 373 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21899,17 +21936,17 @@ exports.PipeResolver = PipeResolver;
 //# sourceMappingURL=pipe_resolver.js.map
 
 /***/ }),
-/* 373 */
+/* 374 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var decorators_1 = __webpack_require__(374);
+var decorators_1 = __webpack_require__(375);
 exports.Pipe = decorators_1.Pipe;
 //# sourceMappingURL=pipes.js.map
 
 /***/ }),
-/* 374 */
+/* 375 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21920,13 +21957,13 @@ exports.Pipe = decorators_1.makeDecorator(metadata_1.PipeMetadata);
 //# sourceMappingURL=decorators.js.map
 
 /***/ }),
-/* 375 */
+/* 376 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var lang_1 = __webpack_require__(4);
-var pipe_resolver_1 = __webpack_require__(372);
+var pipe_resolver_1 = __webpack_require__(373);
 /**
  * @internal
  */
@@ -21962,7 +21999,7 @@ exports.pipeProvider = new PipeProvider(new pipe_resolver_1.PipeResolver());
 //# sourceMappingURL=pipe_provider.js.map
 
 /***/ }),
-/* 376 */
+/* 377 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22193,7 +22230,7 @@ exports.ReflectionCapabilities = ReflectionCapabilities;
 //# sourceMappingURL=reflection_capabilities.js.map
 
 /***/ }),
-/* 377 */
+/* 378 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22203,7 +22240,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var reflector_reader_1 = __webpack_require__(378);
+var reflector_reader_1 = __webpack_require__(379);
 /**
  * Reflective information about a symbol, including annotations, interfaces, and other metadata.
  */
@@ -22297,7 +22334,7 @@ exports.Reflector = Reflector;
 //# sourceMappingURL=reflector.js.map
 
 /***/ }),
-/* 378 */
+/* 379 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22315,7 +22352,7 @@ exports.ReflectorReader = ReflectorReader;
 //# sourceMappingURL=reflector_reader.js.map
 
 /***/ }),
-/* 379 */
+/* 380 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22324,12 +22361,12 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 __export(__webpack_require__(72));
-var bundler_1 = __webpack_require__(380);
+var bundler_1 = __webpack_require__(381);
 exports.bundle = bundler_1.bundle;
 //# sourceMappingURL=util.js.map
 
 /***/ }),
-/* 380 */
+/* 381 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22338,7 +22375,7 @@ var lang_1 = __webpack_require__(4);
 var reflection_1 = __webpack_require__(47);
 var provider_1 = __webpack_require__(51);
 var provider_util_1 = __webpack_require__(56);
-var reflective_provider_1 = __webpack_require__(359);
+var reflective_provider_1 = __webpack_require__(360);
 var collections_1 = __webpack_require__(20);
 function _bundleComponent(ComponentClass, otherProviders, existingAngular1Module) {
     if (otherProviders === void 0) { otherProviders = []; }
@@ -22426,7 +22463,7 @@ exports.bundle = bundle;
 //# sourceMappingURL=bundler.js.map
 
 /***/ }),
-/* 381 */
+/* 382 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22440,14 +22477,14 @@ exports.EventEmitter = async_1.EventEmitter;
 //# sourceMappingURL=facade.js.map
 
 /***/ }),
-/* 382 */
+/* 383 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var root_1 = __webpack_require__(106);
-var toSubscriber_1 = __webpack_require__(390);
-var observable_1 = __webpack_require__(385);
+var toSubscriber_1 = __webpack_require__(391);
+var observable_1 = __webpack_require__(386);
 /**
  * A representation of any set of values over any amount of time. This the most basic building block
  * of RxJS.
@@ -22588,7 +22625,7 @@ exports.Observable = Observable;
 //# sourceMappingURL=Observable.js.map
 
 /***/ }),
-/* 383 */
+/* 384 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22598,11 +22635,11 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Observable_1 = __webpack_require__(382);
+var Observable_1 = __webpack_require__(383);
 var Subscriber_1 = __webpack_require__(150);
 var Subscription_1 = __webpack_require__(104);
-var ObjectUnsubscribedError_1 = __webpack_require__(386);
-var SubjectSubscription_1 = __webpack_require__(384);
+var ObjectUnsubscribedError_1 = __webpack_require__(387);
+var SubjectSubscription_1 = __webpack_require__(385);
 var rxSubscriber_1 = __webpack_require__(105);
 /**
  * @class SubjectSubscriber<T>
@@ -22762,7 +22799,7 @@ exports.AnonymousSubject = AnonymousSubject;
 //# sourceMappingURL=Subject.js.map
 
 /***/ }),
-/* 384 */
+/* 385 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22808,7 +22845,7 @@ exports.SubjectSubscription = SubjectSubscription;
 //# sourceMappingURL=SubjectSubscription.js.map
 
 /***/ }),
-/* 385 */
+/* 386 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22840,7 +22877,7 @@ exports.$$observable = exports.observable;
 //# sourceMappingURL=observable.js.map
 
 /***/ }),
-/* 386 */
+/* 387 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22873,7 +22910,7 @@ exports.ObjectUnsubscribedError = ObjectUnsubscribedError;
 //# sourceMappingURL=ObjectUnsubscribedError.js.map
 
 /***/ }),
-/* 387 */
+/* 388 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22904,7 +22941,7 @@ exports.UnsubscriptionError = UnsubscriptionError;
 //# sourceMappingURL=UnsubscriptionError.js.map
 
 /***/ }),
-/* 388 */
+/* 389 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22913,7 +22950,7 @@ exports.isArray = Array.isArray || (function (x) { return x && typeof x.length =
 //# sourceMappingURL=isArray.js.map
 
 /***/ }),
-/* 389 */
+/* 390 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22925,7 +22962,7 @@ exports.isObject = isObject;
 //# sourceMappingURL=isObject.js.map
 
 /***/ }),
-/* 390 */
+/* 391 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22951,7 +22988,7 @@ exports.toSubscriber = toSubscriber;
 //# sourceMappingURL=toSubscriber.js.map
 
 /***/ }),
-/* 391 */
+/* 392 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22976,7 +23013,7 @@ exports.tryCatch = tryCatch;
 //# sourceMappingURL=tryCatch.js.map
 
 /***/ }),
-/* 392 */
+/* 393 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -23013,7 +23050,7 @@ var stylesInDom = {},
 	singletonElement = null,
 	singletonCounter = 0,
 	styleElementsInsertedAtTop = [],
-	fixUrls = __webpack_require__(393);
+	fixUrls = __webpack_require__(394);
 
 module.exports = function(list, options) {
 	if(typeof DEBUG !== "undefined" && DEBUG) {
@@ -23272,7 +23309,7 @@ function updateLink(linkElement, options, obj) {
 
 
 /***/ }),
-/* 393 */
+/* 394 */
 /***/ (function(module, exports) {
 
 
@@ -23367,7 +23404,7 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 394 */
+/* 395 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -23376,7 +23413,7 @@ module.exports = function (css) {
 var content = __webpack_require__(350);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(392)(content, {});
+var update = __webpack_require__(393)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -23393,7 +23430,7 @@ if(false) {
 }
 
 /***/ }),
-/* 395 */
+/* 396 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23410,6 +23447,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(57);
 var user_model_1 = __webpack_require__(153);
+var app_component_html_1 = __webpack_require__(352);
 var AppComponent = (function () {
     function AppComponent(userModel) {
         this.userModel = userModel;
@@ -23426,7 +23464,6 @@ var AppComponent = (function () {
         var _this = this;
         this.userModel.create(this.newUser)
             .then(function (newUser) {
-            console.log("asldfas");
             _this.newUserForm.$setPristine();
             return _this.userModel.list();
         })
@@ -23434,8 +23471,17 @@ var AppComponent = (function () {
             _this.userList = userList;
         })
             .catch(function (error) {
-            console.log(error);
             _this.newUserForm.username.$setValidity("unique", false);
+        });
+    };
+    AppComponent.prototype.removeUser = function (user) {
+        var _this = this;
+        this.userModel.destroy(user.username)
+            .then(function () {
+            return _this.userModel.list();
+        })
+            .then(function (userList) {
+            _this.userList = userList;
         });
     };
     return AppComponent;
@@ -23443,7 +23489,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'app',
-        template: "\n        <md-content>\n            <md-toolbar class=\"md-hue-2\">\n                <h2 class=\"md-toolbar-tools\"><span>CS340 Assignment #1</span></h2>\n            </md-toolbar>\n\n            <div layout=\"row\">\n                <div flex=\"50\">\n                    <md-card>\n                        <md-card-title>\n                            <span class=\"md-headline\">Create New User</span>\n                        </md-card-title>\n                        <md-card-content>\n                            <form name=\"$ctrl.newUserForm\">\n                                <md-input-container>\n                                    <label>Username</label>\n                                    <input ng-model=\"$ctrl.newUser.username\"\n                                           type=\"text\"\n                                           name=\"username\"\n                                           md-maxlength=\"20\"\n                                           required>\n                                        <div ng-messages=\"$ctrl.newUserForm.username.$error\">\n                                            <div ng-message=\"required\">This is required.</div>\n                                            <div ng-message=\"md-maxlength\">Must not be longer than 20 characters.</div>\n                                            <div ng-message=\"unique\">This username has already been taken.</div>\n                                        </div>\n                                </md-input-container>\n\n                                <md-input-container>\n                                    <label>First Name</label>\n                                    <input ng-model=\"$ctrl.newUser.firstName\"\n                                           type=\"text\"\n                                           name=\"firstName\"\n                                           md-maxlength=\"20\"\n                                           required>\n                                        <div ng-messages=\"$ctrl.newUserForm.firstName.$error\">\n                                            <div ng-message=\"required\">This is required.</div>\n                                            <div ng-message=\"md-maxlength\">Must not be longer than 20 characters.</div>\n                                        </div>\n                                </md-input-container>\n\n                                <md-input-container>\n                                    <label>Last Name</label>\n                                    <input ng-model=\"$ctrl.newUser.lastName\"\n                                           type=\"text\"\n                                           name=\"lastName\"\n                                           md-maxlength=\"20\"\n                                           required>\n                                        <div ng-messages=\"$ctrl.newUserForm.lastName.$error\">\n                                            <div ng-message=\"required\">This is required.</div>\n                                            <div ng-message=\"md-maxlength\">Must not be longer than 20 characters.</div>\n                                        </div>\n                                </md-input-container>\n\n                                <md-input-container>\n                                    <label>Email</label>\n                                    <input ng-model=\"$ctrl.newUser.email\"\n                                           type=\"email\"\n                                           name=\"email\"\n                                           required>\n                                        <div ng-messages=\"$ctrl.newUserForm.email.$error\">\n                                            <div ng-message=\"required\">This is required.</div>\n                                            <div ng-message=\"md-maxlength\">Must not be longer than 20 characters.</div>\n                                        </div>\n                                </md-input-container>\n\n                                <md-input-container>\n                                    <label>Age</label>\n                                    <input ng-model=\"$ctrl.newUser.age\"\n                                           type=\"number\"\n                                           name=\"age\">\n                                </md-input-container>\n\n                                <md-button class=\"md-primary\"\n                                           ng-disabled=\"!$ctrl.newUserForm.$valid\"\n                                           ng-click=\"$ctrl.createUser()\">\n                                    Sign Up\n                                </md-button>\n                            </form>\n                        </md-card-content>\n                    </md-card>\n                </div>\n\n                <div flex=\"50\">\n                    <md-card>\n                        <md-card-title>\n                            <span class=\"md-headline\">View All Users</span>\n                        </md-card-title>\n                        <md-card-content>\n                            <md-list>\n                                <md-list-item class=\"md-3-line\"\n                                              ng-repeat=\"user in $ctrl.userList\"\n                                              ng-click=\"null\">\n                                    <img src=\"https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png\"\n                                         class=\"md-avatar\"\n                                         alt=\"{{item.who}}\" />\n                                    <div class=\"md-list-item-text\" layout=\"column\">\n                                        <h3>{{ user.username }}</h3>\n                                        <h4>{{ user.email }}</h4>\n                                        <p>{{ user.firstName }}</p>\n                                    </div>\n                                </md-list-item>\n                            </md-list>\n                        </md-card-content>\n                    </md-card>\n                </div>\n            </div>\n        </md-content>\n    ",
+        template: app_component_html_1.default,
     }),
     __param(0, core_1.Inject(user_model_1.UserModel))
 ], AppComponent);
@@ -23451,7 +23497,7 @@ exports.AppComponent = AppComponent;
 
 
 /***/ }),
-/* 396 */
+/* 397 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

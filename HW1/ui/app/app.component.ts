@@ -1,10 +1,11 @@
 import { Component, Inject, OnInit } from 'ng-metadata/core';
 import { UserModel, UserInstance } from './models/user/user.model';
+import template from './app.component.html';
 
 
 @Component({
     selector: 'app',
-    templateUrl: 'app.component.html',
+    template: template,
 })
 export class AppComponent implements OnInit {
 

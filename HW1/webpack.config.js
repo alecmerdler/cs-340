@@ -8,7 +8,7 @@ var config = {
         filename: "bundle.js"
     },
     resolve: {
-        extensions: [".ts", ".css", ".js"],
+        extensions: [".ts", ".css", ".html", ".js"],
     },
     // Use window.angular to maintain compatibility with non-Webpack components
     externals: {
@@ -30,6 +30,13 @@ var config = {
                     "css-loader",
                 ],
             },
+            {
+                test: /\.html$/,
+                use: [
+                    "html-loader"
+                ],
+                exclude: /node_modules/
+            }
         ]
     },
     devtool: "source-map",

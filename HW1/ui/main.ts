@@ -8,6 +8,7 @@ import { platformBrowserDynamic } from 'ng-metadata/platform-browser-dynamic';
 import { bundle } from 'ng-metadata/core';
 import { AppModule } from './app/app.module.ts';
 
+
 // FIXME: Not working
 // platformBrowserDynamic().bootstrapModule(AppModule);
 
