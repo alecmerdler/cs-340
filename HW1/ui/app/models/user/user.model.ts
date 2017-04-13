@@ -20,7 +20,10 @@ export class UserModel {
 
     public create(user: UserInstance): ng.IPromise<UserInstance> {
         return this.$http.post<UserInstance>('/~merdlera/cs340/HW1/api/users.php', user)
-            .finally((response) => {
+            .then((response) => {
+                return this.$q.resolve(response.data);
+            })
+            .catch((error) => {
                 return this.$q.resolve(response.data);
             });
     }
@@ -29,6 +32,9 @@ export class UserModel {
         return this.$http.get<UserInstance[]>('/~merdlera/cs340/HW1/api/users.php')
             .then((response) => {
                 return this.$q.resolve(response.data);
+            })
+            .catch((error) => {
+                return this.$q.resolve(response.data);
             });
     }
 
@@ -36,6 +42,9 @@ export class UserModel {
         return this.$http.delete<void>(`/~merdlera/cs340/HW1/api/users.php?username=${username}`)
             .then((response) => {
                 return this.$q.resolve();
+            })
+            .catch((error) => {
+                return this.$q.resolve(response.data);
             });
     }
 }
