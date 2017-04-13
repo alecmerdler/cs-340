@@ -20,7 +20,7 @@ export class UserModel {
 
     public create(user: UserInstance): ng.IPromise<UserInstance> {
         return this.$http.post<UserInstance>('/~merdlera/cs340/HW1/api/users.php', user)
-            .then((response) => {
+            .finally((response) => {
                 return this.$q.resolve(response.data);
             });
     }
