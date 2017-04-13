@@ -24,7 +24,7 @@ export class UserModel {
                 return this.$q.resolve(response.data);
             })
             .catch((error) => {
-                return this.$q.resolve(response.data);
+                return this.$q.resolve(error.data);
             });
     }
 
@@ -34,7 +34,7 @@ export class UserModel {
                 return this.$q.resolve(response.data);
             })
             .catch((error) => {
-                return this.$q.resolve(response.data);
+                return this.$q.resolve(error.data);
             });
     }
 
@@ -44,7 +44,7 @@ export class UserModel {
                 return this.$q.resolve();
             })
             .catch((error) => {
-                return this.$q.resolve(response.data);
+                return this.$q.resolve(error.data);
             });
     }
 }
