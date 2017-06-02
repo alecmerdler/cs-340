@@ -38,27 +38,40 @@
                     <span class="md-headline">New Recommendation</span>
                 </md-card-title>
                 <md-card-content>
-                    <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
-                         height="50" width="50"
-                         class="md-avatar" />
+                    <div layout="column">
+                        <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
+                             height="50" width="50"
+                             class="md-avatar" />
+                    </div>
+                    <div layout="column">
+                        <md-input-container>
+                            <label>Media</label>
+                            <md-select ng-model="$ctrl.newRecommendation.mediaID">
+                                <md-option ng-repeat="media in $ctrl.mediaList"
+                                           ng-value="media.id">
+                                    {{ media.title }}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
 
-                    <md-input-container>
-                        <label>Media</label>
-                        <md-select ng-model="$ctrl.newRecommendation.mediaID">
-                            <md-option ng-repeat="media in $ctrl.mediaList"
-                                       ng-value="media.id">
-                                {{ media.title }}
-                            </md-option>
-                        </md-select>
-                    </md-input-container>
+                        <md-input-container>
+                            <label>For</label>
+                            <md-select ng-model="$ctrl.newRecommendation.recommendedToID">
+                                <md-option ng-repeat="user in $ctrl.userList"
+                                           ng-value="user.id">
+                                    {{ user.firstName }} {{ user.lastName }} ({{ user.username }})
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
 
-                    <md-input-container>
-                        <label>Message</label>
-                        <input name="message"
-                               type="text"
-                               ng-model="$ctrl.newRecommendation.message"
-                               required>
-                    </md-input-container>
+                        <md-input-container>
+                            <label>Message</label>
+                            <input name="message"
+                                   type="text"
+                                   ng-model="$ctrl.newRecommendation.message"
+                                   required>
+                        </md-input-container>
+                    </div>
                 </md-card-content>
 
                 <md-card-actions layout="row" layout-align="end center">

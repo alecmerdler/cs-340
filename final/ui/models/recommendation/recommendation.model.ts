@@ -1,6 +1,14 @@
 import { Injectable, Inject } from 'ng-metadata/core';
 
 
+export type RecommendationAttributes = {
+    message: string;
+    mediaID: string;
+    recommenderID: number;
+    recommendedToID: number;
+};
+
+
 export type RecommendationInstance = {
     id: number;
     message: string;
