@@ -10,7 +10,7 @@ function handle_request($method) {
         switch($method) {
             case "GET":
                 http_response_code(200);
-                echo list_media();
+                echo list_recommendations();
                 break;
 
             default:
