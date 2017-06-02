@@ -4,9 +4,8 @@ import { Injectable, Inject } from 'ng-metadata/core';
 export type RecommendationInstance = {
     id: number;
     message: string;
-    mediaID: number;
-    recommmenderID: number;
-    recommendedToID: number;
+    title: string;
+    firstName: string;
 };
 
 
