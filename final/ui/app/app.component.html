@@ -39,12 +39,12 @@
                     <span class="md-headline">New Recommendation</span>
                 </md-card-title>
                 <md-card-content layout="row">
-                    <div layout="column" flex="1">
+                    <div layout="column" flex="1" style="padding: 10px;">
                         <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
                              height="50" width="50"
                              class="md-avatar" />
                     </div>
-                    <div layout="column" flex="4">
+                    <div layout="column" flex="4" style="width: 100%">
                         <md-input-container>
                             <label>Media</label>
                             <md-select ng-model="$ctrl.newRecommendation.mediaID">
@@ -97,8 +97,8 @@
                 <md-card-content>
                     <md-grid-list md-cols="2" md-row-height="2:2">
                         <md-grid-tile md-colspan="1" md-rowspan="1"
-                                      class="media-tile"
-                                      ng-repeat="media in $ctrl.mediaList">
+                                      class="media-tile {{ ::$ctrl.tileClass($index) }}"
+                                      ng-repeat="media in $ctrl.mediaList track by $index">
                             <md-grid-tile-header>
                                 <h3>{{ media.title }}</h3>
                             </md-grid-tile-header>

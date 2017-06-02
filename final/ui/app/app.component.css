@@ -1,3 +1,23 @@
-.media-tile {
+.media-tile .gray {
+    background: #f5f5f5;
+}
+
+.media-tile .green {
+    background: #b9f6ca;
+}
+
+.media-tile .yellow {
+    background: #ffff8d;
+}
+
+.media-tile .blue {
     background: #84ffff;
+}
+
+.media-tile .purple {
+    background: #b388ff;
+}
+
+.media-tile .red {
+    background: #ff8a80;
 }

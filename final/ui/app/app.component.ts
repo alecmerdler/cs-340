@@ -63,4 +63,10 @@ export class AppComponent implements OnInit {
                 this.isLoading = false;
             });
     }
+
+    private tileClass(index: number): string {
+        const colors: string[] = ['grey', 'green', 'yellow', 'blue', 'purple', 'red'];
+
+        return colors[index % colors.length];
+    }
 }
