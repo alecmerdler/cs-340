@@ -16,7 +16,8 @@
                     </div>
                     <md-list ng-if="!$ctrl.isLoading">
                         <md-list-item class="md-3-line"
-                                      ng-repeat="recommendation in $ctrl.recommendationsList">
+                                      ng-repeat="recommendation in $ctrl.recommendationsList"
+                                      ng-click="null">
                             <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
                                  class="md-avatar" />
                             <div class="md-list-item-text" layout="column">
@@ -37,13 +38,13 @@
                 <md-card-title>
                     <span class="md-headline">New Recommendation</span>
                 </md-card-title>
-                <md-card-content>
-                    <div layout="column">
+                <md-card-content layout="row">
+                    <div layout="column" flex="1">
                         <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
                              height="50" width="50"
                              class="md-avatar" />
                     </div>
-                    <div layout="column">
+                    <div layout="column" flex="4">
                         <md-input-container>
                             <label>Media</label>
                             <md-select ng-model="$ctrl.newRecommendation.mediaID">
