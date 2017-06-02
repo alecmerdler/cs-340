@@ -26,7 +26,7 @@ export class RecommendationModel {
     }
 
     public create(recommendation: RecommendationAttributes): ng.IPromise<RecommendationInstance> {
-        return this.$http.post<RecommendationAttributes>('/~merdlera/cs340/final/api/recommendations.php', recommendation)
+        return this.$http.post<RecommendationInstance>('/~merdlera/cs340/final/api/recommendations.php', recommendation)
             .then((response) => {
                 return this.$q.resolve(response.data);
             })
