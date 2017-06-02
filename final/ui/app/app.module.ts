@@ -1,6 +1,6 @@
 import { NgModule } from 'ng-metadata/core';
 import { AppComponent } from './app.component';
-import { UserModel } from './models/user/user.model';
+import { UserModel } from '../models/user/user.model';
 
 
 @NgModule({
