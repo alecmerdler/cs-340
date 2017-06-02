@@ -32,6 +32,30 @@
 
                 </md-card-actions>
             </md-card>
+
+            <md-card>
+                <md-card-title>
+                    <span class="md-headline">New Recommendation</span>
+                </md-card-title>
+                <md-card-content>
+                    <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
+                         class="md-avatar" />
+                    <md-input-container>
+                        <label>Message</label>
+                        <input name="newRecommendation"
+                               type="text"
+                               ng-model="$ctrl.newRecommendation"
+                               required>
+                    </md-input-container>
+                </md-card-content>
+
+                <md-card-actions layout="row" layout-align="end center">
+                    <button class="md-primary"
+                            ng-click="$ctrl.createRecommendation">
+                        Create
+                    </button>
+                </md-card-actions>
+            </md-card>
         </div>
 
         <div flex="50">
