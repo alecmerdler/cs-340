@@ -16,19 +16,14 @@
                     </div>
                     <md-list ng-if="!$ctrl.isLoading">
                         <md-list-item class="md-3-line"
-                                      ng-repeat="user in $ctrl.userList">
+                                      ng-repeat="recommendation in $ctrl.recommendationsList">
                             <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
-                                 class="md-avatar"
-                                 alt="{{ user.username }}" />
+                                 class="md-avatar" />
                             <div class="md-list-item-text" layout="column">
-                                <h3>{{ user.firstName }}</h3>
-                                <h4>{{ user.email }}</h4>
-                                <p>{{ user.username }}</p>
+                                <h3>{{ recommendation.mediaID }}</h3>
+                                <h4>{{ recommendation.recommenderID }}</h4>
+                                <p>{{ recommendation.message }}</p>
                             </div>
-                            <md-button class="md-icon-button"
-                                       ng-click="$ctrl.removeUser(user)">
-                                <md-icon>delete</md-icon>
-                            </md-button>
                         </md-list-item>
                     </md-list>
                 </md-card-content>
@@ -58,7 +53,7 @@
                             </md-grid-tile-header>
 
                             <p>{{ media.description }}</p>
-                            
+
                             <md-grid-tile-footer>
                                 <md-button>Recommend</md-button>
                                 <md-button>Review</md-button>
