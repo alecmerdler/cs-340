@@ -39,13 +39,24 @@
                 </md-card-title>
                 <md-card-content>
                     <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
-                         height="20" width="20"
+                         height="50" width="50"
                          class="md-avatar" />
+
+                    <md-input-container>
+                        <label>Media</label>
+                        <md-select ng-model="$ctrl.newRecommendation.mediaID">
+                            <md-option ng-repeat="media in $ctrl.mediaList"
+                                       ng-value="media.id">
+                                {{ media.title }}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+
                     <md-input-container>
                         <label>Message</label>
-                        <input name="newRecommendation"
+                        <input name="message"
                                type="text"
-                               ng-model="$ctrl.newRecommendation"
+                               ng-model="$ctrl.newRecommendation.message"
                                required>
                     </md-input-container>
                 </md-card-content>

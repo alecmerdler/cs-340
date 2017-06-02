@@ -13,6 +13,11 @@ function handle_request($method) {
                 echo list_recommendations();
                 break;
 
+            case "POST":
+                http_response_code(201);
+                echo create_recommendation(file_get_contents('php://input'), TRUE);
+                break;
+
             default:
                 http_response_code(405);
                 echo json_encode(array("error" => "method not supported"));
@@ -37,7 +42,6 @@ function list_recommendations() {
              WHERE Media.id = mediaID AND Recommendations.recommenderID = Users.id
             ";
 
-
     $result = $conn->query($stmt);
 
     if ($result->num_rows > 0) {
@@ -53,6 +57,37 @@ function list_recommendations() {
 
 
 // TODO: Filter by user
+
+
+/*
+ * Add a new recommendation into the database.
+ */
+function create_recommendation($recommendation) {
+    $response = $recommendation;
+    $conn = create_db_connection();
+
+    $stmt = $conn->prepare("INSERT INTO Recommendations (message, mediaID, recommenderID, recommendedToID) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $recommendation["message"],
+                               $recommendation["mediaID"],
+                               $recommendation["recommenderID"],
+                               $recommendation["recommendedToID"]);
+
+    if (!$stmt->execute()) {
+        $error = array("message" => $stmt->error);
+        if (strpos($stmt->error, "Duplicate") !== false) {
+            $error["type"] = "duplicate";
+        }
+        else {
+            $error["type"] = "general";
+        }
+        throw new Exception(json_encode($error));
+    }
+
+    $stmt->close();
+    $conn->close();
+
+    return json_encode($response);
+}
 
 
 /*
