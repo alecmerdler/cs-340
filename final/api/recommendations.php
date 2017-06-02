@@ -32,7 +32,12 @@ function list_recommendations() {
     $response = array();
     $conn = create_db_connection();
 
-    $stmt = "SELECT * from Recommendations";
+    $stmt = "SELECT *
+             FROM Recommendations, Users, Media 
+             WHERE Media.id = mediaID AND Recommendations.recommenderID = Users.id
+            ";
+
+
     $result = $conn->query($stmt);
 
     if ($result->num_rows > 0) {
