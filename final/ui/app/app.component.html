@@ -89,13 +89,14 @@
                     <span class="md-headline">Media</span>
                     <span flex></span>
                     <md-button class="md-icon-button"
-                               ng-click="$ctrl.refreshUserList()">
+                               ng-click="$ctrl.refreshMediaList()">
                         <md-icon>refresh</md-icon>
                     </md-button>
                 </md-card-title>
                 <md-card-content>
                     <md-grid-list md-cols="2" md-row-height="2:2">
                         <md-grid-tile md-colspan="1" md-rowspan="1"
+                                      class="media-tile"
                                       ng-repeat="media in $ctrl.mediaList">
                             <md-grid-tile-header>
                                 <h3>{{ media.title }}</h3>

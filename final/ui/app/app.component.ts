@@ -3,6 +3,7 @@ import { UserModel, UserInstance } from '../models/user/user.model';
 import { MediaModel, MediaInstance } from '../models/media/media.model';
 import { RecommendationModel, RecommendationInstance, RecommendationAttributes } from '../models/recommendation/recommendation.model';
 import template from './app.component.html';
+import './app.component.css';
 
 
 @Component({
@@ -50,6 +51,16 @@ export class AppComponent implements OnInit {
         this.recommendationModel.create(this.newRecommendation)
             .then((response) => {
                 this.newRecommendation = null;
+            });
+    }
+
+    public refreshMediaList(): void {
+        this.isLoading = false;
+
+        this.mediaModel.list()
+            .then((mediaList) => {
+                this.mediaList = mediaList;
+                this.isLoading = false;
             });
     }
 }
