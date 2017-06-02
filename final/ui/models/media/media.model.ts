@@ -20,7 +20,7 @@ export class MediaModel {
     }
 
     public list(): ng.IPromise<MediaInstance[]> {
-        return this.$http.get<MediaInstance[]>('/~merdlera/cs340/HW1/api/media.php')
+        return this.$http.get<MediaInstance[]>('/~merdlera/cs340/final/api/media.php')
             .then((response) => {
                 return this.$q.resolve(response.data);
             })
@@ -30,7 +30,7 @@ export class MediaModel {
     }
 
     public retrieve(id: number): ng.IPromise<MediaInstance> {
-        return this.$http.get<MediaInstance>(`/~merdlera/cs340/HW1/api/media.php?id=${id}`)
+        return this.$http.get<MediaInstance>(`/~merdlera/cs340/final/api/media.php?id=${id}`)
             .then((response) => {
                return this.$q.resolve(response.data);
             })
