@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from 'ng-metadata/core';
-import { UserModel, UserInstance } from './models/user/user.model';
+import { UserModel, UserInstance } from '../models/user/user.model';
 import template from './app.component.html';
 
 
