@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
     public mediaList: MediaInstance[] = [];
     public recommendationsList: RecommendationInstance[] = [];
     public isLoading: boolean = true;
+    private newRecommendation: RecommendationInstance;
     private readonly mediaLimit: number = 6;
 
     constructor(@Inject(MediaModel) private mediaModel: MediaModel,
@@ -32,5 +33,9 @@ export class AppComponent implements OnInit {
             .then((recommendationsList) => {
                 this.recommendationsList = recommendationsList;
             });
+    }
+
+    public createRecommendation(): void {
+        this.recommendationModel.create(this.newRecommendation);
     }
 }
