@@ -55,13 +55,21 @@ export class AppComponent implements OnInit {
     }
 
     public refreshMediaList(): void {
-        this.isLoading = false;
+        this.isLoading = true;
 
         this.mediaModel.list()
             .then((mediaList) => {
                 this.mediaList = mediaList;
                 this.isLoading = false;
             });
+    }
+
+    public recommendMedia(media: MediaInstance): void {
+
+    }
+
+    public reviewMedia(media: MediaInstance): void {
+
     }
 
     private tileClass(index: number): string {

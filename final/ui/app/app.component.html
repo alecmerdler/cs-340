@@ -95,7 +95,13 @@
                     </md-button>
                 </md-card-title>
                 <md-card-content>
-                    <md-grid-list md-cols="2" md-row-height="2:2">
+                    <div layout="row" layout-align="space-around"
+                         ng-if="$ctrl.isLoading">
+                        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                    </div>
+
+                    <md-grid-list md-cols="2" md-row-height="2:2"
+                                  ng-if="!$ctrl.isLoading">
                         <md-grid-tile md-colspan="1" md-rowspan="1"
                                       class="media-tile {{ ::$ctrl.tileClass($index) }}"
                                       ng-repeat="media in $ctrl.mediaList track by $index">
@@ -106,8 +112,8 @@
                             <p>{{ media.description }}</p>
 
                             <md-grid-tile-footer>
-                                <md-button>Recommend</md-button>
-                                <md-button>Review</md-button>
+                                <md-button ng-click="$ctrl.recommendMedia(media)">Recommend</md-button>
+                                <md-button ng-click="$ctrl.reviewMedia(media)">Review</md-button>
                             </md-grid-tile-footer>
                         </md-grid-tile>
                     </md-grid-list>
