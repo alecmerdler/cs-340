@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
 
     public mediaList: MediaInstance[] = [];
     public isLoading: boolean = true;
+    private readonly mediaLimit: number = 6;
 
     constructor(@Inject(MediaModel) private mediaModel: MediaModel) {
 
