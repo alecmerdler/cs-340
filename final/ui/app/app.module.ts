@@ -2,7 +2,7 @@ import { NgModule } from 'ng-metadata/core';
 import { AppComponent } from './app.component';
 import { UserModel } from '../models/user/user.model';
 import { MediaModel } from '../models/media/media.model';
-import { RecommendationModel } from '../models/recommendation/recommendation.model.model';
+import { RecommendationModel } from '../models/recommendation/recommendation.model';
 
 
 @NgModule({
