@@ -71,7 +71,7 @@ function create_user($user) {
         throw new Exception(json_encode($error));
     }
 
-    var_dump(password_hash($user["password"], PASSWORD_DEFAULT));
+    echo $user;
 
     if (!$stmt->bind_param("ssss", $user["username"],
                                    $user["firstName"],
