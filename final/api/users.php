@@ -64,9 +64,7 @@ function list_users() {
 function create_user($user) {
     $conn = create_db_connection();
 
-    if (!$stmt = $conn->prepare("INSERT INTO Users (username, firstName, email
-
-, password) 
+    if (!$stmt = $conn->prepare("INSERT INTO Users (username, firstName, email, password) 
                                  VALUES (?, ?, ?, ?)")) {
         $error = array("message" => $conn->error);
         $error["type"] = "prepare";
@@ -95,6 +93,7 @@ function create_user($user) {
     }
 
     $response = $stmt->get_result()->fetch_assoc();
+    var_dump($stmt->get_result());
 
     $stmt->close();
     $conn->close();
