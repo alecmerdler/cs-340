@@ -33,7 +33,7 @@ function authenticate($credentials) {
 
     $stmt = $conn->prepare("SELECT * FROM Users WHERE username = ? AND password = ?");
     $stmt->bind_param("ss", $credentials["username"],
-                            password_hash($credentials["password"], PASSWORD_DEFAULT));
+                            substr(password_hash($credentials["password"], PASSWORD_DEFAULT)), 0, 10);
 
     if (!$stmt->execute()) {
         $error = array("message" => $stmt->error);
