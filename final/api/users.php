@@ -63,6 +63,8 @@ function list_users() {
 function create_user($user) {
     $conn = create_db_connection();
 
+    var_dump($user);
+
     if (!$stmt = $conn->prepare("INSERT INTO Users (username, firstName, email, password) 
                                  VALUES (?, ?, ?, ?)")) {
         $error = array("message" => $conn->error);
