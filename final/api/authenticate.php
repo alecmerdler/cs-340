@@ -43,6 +43,8 @@ function authenticate($credentials) {
 
     $response = $stmt->get_result()->fetch_assoc();
 
+    $response = password_hash($credentials["password"], PASSWORD_DEFAULT);
+
     $stmt->close();
     $conn->close();
 
