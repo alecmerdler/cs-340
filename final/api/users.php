@@ -64,18 +64,26 @@ function list_users() {
 function create_user($user) {
     $conn = create_db_connection();
 
-    $stmt = $conn->prepare("INSERT INTO Users (username, firstName, lastName, email, age, password) 
-                            VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $user["username"],
-                                $user["firstName"],
-                                $user["lastName"],
-                                $user["email"],
-                                $user["age"],
-                                password_hash($user["password"], PASSWORD_DEFAULT));
+    if (!$stmt = $conn->prepare("INSERT INTO Users (username, firstName, lastName, email, age, password) 
+                                 VALUES (?, ?, ?, ?, ?, ?)")) {
+        $error = array("message" => $stmt->error);
+        $error["type"] = "database";
+        throw new Exception(json_encode($error));
+    }
 
+    if (!$stmt->bind_param("ssssss", $user["username"],
+                                     $user["firstName"],
+                                     $user["lastName"],
+                                     $user["email"],
+                                     $user["age"],
+                                     password_hash($user["password"], PASSWORD_DEFAULT))) {
+        $error = array("message" => $stmt->error);
+        $error["type"] = "database";
+        throw new Exception(json_encode($error));
+    }
+
+    
     if (!$stmt->execute()) {
-        var_dump($stmt->error);
-
         $error = array("message" => $stmt->error);
         if (strpos($stmt->error, "Duplicate") !== false) {
             $error["type"] = "duplicate";
@@ -87,8 +95,6 @@ function create_user($user) {
     }
 
     $response = $stmt->get_result()->fetch_assoc();
-
-    var_dump($response);
 
     $stmt->close();
     $conn->close();
