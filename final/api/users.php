@@ -14,10 +14,11 @@ function handle_request($method) {
                 break;
 
             case "POST":
-//                $request_body = json_decode(file_get_contents('php://input'), true);
+                $request_body = json_decode(file_get_contents('php://input'), true);
 //                echo json_decode(file_get_contents('php://input'), true);
-//                http_response_code(201);
-                echo create_user(file_get_contents('php://input'));
+                http_response_code(201);
+                echo $request_body;
+//                echo create_user(file_get_contents('php://input'));
                 break;
 
             case "DELETE":
@@ -32,8 +33,7 @@ function handle_request($method) {
         }
     } catch (Exception $e) {
         http_response_code(400);
-        var_dump($e);
-//        echo json_encode(array("error" => json_decode($e->getMessage())));
+        echo json_encode(array("error" => json_decode($e->getMessage())));
     }
 }
 
