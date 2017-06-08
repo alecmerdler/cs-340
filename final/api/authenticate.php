@@ -9,7 +9,7 @@ function handle_request($method) {
     try {
         switch($method) {
             case "POST":
-                http_response_code(201);
+                http_response_code(200);
                 echo json_encode(authenticate(json_decode(file_get_contents('php://input'), true)));
                 break;
 
@@ -33,7 +33,7 @@ function authenticate($credentials) {
 
     $stmt = $conn->prepare("SELECT * FROM Users WHERE username = ? AND password = ?");
     $stmt->bind_param("ss", $credentials["username"],
-                            password_hash($credentials["firstName"], PASSWORD_DEFAULT));
+                            password_hash($credentials["password"], PASSWORD_DEFAULT));
 
     if (!$stmt->execute()) {
         $error = array("message" => $stmt->error);
