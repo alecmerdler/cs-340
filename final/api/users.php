@@ -74,6 +74,8 @@ function create_user($user) {
                                 password_hash($user["password"], PASSWORD_DEFAULT));
 
     if (!$stmt->execute()) {
+        var_dump($stmt->error);
+
         $error = array("message" => $stmt->error);
         if (strpos($stmt->error, "Duplicate") !== false) {
             $error["type"] = "duplicate";
@@ -85,6 +87,8 @@ function create_user($user) {
     }
 
     $response = $stmt->get_result()->fetch_assoc();
+
+    var_dump($response);
 
     $stmt->close();
     $conn->close();
