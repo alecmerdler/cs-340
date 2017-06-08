@@ -18,8 +18,8 @@ export class AppComponent implements OnInit {
     public userList: UserInstance[] = [];
     public isLoading: boolean = true;
     public currentView: string = 'list';
-    public login: {username: string, password: string};
-    public signup: UserInstance;
+    public loginData: {username: string, password: string};
+    public signupData: UserInstance;
 
     private newRecommendation: RecommendationAttributes;
     private readonly mediaLimit: number = 6;
