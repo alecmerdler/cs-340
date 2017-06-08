@@ -4,10 +4,10 @@
             <span flex>TubeRoom</span>
 
             <div ng-if="!$ctrl.currentUser">
-                <md-button>
+                <md-button ng-click="$ctrl.currentView = 'login'">
                     Login
                 </md-button>
-                <md-button>
+                <md-button ng-click="$ctrl.currentView = 'signup'">
                     Signup
                 </md-button>
             </div>
@@ -15,7 +15,48 @@
         </h2>
     </md-toolbar>
 
-    <div layout="row" layout-xs="column">
+    <!-- Login View -->
+    <div layout="column" layout-align="center"
+         ng-if="$ctrl.currentView === 'login' || $ctrl.currentView === 'signup'">
+        <div flex="50">
+            <md-card>
+                <md-card-title>
+                    <span class="md-headline">Login</span>
+                </md-card-title>
+                <md-card-content>
+                    <md-tabs md-border-bottom>
+                        <md-tab label="Login">
+                            <form name="$ctrl.loginForm">
+                                <md-input-container>
+                                    <label>Username</label>
+                                    <input name="username"
+                                           type="text"
+                                           ng-model="$ctrl.login.username"
+                                           required>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Password</label>
+                                    <input name="password"
+                                           type="password"
+                                           ng-model="$ctrl.login.password"
+                                           required>
+                                </md-input-container>
+                            </form>
+                        </md-tab>
+                        <md-tab label="Signup">
+                            <form name="$ctrl.signupForm">
+
+                            </form>
+                        </md-tab>
+                    </md-tabs>
+                </md-card-content>
+            </md-card>
+        </div>
+    </div>
+
+    <!-- List View-->
+    <div layout="row" layout-xs="column"
+         ng-if="$ctrl.currentView != 'login' && $ctrl.currentView != 'signup'">
         <div flex="50">
             <md-card>
                 <md-card-title>

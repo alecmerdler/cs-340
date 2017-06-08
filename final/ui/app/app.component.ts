@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
     public recommendationsList: RecommendationInstance[] = [];
     public userList: UserInstance[] = [];
     public isLoading: boolean = true;
+    public currentView: string = 'list';
     private newRecommendation: RecommendationAttributes;
     private readonly mediaLimit: number = 6;
 
