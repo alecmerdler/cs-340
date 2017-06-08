@@ -67,7 +67,7 @@ function create_user($user) {
     if (!$stmt = $conn->prepare("INSERT INTO Users (username, firstName, lastName, email, age, password) 
                                  VALUES (?, ?, ?, ?, ?, ?)")) {
         $error = array("message" => $stmt->error);
-        $error["type"] = "database";
+        $error["type"] = "prepare";
         throw new Exception(json_encode($error));
     }
 
@@ -78,11 +78,11 @@ function create_user($user) {
                                      $user["age"],
                                      password_hash($user["password"], PASSWORD_DEFAULT))) {
         $error = array("message" => $stmt->error);
-        $error["type"] = "database";
+        $error["type"] = "bind_params";
         throw new Exception(json_encode($error));
     }
 
-    
+
     if (!$stmt->execute()) {
         $error = array("message" => $stmt->error);
         if (strpos($stmt->error, "Duplicate") !== false) {
