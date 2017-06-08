@@ -14,7 +14,7 @@ function handle_request($method) {
                 break;
 
             case "POST":
-                http_response_code(201);
+//                http_response_code(201);
                 echo create_user(json_decode(file_get_contents('php://input')), true);
                 break;
 
@@ -89,8 +89,6 @@ function create_user($user) {
         }
         throw new Exception(json_encode($error));
     }
-
-    var_dump($user);
 
     $response = $stmt->get_result()->fetch_assoc();
 
