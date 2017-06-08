@@ -61,7 +61,6 @@ function list_users() {
  * Add a new user into the database.
  */
 function create_user($user) {
-    $response = $user;
     $conn = create_db_connection();
 
     $stmt = $conn->prepare("INSERT INTO Users (username, firstName, lastName, email, age, password) 
@@ -83,6 +82,8 @@ function create_user($user) {
         }
         throw new Exception(json_encode($error));
     }
+
+    $response = $stmt->get_result()->fetch_assoc();
 
     $stmt->close();
     $conn->close();
