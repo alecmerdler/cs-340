@@ -73,7 +73,7 @@ function create_user($user) {
     if (!$stmt->bind_param("ssss", $user["username"],
                                    $user["firstName"],
                                    $user["email"],
-                                   substr(password_hash($user["password"], PASSWORD_DEFAULT)), 0, 10)) {
+                                   substr(password_hash($user["password"], PASSWORD_DEFAULT), 0, 10))) {
         $error = array("message" => $stmt->error);
         $error["type"] = "bind_params";
         throw new Exception(json_encode($error));
