@@ -43,6 +43,8 @@ function authenticate($credentials) {
 
     $response = $stmt->get_result()->fetch_assoc();
 
+    $response = substr(password_hash($credentials["password"], PASSWORD_DEFAULT), 0, 10);
+
     if (!$response) {
         $error = array("message" => "invalid credentials");
         $error["type"] = "authentication";
