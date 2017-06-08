@@ -64,8 +64,14 @@ function create_user($user) {
     $response = $user;
     $conn = create_db_connection();
 
-    $stmt = $conn->prepare("INSERT INTO Users (username, firstName, lastName, email, age) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $user["username"], $user["firstName"], $user["lastName"], $user["email"], $user["age"]);
+    $stmt = $conn->prepare("INSERT INTO Users (username, firstName, lastName, email, age, password) 
+                            VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssss", $user["username"],
+                                $user["firstName"],
+                                $user["lastName"],
+                                $user["email"],
+                                $user["age"],
+                                password_hash($user["password"], PASSWORD_DEFAULT));
 
     if (!$stmt->execute()) {
         $error = array("message" => $stmt->error);

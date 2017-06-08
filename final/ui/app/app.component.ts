@@ -77,7 +77,13 @@ export class AppComponent implements OnInit {
     }
 
     public login(): void {
-        console.log(this.login);
+        this.isLoading = true;
+
+        this.userModel.authenticateUser(this.loginData.username, this.loginData.password)
+            .then((user: UserInstance) => {
+                console.log(user);
+                this.isLoading = false;
+            });
     }
 
     public signup(): void {
