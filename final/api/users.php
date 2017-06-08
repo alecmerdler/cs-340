@@ -32,7 +32,8 @@ function handle_request($method) {
         }
     } catch (Exception $e) {
         http_response_code(400);
-        echo json_encode(array("error" => json_decode($e->getMessage())));
+        var_dump($e);
+//        echo json_encode(array("error" => json_decode($e->getMessage())));
     }
 }
 
