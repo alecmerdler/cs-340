@@ -16,8 +16,8 @@ function handle_request($method) {
             case "POST":
                 $request_body = json_decode(file_get_contents('php://input'));
                 echo $request_body;
-                http_response_code(201);
-                echo create_user($request_body, TRUE);
+//                http_response_code(201);
+//                echo create_user($request_body, TRUE);
                 break;
 
             case "DELETE":
