@@ -91,9 +91,11 @@ function create_user($user) {
         throw new Exception(json_encode($error));
     }
 
+    // Retrieve created user
+    $stmt = $conn->prepare("SELECT * FROM Users WHERE username = ?");
+    $stmt->bind_param("s", $user["username"]);
+    $stmt->execute();
     $response = $stmt->get_result()->fetch_assoc();
-
-    var_dump(array("aslkdfja" => "alskjdf"));
 
     $stmt->close();
     $conn->close();
