@@ -15,7 +15,7 @@ function handle_request($method) {
 
             case "POST":
                 //    echo $user;
-                echo array("test" => "somevalue");
+                var_dump(array("test" => "somevalue"));
                 http_response_code(201);
 //                echo create_user(file_get_contents('php://input'));
                 break;
