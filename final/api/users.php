@@ -64,18 +64,19 @@ function list_users() {
 function create_user($user) {
     $conn = create_db_connection();
 
-    if (!$stmt = $conn->prepare("INSERT INTO Users (username, firstName, email, age, password) 
-                                 VALUES (?, ?, ?, ?, ?)")) {
+    if (!$stmt = $conn->prepare("INSERT INTO Users (username, firstName, email
+
+, password) 
+                                 VALUES (?, ?, ?, ?)")) {
         $error = array("message" => $conn->error);
         $error["type"] = "prepare";
         throw new Exception(json_encode($error));
     }
 
-    if (!$stmt->bind_param("sssss", $user["username"],
-                                     $user["firstName"],
-                                     $user["email"],
-                                     $user["age"],
-                                     password_hash($user["password"], PASSWORD_DEFAULT))) {
+    if (!$stmt->bind_param("ssss", $user["username"],
+                                   $user["firstName"],
+                                   $user["email"],
+                                   password_hash($user["password"], PASSWORD_DEFAULT))) {
         $error = array("message" => $stmt->error);
         $error["type"] = "bind_params";
         throw new Exception(json_encode($error));
