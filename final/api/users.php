@@ -14,8 +14,10 @@ function handle_request($method) {
                 break;
 
             case "POST":
-//                http_response_code(201);
-                echo create_user(file_get_contents('php://input'));
+                //    echo $user;
+                echo array("test" => "somevalue");
+                http_response_code(201);
+//                echo create_user(file_get_contents('php://input'));
                 break;
 
             case "DELETE":
@@ -62,9 +64,6 @@ function list_users() {
  */
 function create_user($user) {
     $conn = create_db_connection();
-
-//    echo $user;
-    echo array("test" => "somevalue");
 
     if (!$stmt = $conn->prepare("INSERT INTO Users (username, firstName, email, password) 
                                  VALUES (?, ?, ?, ?)")) {
