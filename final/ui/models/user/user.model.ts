@@ -2,6 +2,7 @@ import { Injectable, Inject } from 'ng-metadata/core';
 
 
 export type UserInstance = {
+    id?: number;
     username: string;
     firstName: string;
     lastName: string;

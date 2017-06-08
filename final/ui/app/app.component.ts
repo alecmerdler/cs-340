@@ -18,6 +18,9 @@ export class AppComponent implements OnInit {
     public userList: UserInstance[] = [];
     public isLoading: boolean = true;
     public currentView: string = 'list';
+    public login: {username: string, password: string};
+    public signup: UserInstance;
+
     private newRecommendation: RecommendationAttributes;
     private readonly mediaLimit: number = 6;
 
@@ -71,6 +74,14 @@ export class AppComponent implements OnInit {
 
     public reviewMedia(media: MediaInstance): void {
 
+    }
+
+    public login(): void {
+        console.log(this.login);
+    }
+
+    public signup(): void {
+        console.log(this.signup);
     }
 
     private tileClass(index: number): string {
