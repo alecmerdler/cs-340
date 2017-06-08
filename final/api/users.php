@@ -71,6 +71,8 @@ function create_user($user) {
         throw new Exception(json_encode($error));
     }
 
+    var_dump(password_hash($user["password"], PASSWORD_DEFAULT));
+
     if (!$stmt->bind_param("ssss", $user["username"],
                                    $user["firstName"],
                                    $user["email"],
@@ -79,8 +81,7 @@ function create_user($user) {
         $error["type"] = "bind_params";
         throw new Exception(json_encode($error));
     }
-
-
+    
     if (!$stmt->execute()) {
         $error = array("message" => $stmt->error);
         if (strpos($stmt->error, "Duplicate") !== false) {
@@ -91,8 +92,6 @@ function create_user($user) {
         }
         throw new Exception(json_encode($error));
     }
-
-    var_dump(password_hash($user["password"], PASSWORD_DEFAULT));
 
     $response = $stmt->get_result()->fetch_assoc();
 
