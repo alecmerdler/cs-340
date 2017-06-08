@@ -14,11 +14,8 @@ function handle_request($method) {
                 break;
 
             case "POST":
-                $request_body = file_get_contents('php://input');
-//                echo json_decode(file_get_contents('php://input'), true);
                 http_response_code(201);
-                echo $request_body;
-//                echo create_user(file_get_contents('php://input'));
+                echo create_user(file_get_contents('php://input'));
                 break;
 
             case "DELETE":
