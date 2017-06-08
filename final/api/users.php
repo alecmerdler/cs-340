@@ -92,8 +92,9 @@ function create_user($user) {
         throw new Exception(json_encode($error));
     }
 
+    var_dump(password_hash($user["password"], PASSWORD_DEFAULT));
+
     $response = $stmt->get_result()->fetch_assoc();
-    var_dump($stmt->get_result());
 
     $stmt->close();
     $conn->close();
