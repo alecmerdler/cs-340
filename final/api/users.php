@@ -10,18 +10,17 @@ function handle_request($method) {
         switch($method) {
             case "GET":
                 http_response_code(200);
-                echo list_users();
+                echo json_encode(list_users());
                 break;
 
             case "POST":
-//                var_dump(json_decode(file_get_contents('php://input'), true));
                 http_response_code(201);
-                echo create_user(json_decode(file_get_contents('php://input'), true));
+                echo json_encode(create_user(json_decode(file_get_contents('php://input'), true)));
                 break;
 
             case "DELETE":
                 http_response_code(204);
-                echo remove_user($_GET["username"]);
+                echo json_encode(remove_user($_GET["username"]));
                 break;
 
             default:
@@ -54,7 +53,7 @@ function list_users() {
 
     $conn->close();
 
-    return json_encode($response);
+    return $response;
 }
 
 
@@ -100,7 +99,7 @@ function create_user($user) {
     $stmt->close();
     $conn->close();
 
-    return json_encode($response);
+    return $response;
 }
 
 
@@ -124,7 +123,7 @@ function remove_user($username) {
     $stmt->close();
     $conn->close();
 
-    return json_encode($response);
+    return $response;
 }
 
 

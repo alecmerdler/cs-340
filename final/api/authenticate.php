@@ -10,7 +10,7 @@ function handle_request($method) {
         switch($method) {
             case "POST":
                 http_response_code(201);
-                echo authenticate(file_get_contents('php://input'), TRUE);
+                echo json_encode(authenticate(json_decode(file_get_contents('php://input'), true)));
                 break;
 
             default:
@@ -46,7 +46,7 @@ function authenticate($credentials) {
     $stmt->close();
     $conn->close();
 
-    return json_encode($response);
+    return $response;
 }
 
 
