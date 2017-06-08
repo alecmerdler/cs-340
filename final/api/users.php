@@ -90,6 +90,8 @@ function create_user($user) {
         throw new Exception(json_encode($error));
     }
 
+    var_dump($user);
+
     $response = $stmt->get_result()->fetch_assoc();
 
     $stmt->close();
