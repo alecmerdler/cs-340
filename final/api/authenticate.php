@@ -9,8 +9,9 @@ function handle_request($method) {
     try {
         switch($method) {
             case "POST":
+                $request_body = json_decode(file_get_contents('php://input'));
                 http_response_code(201);
-                echo authenticate(json_decode(file_get_contents('php://input'), TRUE));
+                echo authenticate($request_body, TRUE);
                 break;
 
             default:
