@@ -14,7 +14,7 @@ function handle_request($method) {
                 break;
 
             case "POST":
-                $request_body = file_get_contents('php://input');
+                $request_body = json_decode(file_get_contents('php://input'));
                 http_response_code(201);
                 echo create_user($request_body, TRUE);
                 break;
@@ -81,7 +81,7 @@ function create_user($user) {
         $error["type"] = "bind_params";
         throw new Exception(json_encode($error));
     }
-    
+
     if (!$stmt->execute()) {
         $error = array("message" => $stmt->error);
         if (strpos($stmt->error, "Duplicate") !== false) {
