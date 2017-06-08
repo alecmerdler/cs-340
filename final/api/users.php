@@ -66,7 +66,7 @@ function create_user($user) {
 
     if (!$stmt = $conn->prepare("INSERT INTO Users (username, firstName, lastName, email, age, password) 
                                  VALUES (?, ?, ?, ?, ?, ?)")) {
-        $error = array("message" => $stmt->error);
+        $error = array("message" => $conn->error);
         $error["type"] = "prepare";
         throw new Exception(json_encode($error));
     }
