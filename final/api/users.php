@@ -93,7 +93,7 @@ function create_user($user) {
 
     $response = $stmt->get_result()->fetch_assoc();
 
-    var_dump($stmt->get_result());
+    var_dump(array("aslkdfja" => "alskjdf"));
 
     $stmt->close();
     $conn->close();
