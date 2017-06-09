@@ -19,7 +19,7 @@
          ng-if="$ctrl.currentView.getValue() === 'login' || $ctrl.currentView.getValue() === 'signup'">
         <div flex="33">
             <md-card>
-                <md-card-content>
+                <md-card-content style="padding: 0;">
                     <md-tabs md-dynamic-height>
                         <md-tab label="Login">
                             <form name="$ctrl.loginForm"
@@ -44,9 +44,6 @@
                                     </md-input-container>
                                 </div>
                                 <div layout="row">
-                                    <span flex>
-                                        <a href="#">Forgot password?</a>
-                                    </span>
                                     <md-button class="md-raised md-primary"
                                                ng-click="$ctrl.login()"
                                                ng-disabled="$ctrl.loginForm.$dirty && $ctrl.loginForm.$invalid">
@@ -61,8 +58,7 @@
                             </form>
                         </md-tab>
                     </md-tabs>
-                    <!--<md-progress-linear ng-if="$ctrl.isLoading" md-mode="indeterminate"></md-progress-linear>-->
-                    <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+                    <md-progress-linear ng-if="$ctrl.isLoading" md-mode="indeterminate"></md-progress-linear>
                 </md-card-content>
             </md-card>
         </div>
