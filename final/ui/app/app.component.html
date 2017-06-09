@@ -1,4 +1,4 @@
-<md-content style="overflow-y: scroll;">
+<md-content>
     <md-toolbar class="md-hue-2">
         <div class="md-toolbar-tools">
             <div flex layout="row">
@@ -15,7 +15,7 @@
     </md-toolbar>
 
     <!-- Login View -->
-    <div layout="row" layout-align="center"
+    <div layout="row" layout-align="center" style="overflow-y: scroll;"
          ng-if="$ctrl.currentView.getValue() === 'login' || $ctrl.currentView.getValue() === 'signup'">
         <div flex="33">
             <md-card>
