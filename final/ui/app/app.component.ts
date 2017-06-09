@@ -105,7 +105,7 @@ export class AppComponent implements OnInit {
         this.userModel.create(this.signupData)
             .then((newUser: UserInstance) => {
                 this.currentUser = newUser;
-                window.sessionStorage.setItem('currentUser', this.currentUser);
+                window.sessionStorage.setItem('currentUser', JSON.stringify(this.currentUser));
                 this.isLoading = false;
                 this.currentView.next('list');
             })
