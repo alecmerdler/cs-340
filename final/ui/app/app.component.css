@@ -1,3 +1,7 @@
+md-card {
+    overflow: scroll;
+}
+
 .media-tile.grey {
     background: #f5f5f5;
 }
