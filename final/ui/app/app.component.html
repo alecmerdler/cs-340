@@ -162,8 +162,9 @@
                 </md-card-title>
                 <md-card-content layout="row">
                     <!-- Anonymous User -->
-                    <div ng-if="!$ctrl.currentUser">
-                        <span>Log in to create recommendations</span>
+                    <div class="empty-list"
+                         ng-if="!$ctrl.currentUser">
+                        <i class="material-icons">account_circle</i> <span>Log in to create recommendations</span>
                     </div>
 
                     <!-- Logged In User -->
