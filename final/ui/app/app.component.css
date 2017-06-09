@@ -25,6 +25,7 @@
 .empty-list {
     display: flex;
     align-items: center;
+    opacity: 0.7;
 }
 
 .empty-list span {
