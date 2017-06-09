@@ -23,7 +23,6 @@
                     <md-tabs md-dynamic-height>
                         <md-tab label="Login">
                             <form name="$ctrl.loginForm"
-                                  ng-submit="$ctrl.login()"
                                   layout="column">
                                 <div layout="row" layout-align="center">
                                     <md-input-container flex="50">
@@ -43,7 +42,10 @@
                                                required>
                                     </md-input-container>
                                 </div>
-                                <div layout="row" layout-align="end">
+                                <div layout="row">
+                                    <span ng-if="!$ctrl.currentUser && $ctrl.loginAttempts > 0">
+                                        Invalid Credentials
+                                    </span>
                                     <md-button class="md-raised md-primary"
                                                ng-click="$ctrl.login()"
                                                ng-disabled="$ctrl.loginForm.$dirty && $ctrl.loginForm.$invalid">

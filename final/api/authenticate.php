@@ -19,7 +19,12 @@ function handle_request($method) {
                 break;
         }
     } catch (Exception $e) {
-        http_response_code(400);
+        if (json_decode($e->getMessage())["type"] == "authentication") {
+            http_response_code(401);
+        }
+        else {
+            http_response_code(400);
+        }
         echo json_encode(array("error" => json_decode($e->getMessage())));
     }
 }

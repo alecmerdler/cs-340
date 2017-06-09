@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
 
     private newRecommendation: RecommendationAttributes;
     private readonly mediaLimit: number = 6;
+    private loginAttempts: number = 0;
 
     constructor(@Inject(MediaModel) private mediaModel: MediaModel,
                 @Inject(UserModel) private userModel: UserModel,
@@ -85,13 +86,23 @@ export class AppComponent implements OnInit {
             .then((user: UserInstance) => {
                 console.log(user);
                 this.isLoading = false;
+                this.loginAttempts = 0;
+            })
+            .catch((error) => {
+                this.isLoading = false;
+                this.loginAttempts++;
             });
     }
 
     public signup(): void {
+        this.isLoading = true;
         this.userModel.create(this.signupData)
             .then((newUser: UserInstance) => {
                 console.log(newUser);
+                this.isLoading = false;
+            })
+            .catch((error) => {
+                this.isLoading = false;
             });
     }
 
