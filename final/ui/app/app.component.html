@@ -191,10 +191,10 @@
 
                             <md-input-container>
                                 <label>Message</label>
-                                <input name="message"
+                                <textarea name="message"
                                        type="text"
                                        ng-model="$ctrl.newRecommendation.message"
-                                       required>
+                                       md-maxlength="500" required></textarea>
                             </md-input-container>
                         </div>
                     </div>
