@@ -31,9 +31,10 @@ export class AppComponent implements OnInit {
                 @Inject(RecommendationModel) private recommendationModel: RecommendationModel) {
         this.currentView = new BehaviorSubject(window.sessionStorage.getItem("currentView") || 'list');
         this.currentView.subscribe((view) => {
-            console.log(view);
             window.sessionStorage.setItem('currentView', view)
         });
+
+        this.currentUser = window.sessionStorage.getItem('currentUser') || null;
     }
 
     public ngOnInit(): void {
@@ -56,7 +57,7 @@ export class AppComponent implements OnInit {
 
     public createRecommendation(): void {
         // FIXME
-        // this.newRecommendation.recommenderID = this.currentUser.id;
+        this.newRecommendation.recommenderID = this.currentUser.id;
         this.newRecommendation.recommenderID = 1;
         this.recommendationModel.create(this.newRecommendation)
             .then((response) => {
@@ -88,6 +89,7 @@ export class AppComponent implements OnInit {
         this.userModel.authenticateUser(this.loginData.username, this.loginData.password)
             .then((user: UserInstance) => {
                 this.currentUser = user;
+                window.sessionStorage.setItem('currentUser', this.currentUser);
                 this.isLoading = false;
                 this.loginAttempts = 0;
                 this.currentView.next('list');
@@ -114,6 +116,7 @@ export class AppComponent implements OnInit {
     public logout(): void {
         this.currentView.next('login');
         this.currentUser = null;
+        window.sessionStorage.removeItem('currentUser');
     }
 
     private tileClass(index: number): string {
