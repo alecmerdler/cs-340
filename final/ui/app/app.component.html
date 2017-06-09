@@ -2,8 +2,6 @@
     <md-toolbar class="md-hue-2">
         <div class="md-toolbar-tools">
             <span flex>TubeRoom</span>
-            <span>{{ $ctrl.currentView.getValue() }}</span>
-
             <div ng-if="!$ctrl.currentUser">
                 <md-button ng-click="$ctrl.currentView.next('login')">
                     Login
@@ -27,7 +25,7 @@
             <md-card>
                 <md-card-content style="padding: 0;">
                     <md-tabs md-dynamic-height>
-                        <md-tab label="Login" md-active="$ctrl.currentView.getValue() == 'login'">
+                        <md-tab label="Login">
                             <form name="$ctrl.loginForm"
                                   layout="column">
                                 <div layout="column" layout-align="center center">
@@ -61,7 +59,7 @@
                                 </div>
                             </form>
                         </md-tab>
-                        <md-tab label="Signup" md-active="$ctrl.currentView.getValue() == 'signup'">
+                        <md-tab label="Signup">
                             <form name="$ctrl.signupForm">
                                 <div layout="column" layout-align="center center">
                                     <md-input-container>

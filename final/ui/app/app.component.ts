@@ -99,9 +99,9 @@ export class AppComponent implements OnInit {
         this.isLoading = true;
         this.userModel.create(this.signupData)
             .then((newUser: UserInstance) => {
-                console.log(newUser);
+                this.currentUser = newUser;
                 this.isLoading = false;
-                this.currentView.next('login');
+                this.currentView.next('list');
             })
             .catch((error) => {
                 this.isLoading = false;
