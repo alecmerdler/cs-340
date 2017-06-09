@@ -1,7 +1,10 @@
 <md-content>
     <md-toolbar class="md-hue-2">
         <div class="md-toolbar-tools">
-            <span flex>TubeRoom</span>
+            <span flex
+                  ng-click="$ctrl.currentView.next('list')">
+                TubeRoom
+            </span>
             <div ng-if="!$ctrl.currentUser">
                 <md-button ng-click="$ctrl.currentView.next('login')">
                     Login
