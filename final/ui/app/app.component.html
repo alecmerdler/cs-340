@@ -25,11 +25,11 @@
         <div flex="33">
             <md-card>
                 <md-card-content style="padding: 0;">
-                    <md-tabs md-selected="$ctrl.currentView.getValue() == 'signup' ? 1 : 0" md-dynamic-height>
-                        <md-tab label="Login">
+                    <md-tabs md-dynamic-height>
+                        <md-tab label="Login" md-active="$ctrl.currentView.getValue() == 'login'">
                             <form name="$ctrl.loginForm"
                                   layout="column">
-                                <div layout="row" layout-align="center">
+                                <div layout="column" layout-align="center center">
                                     <md-input-container flex="50">
                                         <label>Username</label>
                                         <input name="username"
@@ -37,8 +37,6 @@
                                                ng-model="$ctrl.loginData.username"
                                                required>
                                     </md-input-container>
-                                </div>
-                                <div layout="row" layout-align="center">
                                     <md-input-container flex="50">
                                         <label>Password</label>
                                         <input name="password"
@@ -62,7 +60,7 @@
                                 </div>
                             </form>
                         </md-tab>
-                        <md-tab label="Signup">
+                        <md-tab label="Signup" md-active="$ctrl.currentView.getValue() == 'signup'">
                             <form name="$ctrl.signupForm">
                                 <div layout="column" layout-align="center center">
                                     <md-input-container>
@@ -94,33 +92,6 @@
                                                required>
                                     </md-input-container>
                                 </div>
-                                <!--<div layout="row" layout-align="center">-->
-                                    <!--<md-input-container>-->
-                                        <!--<label>Email</label>-->
-                                        <!--<input name="email"-->
-                                               <!--type="text"-->
-                                               <!--ng-model="$ctrl.signupData.email"-->
-                                               <!--required>-->
-                                    <!--</md-input-container>-->
-                                <!--</div>-->
-                                <!--<div layout="row" layout-align="center">-->
-                                    <!--<md-input-container>-->
-                                        <!--<label>First Name</label>-->
-                                        <!--<input name="firstName"-->
-                                               <!--type="text"-->
-                                               <!--ng-model="$ctrl.signupData.firstName"-->
-                                               <!--required>-->
-                                    <!--</md-input-container>-->
-                                <!--</div>-->
-                                <!--<div layout="row" layout-align="center">-->
-                                    <!--<md-input-container>-->
-                                        <!--<label>Password</label>-->
-                                        <!--<input name="password"-->
-                                               <!--type="password"-->
-                                               <!--ng-model="$ctrl.signupData.password"-->
-                                               <!--required>-->
-                                    <!--</md-input-container>-->
-                                <!--</div>-->
                                 <div layout="row">
                                     <span flex></span>
                                     <md-button class="md-raised md-primary"
