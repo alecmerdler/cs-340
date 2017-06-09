@@ -123,20 +123,19 @@
                          ng-if="$ctrl.isLoading">
                         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
                     </div>
+
+                    <!-- Anonymous User -->
+                    <div ng-if="!$ctrl.currentUser"
+                         class="empty-list">
+                        <i class="material-icons">forum</i> <span>Login to view recommendations</span>
+                    </div>
+                    <!-- Empty List -->
+                    <div ng-if="$ctrl.recommendationsList.length == 0 && $ctrl.currentUser"
+                         class="empty-list">
+                        <i class="material-icons">forum</i> <span>You have no recommendations</span>
+                    </div>
+                    <!-- Full List -->
                     <md-list ng-if="!$ctrl.isLoading">
-                        <!-- Anonymous User -->
-                        <md-list-item ng-if="!$ctrl.currentUser">
-                            <div class="empty-list">
-                                <i class="material-icons">forum</i> <span>Login to view recommendations</span>
-                            </div>
-                        </md-list-item>
-                        <!-- Empty List -->
-                        <md-list-item ng-if="$ctrl.recommendationsList.length == 0 && $ctrl.currentUser">
-                            <div class="empty-list">
-                                <i class="material-icons">forum</i> <span>You have no recommendations</span>
-                            </div>
-                        </md-list-item>
-                        <!-- Full List -->
                         <md-list-item class="md-3-line"
                                       ng-repeat="recommendation in $ctrl.recommendationsList"
                                       ng-click="null">
