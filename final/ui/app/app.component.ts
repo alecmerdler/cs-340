@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
             window.sessionStorage.setItem('currentView', view)
         });
 
-        this.currentUser = <UserInstance>JSON.parse(window.sessionStorage.getItem('currentUser')) || null;
+        this.currentUser = JSON.parse(window.sessionStorage.getItem('currentUser')) || null;
     }
 
     public ngOnInit(): void {
