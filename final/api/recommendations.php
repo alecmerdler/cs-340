@@ -10,12 +10,13 @@ function handle_request($method) {
         switch($method) {
             case "GET":
                 http_response_code(200);
-                echo list_recommendations();
+                // FIXME: Get userID query parameter
+                echo json_encode(list_recommendations());
                 break;
 
             case "POST":
                 http_response_code(201);
-                echo create_recommendation(file_get_contents('php://input'), TRUE);
+                echo json_encode(create_recommendation(json_decode(file_get_contents('php://input'), true)));
                 break;
 
             default:
@@ -53,7 +54,7 @@ function list_recommendations($user_id) {
 
     $conn->close();
 
-    return json_encode($response);
+    return $response;
 }
 
 
@@ -65,13 +66,11 @@ function create_recommendation($recommendation) {
     $conn = create_db_connection();
 
     $stmt = $conn->prepare("INSERT INTO Recommendations (message, mediaID, recommenderID, recommendedToID) VALUES (?, ?, ?, ?)");
-    $success = $stmt->bind_param("siii", $recommendation["message"],
+    $stmt->bind_param("siii", $recommendation["message"],
                               $recommendation["mediaID"],
                               $recommendation["recommenderID"],
                               $recommendation["recommendedToID"]);
-
-    var_dump($success);
-
+    
     if (!$stmt->execute()) {
         $error = array("message" => $stmt->error);
         if (strpos($stmt->error, "Duplicate") !== false) {
