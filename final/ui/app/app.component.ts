@@ -30,7 +30,10 @@ export class AppComponent implements OnInit {
                 @Inject(UserModel) private userModel: UserModel,
                 @Inject(RecommendationModel) private recommendationModel: RecommendationModel) {
         this.currentView = new BehaviorSubject(window.sessionStorage.getItem("currentView") || 'list');
-        this.currentView.subscribe((view) => window.sessionStorage.setItem('currentView', view));
+        this.currentView.subscribe((view) => {
+            console.log(view);
+            window.sessionStorage.setItem('currentView', view)
+        });
     }
 
     public ngOnInit(): void {
