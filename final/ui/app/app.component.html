@@ -1,10 +1,9 @@
 <md-content>
     <md-toolbar class="md-hue-2">
         <div class="md-toolbar-tools">
-            <span flex
-                  ng-click="$ctrl.currentView.next('list')">
-                TubeRoom
-            </span>
+            <div flex layout="row">
+                <span style="pointer: cursor;" ng-click="$ctrl.currentView.next('list')">TubeRoom</span>
+            </div>
             <div ng-if="!$ctrl.currentUser">
                 <md-button ng-click="$ctrl.currentView.next('login')">
                     Login
