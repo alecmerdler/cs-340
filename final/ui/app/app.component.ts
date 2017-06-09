@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     public recommendationsList: RecommendationInstance[] = [];
     public userList: UserInstance[] = [];
     public isLoading: boolean = true;
-    public currentView: BehaviorSubject<string> = new BehaviorSubject('list');
+    public currentView: BehaviorSubject<string> = new BehaviorSubject(null);
     public loginData: {username: string, password: string};
     public signupData: UserInstance;
 
@@ -28,13 +28,8 @@ export class AppComponent implements OnInit {
     constructor(@Inject(MediaModel) private mediaModel: MediaModel,
                 @Inject(UserModel) private userModel: UserModel,
                 @Inject(RecommendationModel) private recommendationModel: RecommendationModel) {
-        this.currentView.subscribe((view) => {
-            window.localStorage.setItem('currentView', view);
-            console.log(window.localStorage.getItem("currentView"));
-        });
-        this.currentView.next(window.localStorage.getItem("currentView"));
-
-        console.log(window.localStorage.getItem("currentView"));
+        this.currentView.subscribe((view) => window.localStorage.setItem('currentView', view));
+        this.currentView.next(window.localStorage.getItem("currentView") || 'list');
     }
 
     public ngOnInit(): void {
