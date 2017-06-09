@@ -25,7 +25,7 @@
         <div flex="33">
             <md-card>
                 <md-card-content style="padding: 0;">
-                    <md-tabs md-dynamic-height>
+                    <md-tabs md-selected="$ctrl.currentView.getValue() == 'signup' ? 1 : 0" md-dynamic-height>
                         <md-tab label="Login">
                             <form name="$ctrl.loginForm"
                                   layout="column">
