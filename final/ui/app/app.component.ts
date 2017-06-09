@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
             window.sessionStorage.setItem('currentView', view)
         });
 
-        this.currentUser = window.sessionStorage.getItem('currentUser') || null;
+        this.currentUser = <UserInstance>JSON.parse(window.sessionStorage.getItem('currentUser')) || null;
     }
 
     public ngOnInit(): void {
@@ -49,10 +49,12 @@ export class AppComponent implements OnInit {
                 this.isLoading = false;
             });
 
-        this.recommendationModel.list()
-            .then((recommendationsList) => {
-                this.recommendationsList = recommendationsList;
-            });
+        if (this.currentUser) {
+            this.recommendationModel.list(this.currentUser.id)
+                .then((recommendationsList) => {
+                    this.recommendationsList = recommendationsList;
+                });
+        }
     }
 
     public createRecommendation(): void {
@@ -87,7 +89,7 @@ export class AppComponent implements OnInit {
         this.userModel.authenticateUser(this.loginData.username, this.loginData.password)
             .then((user: UserInstance) => {
                 this.currentUser = user;
-                window.sessionStorage.setItem('currentUser', this.currentUser);
+                window.sessionStorage.setItem('currentUser', JSON.stringify(this.currentUser));
                 this.isLoading = false;
                 this.loginAttempts = 0;
                 this.currentView.next('list');
