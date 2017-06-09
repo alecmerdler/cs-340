@@ -56,9 +56,7 @@ export class AppComponent implements OnInit {
     }
 
     public createRecommendation(): void {
-        // FIXME
         this.newRecommendation.recommenderID = this.currentUser.id;
-        this.newRecommendation.recommenderID = 1;
         this.recommendationModel.create(this.newRecommendation)
             .then((response) => {
                 this.newRecommendation = null;
@@ -105,6 +103,7 @@ export class AppComponent implements OnInit {
         this.userModel.create(this.signupData)
             .then((newUser: UserInstance) => {
                 this.currentUser = newUser;
+                window.sessionStorage.setItem('currentUser', this.currentUser);
                 this.isLoading = false;
                 this.currentView.next('list');
             })
