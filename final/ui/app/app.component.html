@@ -11,6 +11,11 @@
                     Signup
                 </md-button>
             </div>
+            <div ng-if="$ctrl.currentUser">
+                <md-button ng-click="$ctrl.logout()">
+                    Logout
+                </md-button>
+            </div>
         </h2>
     </md-toolbar>
 
@@ -59,7 +64,48 @@
                         </md-tab>
                         <md-tab label="Signup">
                             <form name="$ctrl.signupForm">
-
+                                <div layout="row" layout-align="center">
+                                    <md-input-container>
+                                        <label>Username</label>
+                                        <input name="username"
+                                               type="text"
+                                               ng-model="$ctrl.signupData.username"
+                                               required>
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <label>Email</label>
+                                        <input name="email"
+                                               type="text"
+                                               ng-model="$ctrl.signupData.email"
+                                               required>
+                                    </md-input-container>
+                                </div>
+                                <div layout="row" layout-align="center">
+                                    <md-input-container>
+                                        <label>First Name</label>
+                                        <input name="firstName"
+                                               type="text"
+                                               ng-model="$ctrl.signupData.firstName"
+                                               required>
+                                    </md-input-container>
+                                </div>
+                                <div layout="row" layout-align="center">
+                                    <md-input-container>
+                                        <label>Password</label>
+                                        <input name="password"
+                                               type="password"
+                                               ng-model="$ctrl.signupData.password"
+                                               required>
+                                    </md-input-container>
+                                </div>
+                                <div layout="row">
+                                    <span flex></span>
+                                    <md-button class="md-raised md-primary"
+                                               ng-click="$ctrl.signup()"
+                                               ng-disabled="$ctrl.signupForm.$dirty && $ctrl.signupForm.$invalid">
+                                        Next
+                                    </md-button>
+                                </div>
                             </form>
                         </md-tab>
                     </md-tabs>

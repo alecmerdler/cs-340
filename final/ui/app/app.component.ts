@@ -84,7 +84,7 @@ export class AppComponent implements OnInit {
 
         this.userModel.authenticateUser(this.loginData.username, this.loginData.password)
             .then((user: UserInstance) => {
-                console.log(user);
+                this.currentUser = user;
                 this.isLoading = false;
                 this.loginAttempts = 0;
                 this.currentView.next('list');
@@ -105,6 +105,11 @@ export class AppComponent implements OnInit {
             .catch((error) => {
                 this.isLoading = false;
             });
+    }
+
+    public logout(): void {
+        this.currentView.next('login');
+        this.currentUser = null;
     }
 
     private tileClass(index: number): string {
