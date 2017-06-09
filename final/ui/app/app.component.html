@@ -5,17 +5,10 @@
                 <span style="cursor: pointer;" ng-click="$ctrl.currentView.next('list')">TubeRoom</span>
             </div>
             <div ng-if="!$ctrl.currentUser">
-                <md-button ng-click="$ctrl.currentView.next('login')">
-                    Login
-                </md-button>
-                <md-button ng-click="$ctrl.currentView.next('signup')">
-                    Signup
-                </md-button>
+                <md-button ng-click="$ctrl.currentView.next('login')">Login</md-button>
             </div>
             <div ng-if="$ctrl.currentUser">
-                <md-button ng-click="$ctrl.logout()">
-                    Logout
-                </md-button>
+                <md-button ng-click="$ctrl.logout()">Logout</md-button>
             </div>
         </div>
     </md-toolbar>
@@ -165,7 +158,7 @@
                     <!-- Anonymous User -->
                     <div class="empty-list"
                          ng-if="!$ctrl.currentUser">
-                        <i class="material-icons">account_circle</i> <span>Log in to create recommendations</span>
+                        <i class="material-icons">account_circle</i> <span>Login to create recommendations</span>
                     </div>
 
                     <!-- Logged In User -->
