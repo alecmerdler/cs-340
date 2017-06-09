@@ -21,3 +21,7 @@
 .media-tile.red {
     background: #ff8a80;
 }
+
+.empty-list {
+    display: flex;
+}
