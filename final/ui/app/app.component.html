@@ -124,8 +124,14 @@
                         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
                     </div>
                     <md-list ng-if="!$ctrl.isLoading">
+                        <!-- Anonymous User -->
+                        <md-list-item ng-if="!$ctrl.currentUser">
+                            <div class="empty-list">
+                                <i class="material-icons">forum</i> <span>Login to view recommendations</span>
+                            </div>
+                        </md-list-item>
                         <!-- Empty List -->
-                        <md-list-item ng-if="$ctrl.recommendationsList.length == 0">
+                        <md-list-item ng-if="$ctrl.recommendationsList.length == 0 && $ctrl.currentUser">
                             <div class="empty-list">
                                 <i class="material-icons">forum</i> <span>You have no recommendations</span>
                             </div>
@@ -155,39 +161,47 @@
                     <span class="md-headline">New Recommendation</span>
                 </md-card-title>
                 <md-card-content layout="row">
-                    <div layout="column" flex="1" style="padding: 10px;">
-                        <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
-                             height="50" width="50"
-                             class="md-avatar" />
+                    <!-- Anonymous User -->
+                    <div ng-if="!$ctrl.currentUser">
+                        <span>Log in to create recommendations</span>
                     </div>
-                    <div layout="column" flex="4" style="width: 100%">
-                        <md-input-container>
-                            <label>Media</label>
-                            <md-select ng-model="$ctrl.newRecommendation.mediaID">
-                                <md-option ng-repeat="media in $ctrl.mediaList"
-                                           ng-value="media.id">
-                                    {{ media.title }}
-                                </md-option>
-                            </md-select>
-                        </md-input-container>
 
-                        <md-input-container>
-                            <label>For</label>
-                            <md-select ng-model="$ctrl.newRecommendation.recommendedToID">
-                                <md-option ng-repeat="user in $ctrl.userList"
-                                           ng-value="user.id">
-                                    {{ user.firstName }} {{ user.lastName }} ({{ user.username }})
-                                </md-option>
-                            </md-select>
-                        </md-input-container>
+                    <!-- Logged In User -->
+                    <div ng-if="$ctrl.currentUser">
+                        <div layout="column" flex="1" style="padding: 10px;">
+                            <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
+                                 height="50" width="50"
+                                 class="md-avatar" />
+                        </div>
+                        <div layout="column" flex="4" style="width: 100%">
+                            <md-input-container>
+                                <label>Media</label>
+                                <md-select ng-model="$ctrl.newRecommendation.mediaID">
+                                    <md-option ng-repeat="media in $ctrl.mediaList"
+                                               ng-value="media.id">
+                                        {{ media.title }}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
 
-                        <md-input-container>
-                            <label>Message</label>
-                            <input name="message"
-                                   type="text"
-                                   ng-model="$ctrl.newRecommendation.message"
-                                   required>
-                        </md-input-container>
+                            <md-input-container>
+                                <label>For</label>
+                                <md-select ng-model="$ctrl.newRecommendation.recommendedToID">
+                                    <md-option ng-repeat="user in $ctrl.userList"
+                                               ng-value="user.id">
+                                        {{ user.firstName }} {{ user.lastName }} ({{ user.username }})
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+
+                            <md-input-container>
+                                <label>Message</label>
+                                <input name="message"
+                                       type="text"
+                                       ng-model="$ctrl.newRecommendation.message"
+                                       required>
+                            </md-input-container>
+                        </div>
                     </div>
                 </md-card-content>
 
