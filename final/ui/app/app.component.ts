@@ -30,6 +30,8 @@ export class AppComponent implements OnInit {
                 @Inject(RecommendationModel) private recommendationModel: RecommendationModel) {
         this.currentView.subscribe((view) => window.sessionStorage.setItem('currentView', view));
         this.currentView.next(window.localStorage.getItem("currentView"));
+
+        console.debug(this.currentView.getValue());
     }
 
     public ngOnInit(): void {
