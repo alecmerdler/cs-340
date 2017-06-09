@@ -24,4 +24,9 @@
 
 .empty-list {
     display: flex;
+    align-items: center;
+}
+
+.empty-list span {
+    padding: 10px;
 }
