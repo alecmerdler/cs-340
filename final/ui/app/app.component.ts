@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     public recommendationsList: RecommendationInstance[] = [];
     public userList: UserInstance[] = [];
     public isLoading: boolean = true;
-    public currentView: BehaviorSubject = new BehaviorSubject('list');
+    public currentView: BehaviorSubject<string> = new BehaviorSubject('list');
     public loginData: {username: string, password: string};
     public signupData: UserInstance;
 
