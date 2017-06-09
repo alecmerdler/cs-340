@@ -28,11 +28,11 @@ export class AppComponent implements OnInit {
     constructor(@Inject(MediaModel) private mediaModel: MediaModel,
                 @Inject(UserModel) private userModel: UserModel,
                 @Inject(RecommendationModel) private recommendationModel: RecommendationModel) {
+        console.log(window.sessionStorage.getItem("currentView"));
         this.currentView.subscribe((view) => {
-            console.log(window.localStorage.getItem("currentView"));
-            window.localStorage.setItem('currentView', view);
+            window.sessionStorage.setItem('currentView', view);
         });
-        this.currentView.next(window.localStorage.getItem("currentView") || 'list');
+        this.currentView.next(window.sessionStorage.getItem("currentView") || 'list');
     }
 
     public ngOnInit(): void {
