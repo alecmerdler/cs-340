@@ -28,8 +28,13 @@ export class AppComponent implements OnInit {
     constructor(@Inject(MediaModel) private mediaModel: MediaModel,
                 @Inject(UserModel) private userModel: UserModel,
                 @Inject(RecommendationModel) private recommendationModel: RecommendationModel) {
-        this.currentView.subscribe((view) => window.localStorage.setItem('currentView', view));
+        this.currentView.subscribe((view) => {
+            window.localStorage.setItem('currentView', view);
+            console.log(window.localStorage.getItem("currentView"));
+        });
         this.currentView.next(window.localStorage.getItem("currentView"));
+
+        console.log(window.localStorage.getItem("currentView"));
     }
 
     public ngOnInit(): void {
