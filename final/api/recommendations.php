@@ -65,10 +65,12 @@ function create_recommendation($recommendation) {
     $conn = create_db_connection();
 
     $stmt = $conn->prepare("INSERT INTO Recommendations (message, mediaID, recommenderID, recommendedToID) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("siii", $recommendation["message"],
-                               $recommendation["mediaID"],
-                               $recommendation["recommenderID"],
-                               $recommendation["recommendedToID"]);
+    $success = $stmt->bind_param("siii", $recommendation["message"],
+                              $recommendation["mediaID"],
+                              $recommendation["recommenderID"],
+                              $recommendation["recommendedToID"]);
+
+    var_dump($success);
 
     if (!$stmt->execute()) {
         $error = array("message" => $stmt->error);
