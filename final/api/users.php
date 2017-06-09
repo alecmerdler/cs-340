@@ -116,7 +116,6 @@ function remove_user($username) {
     if (!$stmt->execute()) {
         $error = array("message" => $stmt->error);
         array_push($error, array("type" => "general"));
-
         throw new Exception(json_decode($error));
     }
 

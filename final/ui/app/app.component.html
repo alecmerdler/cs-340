@@ -24,13 +24,14 @@
                     <md-tabs md-dynamic-height>
                         <md-tab label="Login">
                             <form name="$ctrl.loginForm"
+                                  ng-submit="$ctrl.login()"
                                   layout="column">
                                 <div layout="row" layout-align="center">
                                     <md-input-container>
                                         <label>Username</label>
                                         <input name="username"
                                                type="text"
-                                               ng-model="$ctrl.login.username"
+                                               ng-model="$ctrl.loginData.username"
                                                required>
                                     </md-input-container>
                                 </div>
@@ -39,13 +40,13 @@
                                         <label>Password</label>
                                         <input name="password"
                                                type="password"
-                                               ng-model="$ctrl.login.password"
+                                               ng-model="$ctrl.loginData.password"
                                                required>
                                     </md-input-container>
                                 </div>
                                 <div layout="row">
                                     <span flex>
-                                        <a>Forgot password?</a>
+                                        <a href="#">Forgot password?</a>
                                     </span>
                                     <md-button class="md-raised md-primary"
                                                ng-click="$ctrl.login()"

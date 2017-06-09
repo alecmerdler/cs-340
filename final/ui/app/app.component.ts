@@ -3,6 +3,7 @@ import { UserModel, UserInstance } from '../models/user/user.model';
 import { MediaModel, MediaInstance } from '../models/media/media.model';
 import { RecommendationModel, RecommendationInstance, RecommendationAttributes } from '../models/recommendation/recommendation.model';
 import template from './app.component.html';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import './app.component.css';
 
 
@@ -17,7 +18,7 @@ export class AppComponent implements OnInit {
     public recommendationsList: RecommendationInstance[] = [];
     public userList: UserInstance[] = [];
     public isLoading: boolean = true;
-    public currentView: string = 'list';
+    public currentView: BehaviorSubject = new BehaviorSubject('list');
     public loginData: {username: string, password: string};
     public signupData: UserInstance;
 
@@ -27,7 +28,8 @@ export class AppComponent implements OnInit {
     constructor(@Inject(MediaModel) private mediaModel: MediaModel,
                 @Inject(UserModel) private userModel: UserModel,
                 @Inject(RecommendationModel) private recommendationModel: RecommendationModel) {
-
+        this.currentView.subscribe((view) => window.sessionStorage.setItem('currentView', view));
+        this.currentView.next(window.localStorage.getItem("currentView"));
     }
 
     public ngOnInit(): void {
@@ -87,7 +89,10 @@ export class AppComponent implements OnInit {
     }
 
     public signup(): void {
-        console.log(this.signup);
+        this.userModel.create(this.signupData)
+            .then((newUser: UserInstance) => {
+                console.log(newUser);
+            });
     }
 
     private tileClass(index: number): string {
