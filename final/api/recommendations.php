@@ -31,21 +31,22 @@ function handle_request($method) {
 
 
 /*
- * List all recommendations in database.
+ * List all recommendations for a given user ID.
  */
-function list_recommendations() {
+function list_recommendations($user_id) {
     $response = array();
     $conn = create_db_connection();
 
-    $stmt = "SELECT *
-             FROM Recommendations, Users, Media 
-             WHERE Media.id = mediaID AND Recommendations.recommenderID = Users.id
-            ";
+    $stmt = $conn->prepare("SELECT *
+                            FROM Recommendations, Users, Media 
+                            WHERE Media.id = mediaID 
+                              AND Recommendations.recommenderID = Users.id 
+                              AND Recommendations.recommendedToID = ?");
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
 
-    $result = $conn->query($stmt);
-
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
+    if ($stmt->get_result()->num_rows > 0) {
+        while($row = $stmt->get_result()->fetch_assoc()) {
             array_push($response, $row);
         }
     }
@@ -54,9 +55,6 @@ function list_recommendations() {
 
     return json_encode($response);
 }
-
-
-// TODO: Filter by user
 
 
 /*

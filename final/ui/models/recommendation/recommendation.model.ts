@@ -20,13 +20,15 @@ export type RecommendationInstance = {
 @Injectable()
 export class RecommendationModel {
 
+    private readonly resourceURL: string = '/~merdlera/cs340/final/api/recommendations.php';
+
     constructor(@Inject('$http') private $http: ng.IHttpService,
                 @Inject('$q') private $q: ng.IQService) {
 
     }
 
     public create(recommendation: RecommendationAttributes): ng.IPromise<RecommendationInstance> {
-        return this.$http.post<RecommendationInstance>('/~merdlera/cs340/final/api/recommendations.php', recommendation)
+        return this.$http.post<RecommendationInstance>(this.resourceURL, recommendation)
             .then((response) => {
                 return this.$q.resolve(response.data);
             })
@@ -35,8 +37,8 @@ export class RecommendationModel {
             });
     }
 
-    public list(): ng.IPromise<RecommendationInstance[]> {
-        return this.$http.get<RecommendationInstance[]>('/~merdlera/cs340/final/api/recommendations.php')
+    public list(userID: number): ng.IPromise<RecommendationInstance[]> {
+        return this.$http.get<RecommendationInstance[]>(`${this.resourceURL}?userID=${userID}`)
             .then((response) => {
                 return this.$q.resolve(response.data);
             })
