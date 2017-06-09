@@ -67,28 +67,28 @@
                                         <input name="username"
                                                type="text"
                                                ng-model="$ctrl.signupData.username"
-                                               required>
+                                               md-maxlength="20" required>
                                     </md-input-container>
                                     <md-input-container>
                                         <label>Email</label>
                                         <input name="email"
                                                type="text"
                                                ng-model="$ctrl.signupData.email"
-                                               required>
+                                               md-maxlength="40" required>
                                     </md-input-container>
                                     <md-input-container>
                                         <label>First Name</label>
                                         <input name="firstName"
                                                type="text"
                                                ng-model="$ctrl.signupData.firstName"
-                                               required>
+                                               md-maxlength="20" required>
                                     </md-input-container>
                                     <md-input-container>
                                         <label>Password</label>
                                         <input name="password"
                                                type="password"
                                                ng-model="$ctrl.signupData.password"
-                                               required>
+                                               md-maxlength="20" required>
                                     </md-input-container>
                                 </div>
                                 <div layout="row">
