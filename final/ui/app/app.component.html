@@ -44,9 +44,10 @@
                                 </div>
                                 <div layout="row">
                                     <span ng-show="!$ctrl.currentUser && $ctrl.loginAttempts > 0"
-                                          layout="column" layout-align="center" flex>
+                                          layout="row" layout-align="center center">
                                         Invalid Credentials
                                     </span>
+                                    <span flex></span>
                                     <md-button class="md-raised md-primary"
                                                ng-click="$ctrl.login()"
                                                ng-disabled="$ctrl.loginForm.$dirty && $ctrl.loginForm.$invalid">
