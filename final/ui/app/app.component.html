@@ -122,9 +122,13 @@
                         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
                     </div>
                     <md-list ng-if="!$ctrl.isLoading">
-                        <md-list-item ng-if="!$ctrl.recommendationsList">
-                            <i class="material-icons">forum</i> You have no recommendations
+                        <!-- Empty List -->
+                        <md-list-item ng-if="$ctrl.recommendationsList.length == 0">
+                            <div class="empty-list">
+                                <i class="material-icons">forum</i> You have no recommendations
+                            </div>
                         </md-list-item>
+                        <!-- Full List -->
                         <md-list-item class="md-3-line"
                                       ng-repeat="recommendation in $ctrl.recommendationsList"
                                       ng-click="null">
