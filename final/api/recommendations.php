@@ -10,7 +10,6 @@ function handle_request($method) {
         switch($method) {
             case "GET":
                 http_response_code(200);
-                // FIXME: Get userID query parameter
                 echo json_encode(list_recommendations(intval($_GET['userID'])));
                 break;
 
@@ -46,6 +45,7 @@ function list_recommendations($user_id) {
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
 
+    var_dump($stmt->get_result()->fetch_assoc());
     if ($stmt->get_result()->num_rows > 0) {
         while ($row = $stmt->get_result()->fetch_assoc()) {
             array_push($response, $row);
