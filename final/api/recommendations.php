@@ -43,9 +43,8 @@ function list_recommendations($user_id) {
                             WHERE Media.id = mediaID 
                               AND Recommendations.recommenderID = Users.id 
                               AND Recommendations.recommendedToID = ?");
-
-    var_dump($stmt);
     $stmt->bind_param("i", $user_id);
+    var_dump($stmt);
     $stmt->execute();
 
     if ($stmt->get_result()->num_rows > 0) {
