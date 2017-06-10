@@ -11,7 +11,7 @@ import './app.component.css';
     selector: 'app',
     template: template,
     legacy: {
-        controllerAs: false
+        controllerAs: ""
     }
 })
 export class AppComponent implements OnInit {
