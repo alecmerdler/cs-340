@@ -230,9 +230,9 @@
                             <md-grid-tile-header>
                                 <h3>{{ media.title }}</h3>
                             </md-grid-tile-header>
-
-                            <span ng-cloak>{{ media.description }}</span>
-
+                            <div style="margin: 20px;" ng-cloak>
+                                {{ media.description }}
+                            </div>
                             <md-grid-tile-footer>
                                 <md-button ng-click="$ctrl.recommendMedia(media)">Recommend</md-button>
                                 <md-button ng-click="$ctrl.reviewMedia(media)">Review</md-button>
