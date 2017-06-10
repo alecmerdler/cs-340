@@ -38,6 +38,8 @@ function list_recommendations($user_id) {
     $response = array();
     $conn = create_db_connection();
 
+    var_dump($user_id);
+
     $stmt = $conn->prepare("SELECT *
                             FROM Recommendations, Users, Media 
                             WHERE Media.id = mediaID 
