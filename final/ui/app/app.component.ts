@@ -76,7 +76,7 @@ export class AppComponent implements OnInit {
     }
 
     public recommendMedia(media: MediaInstance): void {
-
+        this.newRecommendation.mediaID = media.id;
     }
 
     public reviewMedia(media: MediaInstance): void {
