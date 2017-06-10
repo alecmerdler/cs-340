@@ -70,7 +70,7 @@ function create_recommendation($recommendation) {
                               $recommendation["mediaID"],
                               $recommendation["recommenderID"],
                               $recommendation["recommendedToID"]);
-    
+
     if (!$stmt->execute()) {
         $error = array("message" => $stmt->error);
         if (strpos($stmt->error, "Duplicate") !== false) {
