@@ -93,6 +93,8 @@ export class AppComponent implements OnInit {
                 this.isLoading = false;
                 this.loginAttempts = 0;
                 this.currentView.next('list');
+
+                this.ngOnInit();
             })
             .catch((error) => {
                 this.isLoading = false;
