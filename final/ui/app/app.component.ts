@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     public loginData: {username: string, password: string};
     public signupData: UserInstance;
 
-    private newRecommendation: RecommendationAttributes;
+    private newRecommendation: RecommendationAttributes = {};
     private readonly mediaLimit: number = 6;
     private loginAttempts: number = 0;
 
