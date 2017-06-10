@@ -38,11 +38,6 @@ export class AppComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        this.userModel.list()
-            .then((userList) => {
-                this.userList = userList;
-            });
-
         this.mediaModel.list()
             .then((mediaList) => {
                 this.mediaList = mediaList;
@@ -50,6 +45,11 @@ export class AppComponent implements OnInit {
             });
 
         if (this.currentUser) {
+            this.userModel.list()
+                .then((userList) => {
+                    this.userList = userList.filter(user => user.id != this.currentUser.id);
+                });
+
             this.recommendationModel.list(this.currentUser.id)
                 .then((recommendationsList) => {
                     this.recommendationsList = recommendationsList;
