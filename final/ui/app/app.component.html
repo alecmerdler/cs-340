@@ -158,8 +158,9 @@
                         <i class="material-icons">account_circle</i> <span>Login to create recommendations</span>
                     </div>
                     <!-- Logged In User -->
-                    <div flex layout="row"
-                         ng-if="$ctrl.currentUser">
+                    <form name="$ctrl.newRecommendationForm"
+                          flex layout="row"
+                          ng-if="$ctrl.currentUser">
                         <div layout="column" flex="1" style="padding: 10px;">
                             <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
                                  height="50" width="50"
@@ -194,12 +195,14 @@
                                        md-maxlength="500" required></textarea>
                             </md-input-container>
                         </div>
-                    </div>
+                    </form>
                 </md-card-content>
 
                 <md-card-actions layout="row" layout-align="end center">
                     <md-button class="md-primary"
-                               ng-click="$ctrl.createRecommendation()">
+                               ng-if="$ctrl.currentUser"
+                               ng-click="$ctrl.createRecommendation()"
+                               ng-disabled="$ctrl.newRecommendationForm.$invalid && $ctrl.newRecommendationForm.$dirty">
                         Create
                     </md-button>
                 </md-card-actions>
