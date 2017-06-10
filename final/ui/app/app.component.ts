@@ -10,9 +10,6 @@ import './app.component.css';
 @Component({
     selector: 'app',
     template: template,
-    legacy: {
-        controllerAs: ""
-    }
 })
 export class AppComponent implements OnInit {
 
