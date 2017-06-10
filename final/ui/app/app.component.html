@@ -236,7 +236,7 @@
                             <div class="media-description" ng-cloak>
                                 {{ media.description }}
                             </div>
-                            <md-grid-tile-footer>
+                            <md-grid-tile-footer ng-if="$ctrl.currentUser">
                                 <md-button ng-click="$ctrl.recommendMedia(media)">Recommend</md-button>
                                 <md-button ng-click="$ctrl.reviewMedia(media)">Review</md-button>
                             </md-grid-tile-footer>
