@@ -11,7 +11,7 @@ function handle_request($method) {
             case "GET":
                 http_response_code(200);
                 // FIXME: Get userID query parameter
-                echo json_encode(list_recommendations());
+                echo json_encode(list_recommendations($_GET['userID']));
                 break;
 
             case "POST":
