@@ -9,6 +9,9 @@ import template from './media-browser.component.html';
 })
 export class MediaBrowserComponent implements OnInit {
 
+    @Output() public review: EventEmitter<MediaInstance> = new EventEmitter();
+    @Output() public recommend: EventEmitter<MediaInstance> = new EventEmitter();
+
     public mediaList: MediaInstance[] = [];
     public isLoading: boolean = true;
 
@@ -27,11 +30,11 @@ export class MediaBrowserComponent implements OnInit {
     }
 
     public recommendMedia(media: MediaInstance): void {
-
+        this.recommend.emit(media);
     }
 
     public reviewMedia(media: MediaInstance): void {
-
+        this.review.emit(media);
     }
 
     private tileClass(index: number): string {

@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
     public currentView: BehaviorSubject<string>;
 
     private newRecommendation: RecommendationAttributes = {};
+    private newReview: ReviewAttributes = {};
     private readonly mediaLimit: number = 6;
 
     constructor(@Inject(MediaModel) private mediaModel: MediaModel,
@@ -79,7 +80,7 @@ export class AppComponent implements OnInit {
     }
 
     public reviewMedia(media: MediaInstance): void {
-
+        this.newReview.mediaID = media.id;
     }
 
     public onLogin(user: UserInstance): void {
@@ -96,11 +97,5 @@ export class AppComponent implements OnInit {
         this.currentView.next('login');
         this.currentUser = null;
         window.sessionStorage.removeItem('currentUser');
-    }
-
-    private tileClass(index: number): string {
-        const colors: string[] = ['grey', 'green', 'yellow', 'blue', 'purple', 'red'];
-
-        return colors[index % colors.length];
     }
 }

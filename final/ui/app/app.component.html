@@ -223,7 +223,8 @@
         </div>
 
         <div flex="50">
-            <media-browser></media-browser>
+            <media-browser (review)="$ctrl.reviewMedia($event)"
+                           (recommend)="$ctrl.recommendMedia($event)"></media-browser>
         </div>
     </div>
 </md-content>
