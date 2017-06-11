@@ -21,12 +21,11 @@ export class ReviewsListComponent implements OnChanges {
     public isLoading: boolean = true;
 
     public ngOnChanges(changes: SimpleChanges): void {
-        if (this.reviews.length) {
-            this.isLoading = false;
-        }
+        this.isLoading = false;
     }
 
     public submitReview(): void {
+        this.isLoading = true;
         this.newReview.numStars = this.reviewStars.filter(star => star).length;
         this.createReview.emit(this.newReview);
     }

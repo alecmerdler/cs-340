@@ -72,7 +72,10 @@ export class AppComponent implements OnInit {
         review.mediaID = this.currentMedia.id;
         this.reviewModel.create(review)
             .then((newReview) => {
-                console.log(newReview);
+                return this.reviewModel.listByMedia(this.currentMedia.id);
+            })
+            .then((updatedReviews) => {
+                this.mediaReviews[this.currentMedia.id] = updatedReviews;
             });
     }
 
