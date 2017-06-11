@@ -22,6 +22,6 @@ export class ActivityFeedComponent implements OnInit, OnChanges {
 
     public ngOnChanges(changes: SimpleChanges): void {
         this.isLoading = true;
-        window.setTimeout(() => this.isLoading = false, 200);
+        window.setTimeout(() => this.isLoading = false, 500);
     }
 }
