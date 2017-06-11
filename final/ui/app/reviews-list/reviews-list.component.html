@@ -73,7 +73,7 @@
     <md-card-actions layout="row" layout-align="end center"
                      ng-if="$ctrl.canReview">
         <md-button class="md-primary"
-                   ng-click="$ctrl.createReview.emit($ctrl.newReview)"
+                   ng-click="$ctrl.submitReview()"
                    ng-disabled="$ctrl.newReviewForm.$invalid && $ctrl.newReviewForm.$dirty">
             Create
         </md-button>
