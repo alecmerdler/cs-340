@@ -34,7 +34,7 @@
                  ng-if="!$ctrl.canReview">
                 <i class="material-icons">account_circle</i> <span>Login to create review</span>
             </div>
-            
+
             <!-- Logged In User -->
             <form name="$ctrl.newReviewForm"
                   flex layout="row"
@@ -64,7 +64,7 @@
     <md-card-actions layout="row" layout-align="end center"
                      ng-if="$ctrl.canReview">
         <md-button class="md-primary"
-                   ng-click="$ctrl.createReview()"
+                   ng-click="$ctrl.createReview.emit($ctrl.newReview)"
                    ng-disabled="$ctrl.newReviewForm.$invalid && $ctrl.newReviewForm.$dirty">
             Create
         </md-button>

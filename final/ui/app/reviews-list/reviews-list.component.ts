@@ -25,8 +25,4 @@ export class ReviewsListComponent implements OnInit, OnChanges {
     public ngOnChanges(changes: SimpleChanges): void {
 
     }
-
-    public createReview(): void {
-
-    }
 }
