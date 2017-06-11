@@ -49,7 +49,7 @@ export class ReviewModel {
     }
 
     public listByMedia(mediaID: number): ng.IPromise<ReviewInstance[]> {
-        return this.$http.get<ReviewInstance[]>(`${this.resourceURL}?mediaID=${userID}`)
+        return this.$http.get<ReviewInstance[]>(`${this.resourceURL}?mediaID=${mediaID}`)
             .then((response) => {
                 return this.$q.resolve(response.data);
             })

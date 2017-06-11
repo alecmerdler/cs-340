@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     public currentUser: UserInstance;
     public mediaList: MediaInstance[] = [];
     public recommendationsList: RecommendationInstance[] = [];
-    public userReviews: {[userID: number]: ReviewInstance};
+    public userReviews: {[userID: number]: ReviewInstance[]};
     public userList: UserInstance[] = [];
     public isLoading: boolean = true;
     public currentView: BehaviorSubject<string>;
