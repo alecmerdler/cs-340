@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
     public userReviews: {[userID: number]: ReviewInstance[]} = {};
     public mediaReviews: {[mediaID: number]: ReviewInstance[]} = {};
     public userList: UserInstance[] = [];
-    public isLoading: boolean = true;
     public currentView: BehaviorSubject<string>;
     public currentMedia: MediaInstance;
 
@@ -41,7 +40,6 @@ export class AppComponent implements OnInit {
         this.mediaModel.list()
             .then((mediaList) => {
                 this.mediaList = mediaList;
-                this.isLoading = false;
             });
 
         if (this.currentUser) {
