@@ -46,7 +46,7 @@ function list_recommendations($user_id) {
     $stmt->execute();
 
     while ($row = $stmt->get_result()) {
-        if ($row->fetch_assoc()) {
+        if (count($row->fetch_assoc())) {
             array_push($response, $row->fetch_assoc());
         }
     }
