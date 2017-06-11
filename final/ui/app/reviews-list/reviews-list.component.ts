@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit, OnChanges, SimpleChanges, Output, EventEmitter, Input } from 'ng-metadata/core';
 import { ReviewAttributes, ReviewInstance, ReviewModel } from '../../models/review/review.model';
-import template from './media-detail.component.html';
+import template from './reviews-list.component.html';
 
 
 @Component({

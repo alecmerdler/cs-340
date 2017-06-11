@@ -88,7 +88,7 @@ export class AppComponent implements OnInit {
             .then((reviewsList) => {
                 this.mediaReviews[media.id] = reviewsList;
             });
-        
+
         this.newReview.mediaID = media.id;
         this.currentMedia = media;
         this.currentView.next('detail');
