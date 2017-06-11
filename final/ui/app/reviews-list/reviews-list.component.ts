@@ -28,6 +28,8 @@ export class ReviewsListComponent implements OnChanges {
         this.isLoading = true;
         this.newReview.numStars = this.reviewStars.filter(star => star).length;
         this.createReview.emit(this.newReview);
+        this.newReview = {};
+        this.reviewStars = [false, false, false, false, false];
     }
 
     private setStars(stars: number): void {
