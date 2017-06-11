@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
         this.currentView.subscribe((view) => {
             window.sessionStorage.setItem('currentView', view);
 
-            if (view === 'detail') {
+            if (view === 'detail' && !this.currentMedia) {
                 this.currentView.next('list');
             }
         });
