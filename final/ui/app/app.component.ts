@@ -24,9 +24,6 @@ export class AppComponent implements OnInit {
     public currentView: BehaviorSubject<string>;
     public currentMedia: MediaInstance;
 
-    private newRecommendation: RecommendationAttributes = {};
-    private readonly mediaLimit: number = 6;
-
     constructor(@Inject(MediaModel) private mediaModel: MediaModel,
                 @Inject(UserModel) private userModel: UserModel,
                 @Inject(RecommendationModel) private recommendationModel: RecommendationModel,
@@ -65,19 +62,19 @@ export class AppComponent implements OnInit {
         }
     }
 
-    public createRecommendation(): void {
-        this.newRecommendation.recommenderID = this.currentUser.id;
-        this.recommendationModel.create(this.newRecommendation)
-            .then((response) => {
-                this.newRecommendation = null;
-            });
-    }
-
     public onCreateReview(review: ReviewAttributes): void {
         review.userID = this.currentUser.id;
         this.reviewModel.create(review)
             .then((newReview) => {
                 console.log(newReview);
+            });
+    }
+
+    public onCreateRecommendation(recommendation: RecommendationAttributes): void {
+        recommendation.recommenderID = this.currentUser.id;
+        this.recommendationModel.create(recommendation)
+            .then((newRecommendation) => {
+                console.log(newRecommendation);
             });
     }
 

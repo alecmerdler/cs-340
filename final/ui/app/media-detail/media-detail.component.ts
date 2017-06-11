@@ -1,5 +1,6 @@
-import { Component, Inject, OnInit, OnChanges, SimpleChanges, Output, EventEmitter, Input } from 'ng-metadata/core';
+import { Component, OnChanges, SimpleChanges, Output, EventEmitter, Input } from 'ng-metadata/core';
 import { MediaInstance } from '../../models/media/media.model';
+import { RecommendationAttributes } from '../../models/recommendation/recommendation.model';
 import template from './media-detail.component.html';
 
 
@@ -7,14 +8,16 @@ import template from './media-detail.component.html';
     selector: 'media-detail',
     template: template,
 })
-export class MediaDetailComponent implements OnInit, OnChanges {
+export class MediaDetailComponent implements OnChanges {
 
     @Input() public media: MediaInstance;
+    @Input() public canRecommend: boolean = false;
+
+    @Ouput() public createRecommendation: EventEmitter<RecommendationAttributes> = new EventEmitter();
+
     public isLoading: boolean = true;
 
-    public ngOnInit(): void {
-
-    }
+    private newRecommendation: RecommendationAttributes = {};
 
     public ngOnChanges(changes: SimpleChanges): void {
 

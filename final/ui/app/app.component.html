@@ -29,75 +29,15 @@
          ng-if="$ctrl.currentView.getValue() != 'login' && $ctrl.currentView.getValue() != 'signup'">
         <div flex="50">
             <media-detail ng-if="$ctrl.currentView.getValue() == 'detail'"
-                          [media]="$ctrl.currentMedia"></media-detail>
+                          [media]="$ctrl.currentMedia"
+                          [can-recommend]="$ctrl.currentUser"
+                          (create-recommendation)="$ctrl.onCreateRecommendation($event)"></media-detail>
 
             <!-- Reviews/Recommendations List -->
             <activity-feed ng-if="$ctrl.currentView.getValue() == 'list'"
                            [reviews]="$ctrl.userReviews[$ctrl.currentUser.id]"
                            [recommendations]="$ctrl.userRecommendations"
                            [is-anonymous]="!$ctrl.currentUser"></activity-feed>
-
-            <!-- Create Recommendation -->
-            <md-card>
-                <md-card-title>
-                    <span class="md-headline">New Recommendation</span>
-                </md-card-title>
-                <md-card-content layout="row">
-                    <!-- Anonymous User -->
-                    <div class="empty-list"
-                         ng-if="!$ctrl.currentUser">
-                        <i class="material-icons">account_circle</i> <span>Login to create recommendations</span>
-                    </div>
-                    <!-- Logged In User -->
-                    <form name="$ctrl.newRecommendationForm"
-                          flex layout="row"
-                          ng-if="$ctrl.currentUser">
-                        <div layout="column" flex="1" style="padding: 10px;">
-                            <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
-                                 height="50" width="50"
-                                 class="md-avatar" />
-                        </div>
-                        <div layout="column" flex="4" style="width: 100%">
-                            <md-input-container>
-                                <label>Media</label>
-                                <md-select ng-model="$ctrl.newRecommendation.mediaID">
-                                    <md-option ng-repeat="media in $ctrl.mediaList"
-                                               ng-value="media.id">
-                                        {{ media.title }}
-                                    </md-option>
-                                </md-select>
-                            </md-input-container>
-
-                            <md-input-container>
-                                <label>For</label>
-                                <md-select ng-model="$ctrl.newRecommendation.recommendedToID">
-                                    <md-option ng-repeat="user in $ctrl.userList"
-                                               ng-value="user.id">
-                                        {{ user.firstName }} {{ user.lastName }} ({{ user.username }})
-                                    </md-option>
-                                </md-select>
-                            </md-input-container>
-
-                            <md-input-container>
-                                <label>Message</label>
-                                <textarea name="message"
-                                       type="text"
-                                       ng-model="$ctrl.newRecommendation.message"
-                                       md-maxlength="500" required></textarea>
-                            </md-input-container>
-                        </div>
-                    </form>
-                </md-card-content>
-
-                <md-card-actions layout="row" layout-align="end center"
-                                 ng-if="$ctrl.currentUser">
-                    <md-button class="md-primary"
-                               ng-click="$ctrl.createRecommendation()"
-                               ng-disabled="$ctrl.newRecommendationForm.$invalid && $ctrl.newRecommendationForm.$dirty">
-                        Create
-                    </md-button>
-                </md-card-actions>
-            </md-card>
         </div>
 
         <div flex="50">

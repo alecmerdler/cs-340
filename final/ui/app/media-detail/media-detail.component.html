@@ -4,5 +4,64 @@
     </md-card-title>
     <md-card-content>
 
+        <!-- TODO: Media details -->
+
+        <md-divider></md-divider>
+        <md-card-title>
+            <span class="md-subhead">Recommend to a friend</span>
+        </md-card-title>
+
+        <!-- Anonymous User -->
+        <div class="empty-list"
+             ng-if="!$ctrl.currentUser">
+            <i class="material-icons">account_circle</i> <span>Login to create recommendations</span>
+        </div>
+        <!-- Logged In User -->
+        <form name="$ctrl.newRecommendationForm"
+              flex layout="row"
+              ng-if="$ctrl.currentUser">
+            <div layout="column" flex="1" style="padding: 10px;">
+                <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
+                     height="50" width="50"
+                     class="md-avatar" />
+            </div>
+            <div layout="column" flex="4" style="width: 100%">
+                <md-input-container>
+                    <label>Media</label>
+                    <md-select ng-model="$ctrl.newRecommendation.mediaID">
+                        <md-option ng-repeat="media in $ctrl.mediaList"
+                                   ng-value="media.id">
+                            {{ media.title }}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>For</label>
+                    <md-select ng-model="$ctrl.newRecommendation.recommendedToID">
+                        <md-option ng-repeat="user in $ctrl.userList"
+                                   ng-value="user.id">
+                            {{ user.firstName }} {{ user.lastName }} ({{ user.username }})
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Message</label>
+                    <textarea name="message"
+                              type="text"
+                              ng-model="$ctrl.newRecommendation.message"
+                              md-maxlength="500" required></textarea>
+                </md-input-container>
+            </div>
+        </form>
     </md-card-content>
+    <md-card-actions layout="row" layout-align="end center"
+                     ng-if="$ctrl.canRecommend">
+        <md-button class="md-primary"
+                   ng-click="$ctrl.createRecommendation.emit($ctrl.newRecommendation)"
+                   ng-disabled="$ctrl.newRecommendationForm.$invalid && $ctrl.newRecommendationForm.$dirty">
+            Create
+        </md-button>
+    </md-card-actions>
 </md-card>
