@@ -1,9 +1,10 @@
 import { Component, Inject, OnInit } from 'ng-metadata/core';
 import { UserModel, UserInstance } from '../models/user/user.model';
 import { MediaModel, MediaInstance } from '../models/media/media.model';
+import { ReviewAttributes, ReviewInstance, ReviewModel} from '../models/review/review.model';
 import { RecommendationModel, RecommendationInstance, RecommendationAttributes } from '../models/recommendation/recommendation.model';
-import template from './app.component.html';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import template from './app.component.html';
 import './app.component.css';
 
 
@@ -16,6 +17,7 @@ export class AppComponent implements OnInit {
     public currentUser: UserInstance;
     public mediaList: MediaInstance[] = [];
     public recommendationsList: RecommendationInstance[] = [];
+    public userReviews: {[userID: number]: ReviewInstance};
     public userList: UserInstance[] = [];
     public isLoading: boolean = true;
     public currentView: BehaviorSubject<string>;
@@ -28,7 +30,8 @@ export class AppComponent implements OnInit {
 
     constructor(@Inject(MediaModel) private mediaModel: MediaModel,
                 @Inject(UserModel) private userModel: UserModel,
-                @Inject(RecommendationModel) private recommendationModel: RecommendationModel) {
+                @Inject(RecommendationModel) private recommendationModel: RecommendationModel,
+                @Inject(ReviewModel) private reviewModel: ReviewModel) {
         this.currentView = new BehaviorSubject(window.sessionStorage.getItem("currentView") || 'list');
         this.currentView.subscribe((view) => {
             window.sessionStorage.setItem('currentView', view)
@@ -53,6 +56,11 @@ export class AppComponent implements OnInit {
             this.recommendationModel.list(this.currentUser.id)
                 .then((recommendationsList) => {
                     this.recommendationsList = recommendationsList;
+                });
+
+            this.reviewModel.listByUser(this.currentUser.id)
+                .then((reviewsList) => {
+                    this.userReviews[this.currentUser.id] = reviewsList;
                 });
         }
     }
