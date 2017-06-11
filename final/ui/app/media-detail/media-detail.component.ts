@@ -17,8 +17,6 @@ export class MediaDetailComponent implements OnChanges {
 
     @Output() public createRecommendation: EventEmitter<RecommendationAttributes> = new EventEmitter();
 
-    public isLoading: boolean = true;
-
     private newRecommendation: RecommendationAttributes = {};
 
     public ngOnChanges(changes: SimpleChanges): void {

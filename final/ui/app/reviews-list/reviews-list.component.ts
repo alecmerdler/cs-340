@@ -8,7 +8,7 @@ import './reviews-list.component.css';
     selector: 'reviews-list',
     template: template,
 })
-export class ReviewsListComponent implements OnInit, OnChanges {
+export class ReviewsListComponent implements OnChanges {
 
     @Input() public reviews: ReviewInstance[] = [];
     @Input() public canReview: boolean = false;
@@ -18,14 +18,12 @@ export class ReviewsListComponent implements OnInit, OnChanges {
     private newReview: ReviewAttributes = {};
     private reviewStars: boolean[] = [false, false, false, false, false];
 
-    public isLoading: boolean = false;
-
-    public ngOnInit(): void {
-
-    }
+    public isLoading: boolean = true;
 
     public ngOnChanges(changes: SimpleChanges): void {
-
+        if (this.reviews.length) {
+            this.isLoading = false;
+        }
     }
 
     public submitReview(): void {
