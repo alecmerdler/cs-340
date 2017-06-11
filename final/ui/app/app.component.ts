@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
         if (this.currentMedia) {
             this.reviewModel.listByMedia(this.currentMedia.id)
                 .then((reviewsList) => {
-                    this.mediaReviews[media.id] = reviewsList;
+                    this.mediaReviews[this.currentMedia.id] = reviewsList;
                 });
         }
 
