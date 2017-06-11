@@ -10,6 +10,9 @@ import template from './reviews-list.component.html';
 export class ReviewsListComponent implements OnInit, OnChanges {
 
     @Input() public reviews: ReviewInstance[] = [];
+    @Input() public canReview: boolean = false;
+
+    private newReview: ReviewAttributes = {};
 
     public isLoading: boolean = false;
 
@@ -18,6 +21,10 @@ export class ReviewsListComponent implements OnInit, OnChanges {
     }
 
     public ngOnChanges(changes: SimpleChanges): void {
+
+    }
+
+    public createReview(): void {
 
     }
 }

@@ -231,7 +231,8 @@
                            (recommend)="$ctrl.recommendMedia($event)"></media-browser>
 
             <reviews-list ng-if="$ctrl.currentView.getValue() == 'detail'"
-                          [reviews]="$ctrl.mediaReviews[$ctrl.currentMedia.id]"></reviews-list>
+                          [reviews]="$ctrl.mediaReviews[$ctrl.currentMedia.id]"
+                          [can-review]="$ctrl.currentUser"></reviews-list>
         </div>
     </div>
 </md-content>

@@ -25,7 +25,6 @@ export class AppComponent implements OnInit {
     public currentMedia: MediaInstance;
 
     private newRecommendation: RecommendationAttributes = {};
-    private newReview: ReviewAttributes = {};
     private readonly mediaLimit: number = 6;
 
     constructor(@Inject(MediaModel) private mediaModel: MediaModel,
@@ -72,10 +71,6 @@ export class AppComponent implements OnInit {
             .then((response) => {
                 this.newRecommendation = null;
             });
-    }
-
-    public createReview(): void {
-
     }
 
     public recommendMedia(media: MediaInstance): void {
