@@ -46,8 +46,9 @@ function list_reviews_for_user($user_id) {
     $stmt->execute();
 
     while ($row = $stmt->get_result()) {
-        if (count($row->fetch_assoc())) {
-            array_push($response, $row->fetch_assoc());
+        $data = $row->fetch_assoc();
+        if ($data != null) {
+            array_push($response, $data);
         }
     }
 
@@ -74,8 +75,9 @@ function list_reviews_for_media($media_id) {
     $stmt->execute();
 
     while ($row = $stmt->get_result()) {
-        if (count($row->fetch_assoc())) {
-            array_push($response, $row->fetch_assoc());
+        $data = $row->fetch_assoc();
+        if ($data != null) {
+            array_push($response, $data);
         }
     }
 
