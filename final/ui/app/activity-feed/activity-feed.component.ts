@@ -21,8 +21,7 @@ export class ActivityFeedComponent implements OnInit, OnChanges {
     }
 
     public ngOnChanges(changes: SimpleChanges): void {
-        if (this.reviews && this.recommendations) {
-            this.isLoading = false;
-        }
+        this.isLoading = true;
+        window.setTimeout(() => this.isLoading = false, 200);
     }
 }
