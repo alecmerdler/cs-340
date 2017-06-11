@@ -35,13 +35,10 @@ export class AppComponent implements OnInit {
         this.currentView = new BehaviorSubject(window.sessionStorage.getItem("currentView") || 'list');
         this.currentView.subscribe((view) => {
             window.sessionStorage.setItem('currentView', view);
-
-            if (view === 'detail' && !this.currentMedia) {
-                this.currentView.next('list');
-            }
         });
 
         this.currentUser = JSON.parse(window.sessionStorage.getItem('currentUser')) || null;
+        this.currentMedia = JSON.parse(window.sessionStorage.getItem('currentMedia')) || null;
     }
 
     public ngOnInit(): void {
@@ -84,6 +81,7 @@ export class AppComponent implements OnInit {
     public recommendMedia(media: MediaInstance): void {
         this.newRecommendation.mediaID = media.id;
         this.currentMedia = media;
+        window.sessionStorage.setItem('currentMedia', JSON.stringify(media));
         this.currentView.next('detail');
     }
 
@@ -95,6 +93,7 @@ export class AppComponent implements OnInit {
 
         this.newReview.mediaID = media.id;
         this.currentMedia = media;
+        window.sessionStorage.setItem('currentMedia', JSON.stringify(media));
         this.currentView.next('detail');
     }
 
