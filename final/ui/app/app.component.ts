@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
     public userList: UserInstance[] = [];
     public isLoading: boolean = true;
     public currentView: BehaviorSubject<string>;
+    public currentMedia: MediaInstance;
 
     private newRecommendation: RecommendationAttributes = {};
     private newReview: ReviewAttributes = {};
@@ -77,10 +78,14 @@ export class AppComponent implements OnInit {
 
     public recommendMedia(media: MediaInstance): void {
         this.newRecommendation.mediaID = media.id;
+        this.currentMedia = media;
+        this.currentView.next('detail');
     }
 
     public reviewMedia(media: MediaInstance): void {
         this.newReview.mediaID = media.id;
+        this.currentMedia = media;
+        this.currentView.next('detail');
     }
 
     public onLogin(user: UserInstance): void {

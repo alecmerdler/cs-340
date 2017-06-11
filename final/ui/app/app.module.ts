@@ -6,6 +6,7 @@ import { RecommendationModel } from '../models/recommendation/recommendation.mod
 import { ReviewModel } from '../models/review/review.model';
 import { LoginComponent }  from './login/login.component';
 import { MediaBrowserComponent } from './media-browser/media-browser.component';
+import { MediaDetailComponent } from './media-detail/media-detail.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { MediaBrowserComponent } from './media-browser/media-browser.component';
         AppComponent,
         LoginComponent,
         MediaBrowserComponent,
+        MediaDetailComponent,
     ],
     providers: [
         {provide: UserModel, useClass: UserModel},
