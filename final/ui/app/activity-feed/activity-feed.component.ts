@@ -14,6 +14,10 @@ export class ActivityFeedComponent implements OnInit, OnChanges {
     @Input() public recommendations: RecommendationInstance[];
     @Input() public isAnonymous: boolean = false;
 
+    constructor(@Inject('$timeout') private $timeout: ng.ITimeoutService) {
+
+    }
+
     private isLoading = true;
 
     public ngOnInit(): void {
@@ -22,7 +26,7 @@ export class ActivityFeedComponent implements OnInit, OnChanges {
 
     public ngOnChanges(changes: SimpleChanges): void {
         this.isLoading = true;
-        window.setTimeout(() => {
+        this.$timeout(() => {
             this.isLoading = false;
         }, 1000);
     }
