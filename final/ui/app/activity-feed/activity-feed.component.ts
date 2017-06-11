@@ -24,6 +24,6 @@ export class ActivityFeedComponent implements OnInit, OnChanges {
         this.isLoading = true;
         window.setTimeout(() => {
             this.isLoading = false;
-        }, 500);
+        }, 1000);
     }
 }
