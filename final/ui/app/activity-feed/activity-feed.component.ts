@@ -17,10 +17,12 @@ export class ActivityFeedComponent implements OnInit, OnChanges {
     private isLoading = true;
 
     public ngOnInit(): void {
-        this.isLoading = false;
+
     }
 
     public ngOnChanges(changes: SimpleChanges): void {
-
+        if (this.reviews && this.recommendations) {
+            this.isLoading = false;
+        }
     }
 }
