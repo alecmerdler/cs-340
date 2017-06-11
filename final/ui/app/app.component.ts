@@ -62,6 +62,7 @@ export class AppComponent implements OnInit {
 
     public onCreateReview(review: ReviewAttributes): void {
         review.userID = this.currentUser.id;
+        review.mediaID = this.currentMedia.id;
         this.reviewModel.create(review)
             .then((newReview) => {
                 console.log(newReview);
