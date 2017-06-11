@@ -86,7 +86,6 @@ export class AppComponent implements OnInit {
                 this.mediaReviews[media.id] = reviewsList;
             });
 
-        this.newReview.mediaID = media.id;
         this.currentMedia = media;
         window.sessionStorage.setItem('currentMedia', JSON.stringify(media));
         this.currentView.next('detail');
