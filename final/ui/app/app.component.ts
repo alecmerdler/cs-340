@@ -77,16 +77,6 @@ export class AppComponent implements OnInit {
 
     }
 
-    public refreshMediaList(): void {
-        this.isLoading = true;
-
-        this.mediaModel.list()
-            .then((mediaList) => {
-                this.mediaList = mediaList;
-                this.isLoading = false;
-            });
-    }
-
     public recommendMedia(media: MediaInstance): void {
         this.newRecommendation.mediaID = media.id;
     }
