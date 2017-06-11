@@ -45,7 +45,7 @@ function list_users() {
     $stmt = "SELECT * from Users";
     $result = $conn->query($stmt);
 
-    if ($result->num_rows > 0) {
+    if ($result->num_rows() > 0) {
         while($row = $result->fetch_assoc()) {
             array_push($response, $row);
         }

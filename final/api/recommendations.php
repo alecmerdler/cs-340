@@ -50,7 +50,7 @@ function list_recommendations($user_id) {
             array_push($response, $row->fetch_assoc());
         }
     }
-    
+
     $stmt->close();
     $conn->close();
 
