@@ -44,12 +44,13 @@ function list_recommendations($user_id) {
                               AND Recommendations.recommendedToID = ?");
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
+    $stmt->store_result();
 
-//    if ($stmt->num_rows > 0) {
+    if ($stmt->num_rows > 0) {
         while ($row = $stmt->get_result()) {
             array_push($response, $row->fetch_assoc());
         }
-//    }
+    }
 
     $stmt->close();
     $conn->close();
