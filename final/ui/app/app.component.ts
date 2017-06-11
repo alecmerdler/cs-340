@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
 
     public currentUser: UserInstance;
     public mediaList: MediaInstance[] = [];
-    public recommendationsList: RecommendationInstance[] = [];
+    public userRecommendations: RecommendationInstance[] = [];
     public userReviews: {[userID: number]: ReviewInstance[]} = {};
     public mediaReviews: {[mediaID: number]: ReviewInstance[]} = {};
     public userList: UserInstance[] = [];
@@ -54,8 +54,8 @@ export class AppComponent implements OnInit {
                 });
 
             this.recommendationModel.list(this.currentUser.id)
-                .then((recommendationsList) => {
-                    this.recommendationsList = recommendationsList;
+                .then((recommendations) => {
+                    this.userRecommendations = recommendations;
                 });
 
             this.reviewModel.listByUser(this.currentUser.id)

@@ -32,78 +32,10 @@
                           [media]="$ctrl.currentMedia"></media-detail>
 
             <!-- Reviews/Recommendations List -->
-            <md-card>
-                <md-card-content>
-                    <md-tabs md-dynamic-height>
-                        <md-tab label="Recommendations">
-                            <div layout="row" layout-align="space-around"
-                                 ng-if="$ctrl.isLoading">
-                                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-                            </div>
-
-                            <div ng-if="!$ctrl.isLoading">
-                                <!-- Anonymous User -->
-                                <div ng-if="!$ctrl.currentUser"
-                                     class="empty-list">
-                                    <i class="material-icons">forum</i> <span>Login to view your recommendations</span>
-                                </div>
-                                <!-- Empty List -->
-                                <div ng-if="$ctrl.recommendationsList.length == 0 && $ctrl.currentUser"
-                                     class="empty-list">
-                                    <i class="material-icons">forum</i> <span>You have no recommendations</span>
-                                </div>
-                                <!-- Full List -->
-                                <md-list>
-                                    <md-list-item class="md-3-line"
-                                                  ng-repeat="recommendation in $ctrl.recommendationsList"
-                                                  ng-click="null">
-                                        <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
-                                             class="md-avatar" />
-                                        <div class="md-list-item-text" layout="column">
-                                            <h3>{{ recommendation.title }}</h3>
-                                            <h4>{{ recommendation.firstName }}</h4>
-                                            <p>{{ recommendation.message }}</p>
-                                        </div>
-                                    </md-list-item>
-                                </md-list>
-                            </div>
-                        </md-tab>
-                        <md-tab label="Reviews">
-                            <div layout="row" layout-align="space-around"
-                                 ng-if="$ctrl.isLoading">
-                                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-                            </div>
-
-                            <div ng-if="!$ctrl.isLoading">
-                                <!-- Anonymous User -->
-                                <div ng-if="!$ctrl.currentUser"
-                                     class="empty-list">
-                                    <i class="material-icons">forum</i> <span>Login to view your reviews</span>
-                                </div>
-                                <!-- Empty List -->
-                                <div ng-if="$ctrl.recommendationsList.length == 0 && $ctrl.currentUser"
-                                     class="empty-list">
-                                    <i class="material-icons">forum</i> <span>You haven't made any reviews</span>
-                                </div>
-                                <!-- Full List -->
-                                <md-list>
-                                    <md-list-item class="md-3-line"
-                                                  ng-repeat="review in $ctrl.userReviews[$ctrl.currentUser.id]"
-                                                  ng-click="null">
-                                        <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
-                                             class="md-avatar" />
-                                        <div class="md-list-item-text" layout="column">
-                                            <h3>{{ recommendation.title }}</h3>
-                                            <h4>{{ recommendation.firstName }}</h4>
-                                            <p>{{ recommendation.message }}</p>
-                                        </div>
-                                    </md-list-item>
-                                </md-list>
-                            </div>
-                        </md-tab>
-                    </md-tabs>
-                </md-card-content>
-            </md-card>
+            <activity-feed ng-if="$ctrl.currentView.getValue() == 'list'"
+                           [reviews]="$ctrl.userReviews[$ctrl.currentUser.id]"
+                           [recommendations]="$ctrl.userRecommendations"
+                           [is-anonymous]="!$ctrl.currentUser"></activity-feed>
 
             <!-- Create Recommendation -->
             <md-card>

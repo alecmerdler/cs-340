@@ -8,6 +8,7 @@ import { LoginComponent }  from './login/login.component';
 import { MediaBrowserComponent } from './media-browser/media-browser.component';
 import { MediaDetailComponent } from './media-detail/media-detail.component';
 import { ReviewsListComponent } from './reviews-list/reviews-list.component';
+import { ActivityFeedComponent } from './activity-feed/activity-feed.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ReviewsListComponent } from './reviews-list/reviews-list.component';
         MediaBrowserComponent,
         MediaDetailComponent,
         ReviewsListComponent,
+        ActivityFeedComponent,
     ],
     providers: [
         {provide: UserModel, useClass: UserModel},
