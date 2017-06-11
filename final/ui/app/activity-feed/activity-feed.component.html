@@ -6,18 +6,18 @@
         <md-tabs md-dynamic-height>
             <md-tab label="Recommendations">
                 <div layout="row" layout-align="space-around"
-                     ng-if="$ctrl.isLoading">
+                     ng-if="!$ctrl.recommendations">
                     <md-progress-circular md-mode="indeterminate"></md-progress-circular>
                 </div>
 
-                <div ng-if="!$ctrl.isLoading">
+                <div ng-if="$ctrl.recommendations">
                     <!-- Anonymous User -->
-                    <div ng-if="!$ctrl.currentUser"
+                    <div ng-if="$ctrl.isAnonymous"
                          class="empty-list">
                         <i class="material-icons">forum</i> <span>Login to view your recommendations</span>
                     </div>
                     <!-- Empty List -->
-                    <div ng-if="$ctrl.recommendations.length == 0 && $ctrl.currentUser"
+                    <div ng-if="$ctrl.recommendations.length == 0 && !$ctrl.isAnonymous"
                          class="empty-list">
                         <i class="material-icons">forum</i> <span>You have no recommendations</span>
                     </div>
@@ -39,18 +39,18 @@
             </md-tab>
             <md-tab label="Reviews">
                 <div layout="row" layout-align="space-around"
-                     ng-if="$ctrl.isLoading">
+                     ng-if="!$ctrl.reviews">
                     <md-progress-circular md-mode="indeterminate"></md-progress-circular>
                 </div>
 
-                <div ng-if="!$ctrl.isLoading">
+                <div ng-if="$ctrl.reviews">
                     <!-- Anonymous User -->
-                    <div ng-if="!$ctrl.currentUser"
+                    <div ng-if="$ctrl.isAnonymous"
                          class="empty-list">
                         <i class="material-icons">forum</i> <span>Login to view your reviews</span>
                     </div>
                     <!-- Empty List -->
-                    <div ng-if="$ctrl.recommendations.length == 0 && $ctrl.currentUser"
+                    <div ng-if="$ctrl.recommendations.length == 0 && !$ctrl.isAnonymous"
                          class="empty-list">
                         <i class="material-icons">forum</i> <span>You haven't made any reviews</span>
                     </div>
