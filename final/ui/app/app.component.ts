@@ -94,11 +94,13 @@ export class AppComponent implements OnInit {
 
     public onLogin(user: UserInstance): void {
         this.currentUser = user;
+        this.ngOnInit();
         this.currentView.next('list');
     }
 
     public onSignup(user: UserInstance): void {
         this.currentUser = user;
+        this.ngOnInit();
         this.currentView.next('list');
     }
 
