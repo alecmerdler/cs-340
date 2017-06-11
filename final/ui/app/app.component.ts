@@ -47,6 +47,7 @@ export class AppComponent implements OnInit {
                 .then((reviewsList) => {
                     this.mediaReviews[this.currentMedia.id] = reviewsList;
                     console.log(this.mediaReviews);
+                    console.log(reviewsList);
                 });
         }
 
