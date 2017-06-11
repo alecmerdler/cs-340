@@ -6,11 +6,11 @@
         <md-tabs md-dynamic-height>
             <md-tab label="Recommendations">
                 <div layout="row" layout-align="space-around"
-                     ng-if="!$ctrl.recommendations">
+                     ng-if="$ctrl.isLoading">
                     <md-progress-circular md-mode="indeterminate"></md-progress-circular>
                 </div>
 
-                <div ng-if="$ctrl.recommendations">
+                <div ng-if="!$ctrl.isLoading">
                     <!-- Anonymous User -->
                     <div ng-if="$ctrl.isAnonymous"
                          class="empty-list">
@@ -39,11 +39,11 @@
             </md-tab>
             <md-tab label="Reviews">
                 <div layout="row" layout-align="space-around"
-                     ng-if="!$ctrl.reviews">
+                     ng-if="$ctrl.isLoading">
                     <md-progress-circular md-mode="indeterminate"></md-progress-circular>
                 </div>
 
-                <div ng-if="$ctrl.reviews">
+                <div ng-if="!$ctrl.isLoading">
                     <!-- Anonymous User -->
                     <div ng-if="$ctrl.isAnonymous"
                          class="empty-list">

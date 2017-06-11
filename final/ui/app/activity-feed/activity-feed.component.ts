@@ -14,8 +14,10 @@ export class ActivityFeedComponent implements OnInit, OnChanges {
     @Input() public recommendations: RecommendationInstance[];
     @Input() public isAnonymous: boolean = false;
 
-    public ngOnInit(): void {
+    private isLoading = true;
 
+    public ngOnInit(): void {
+        this.isLoading = false;
     }
 
     public ngOnChanges(changes: SimpleChanges): void {
