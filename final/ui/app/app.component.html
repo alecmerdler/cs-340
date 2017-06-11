@@ -183,7 +183,7 @@
                 </md-card-content>
             </md-card>
 
-            <!-- Create Review/Recommendation -->
+            <!-- Create Recommendation -->
             <md-card>
                 <md-card-title>
                     <span class="md-headline">New Recommendation</span>
@@ -235,11 +235,68 @@
                     </form>
                 </md-card-content>
 
-                <md-card-actions layout="row" layout-align="end center">
+                <md-card-actions layout="row" layout-align="end center"
+                                 ng-if="$ctrl.currentUser">
                     <md-button class="md-primary"
-                               ng-if="$ctrl.currentUser"
                                ng-click="$ctrl.createRecommendation()"
                                ng-disabled="$ctrl.newRecommendationForm.$invalid && $ctrl.newRecommendationForm.$dirty">
+                        Create
+                    </md-button>
+                </md-card-actions>
+            </md-card>
+
+            <!-- Create Review -->
+            <md-card>
+                <md-card-title>
+                    <span class="md-headline">New Review</span>
+                </md-card-title>
+                <md-card-content layout="row">
+                    <!-- Anonymous User -->
+                    <div class="empty-list"
+                         ng-if="!$ctrl.currentUser">
+                        <i class="material-icons">account_circle</i> <span>Login to create review</span>
+                    </div>
+                    <!-- Logged In User -->
+                    <form name="$ctrl.newReviewForm"
+                          flex layout="row"
+                          ng-if="$ctrl.currentUser">
+                        <div layout="column" flex="1" style="padding: 10px;">
+                            <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
+                                 height="50" width="50"
+                                 class="md-avatar" />
+                        </div>
+                        <div layout="column" flex="4" style="width: 100%">
+                            <md-input-container>
+                                <label>Media</label>
+                                <md-select ng-model="$ctrl.newReview.mediaID">
+                                    <md-option ng-repeat="media in $ctrl.mediaList"
+                                               ng-value="media.id">
+                                        {{ media.title }}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+
+                            <md-input-container>
+                                <label>Stars</label>
+                                <!-- TODO: Stars picker -->
+                            </md-input-container>
+
+                            <md-input-container>
+                                <label>Description</label>
+                                <textarea name="description"
+                                          type="text"
+                                          ng-model="$ctrl.newReview.description"
+                                          md-maxlength="500" required></textarea>
+                            </md-input-container>
+                        </div>
+                    </form>
+                </md-card-content>
+
+                <md-card-actions layout="row" layout-align="end center"
+                                 ng-if="$ctrl.currentUser">
+                    <md-button class="md-primary"
+                               ng-click="$ctrl.createReview()"
+                               ng-disabled="$ctrl.newReviewForm.$invalid && $ctrl.newReviewForm.$dirty">
                         Create
                     </md-button>
                 </md-card-actions>
