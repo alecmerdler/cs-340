@@ -74,6 +74,7 @@ function list_reviews_for_media($media_id) {
     $stmt->bind_param("i", $media_id);
     $stmt->execute();
 
+    var_dump($stmt->get_result());
     while ($row = $stmt->get_result()) {
         $data = $row->fetch_assoc();
         if ($data != null) {
