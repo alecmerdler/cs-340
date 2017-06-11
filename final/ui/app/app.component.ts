@@ -85,37 +85,12 @@ export class AppComponent implements OnInit {
 
     }
 
-    public login(): void {
-        this.isLoading = true;
-
-        this.userModel.authenticateUser(this.loginData.username, this.loginData.password)
-            .then((user: UserInstance) => {
-                this.currentUser = user;
-                window.sessionStorage.setItem('currentUser', JSON.stringify(this.currentUser));
-                this.isLoading = false;
-                this.loginAttempts = 0;
-                this.currentView.next('list');
-
-                this.ngOnInit();
-            })
-            .catch((error) => {
-                this.isLoading = false;
-                this.loginAttempts++;
-            });
+    public onLogin(event: any): void {
+        console.log(event);
     }
 
-    public signup(): void {
-        this.isLoading = true;
-        this.userModel.create(this.signupData)
-            .then((newUser: UserInstance) => {
-                this.currentUser = newUser;
-                window.sessionStorage.setItem('currentUser', JSON.stringify(this.currentUser));
-                this.isLoading = false;
-                this.currentView.next('list');
-            })
-            .catch((error) => {
-                this.isLoading = false;
-            });
+    public onSignup(event: any): void {
+        console.log(event);
     }
 
     public logout(): void {

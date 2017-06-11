@@ -1,0 +1,83 @@
+<md-card>
+    <md-card-content style="padding: 0;">
+        <md-tabs md-dynamic-height>
+            <md-tab label="Login">
+                <form name="$ctrl.loginForm"
+                      layout="column">
+                    <div layout="column" layout-align="center center">
+                        <md-input-container flex="50">
+                            <label>Username</label>
+                            <input name="username"
+                                   type="text"
+                                   ng-model="$ctrl.loginData.username"
+                                   required>
+                        </md-input-container>
+                        <md-input-container flex="50">
+                            <label>Password</label>
+                            <input name="password"
+                                   type="password"
+                                   ng-model="$ctrl.loginData.password"
+                                   required>
+                        </md-input-container>
+                    </div>
+                    <div layout="row">
+                                    <span ng-show="!$ctrl.currentUser && $ctrl.loginAttempts > 0"
+                                          layout="row" layout-align="center center"
+                                          style="padding: 0 10px; color: red;">
+                                        Invalid Credentials
+                                    </span>
+                        <span flex></span>
+                        <md-button class="md-raised md-primary"
+                                   ng-click="$ctrl.login()"
+                                   ng-disabled="$ctrl.loginForm.$dirty && $ctrl.loginForm.$invalid">
+                            Login
+                        </md-button>
+                    </div>
+                </form>
+            </md-tab>
+            <md-tab label="Signup">
+                <form name="$ctrl.signupForm">
+                    <div layout="column" layout-align="center center">
+                        <md-input-container>
+                            <label>Username</label>
+                            <input name="username"
+                                   type="text"
+                                   ng-model="$ctrl.signupData.username"
+                                   md-maxlength="20" required>
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Email</label>
+                            <input name="email"
+                                   type="text"
+                                   ng-model="$ctrl.signupData.email"
+                                   md-maxlength="40" required>
+                        </md-input-container>
+                        <md-input-container>
+                            <label>First Name</label>
+                            <input name="firstName"
+                                   type="text"
+                                   ng-model="$ctrl.signupData.firstName"
+                                   md-maxlength="20" required>
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Password</label>
+                            <input name="password"
+                                   type="password"
+                                   ng-model="$ctrl.signupData.password"
+                                   md-maxlength="20" required>
+                        </md-input-container>
+                    </div>
+                    <div layout="row">
+                        <span flex></span>
+                        <md-button class="md-raised md-primary"
+                                   ng-click="$ctrl.signup()"
+                                   ng-disabled="$ctrl.signupForm.$dirty && $ctrl.signupForm.$invalid">
+                            Next
+                        </md-button>
+                    </div>
+                </form>
+            </md-tab>
+        </md-tabs>
+        <md-progress-linear ng-if="$ctrl.isLoading" md-mode="indeterminate"></md-progress-linear>
+    </md-card-content>
+</md-card>

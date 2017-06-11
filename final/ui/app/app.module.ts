@@ -4,6 +4,7 @@ import { UserModel } from '../models/user/user.model';
 import { MediaModel } from '../models/media/media.model';
 import { RecommendationModel } from '../models/recommendation/recommendation.model';
 import { ReviewModel } from '../models/review/review.model';
+import { LoginComponent }  from './login/login.component';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { ReviewModel } from '../models/review/review.model';
     ],
     declarations: [
         AppComponent,
+        LoginComponent,
     ],
     providers: [
         {provide: UserModel, useClass: UserModel},
