@@ -33,9 +33,9 @@ export class ReviewsListComponent implements OnInit, OnChanges {
         this.createReview.emit(this.newReview);
     }
 
-    private setStars(index: number): void {
+    private setStars(stars: number): void {
         this.reviewStars = this.reviewStars.map((star, index) => {
-            return index <= index;
+            return index <= stars;
         });
     }
 }
