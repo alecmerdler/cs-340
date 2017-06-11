@@ -34,7 +34,11 @@ export class AppComponent implements OnInit {
                 @Inject(ReviewModel) private reviewModel: ReviewModel) {
         this.currentView = new BehaviorSubject(window.sessionStorage.getItem("currentView") || 'list');
         this.currentView.subscribe((view) => {
-            window.sessionStorage.setItem('currentView', view)
+            window.sessionStorage.setItem('currentView', view);
+
+            if (view === 'detail') {
+                this.currentView.next('list');
+            }
         });
 
         this.currentUser = JSON.parse(window.sessionStorage.getItem('currentUser')) || null;
