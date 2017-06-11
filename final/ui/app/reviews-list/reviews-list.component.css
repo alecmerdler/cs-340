@@ -1,0 +1,8 @@
+.star-picker i {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.star-picker i:hover {
+    opacity: 1;
+}
