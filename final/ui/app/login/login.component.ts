@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, Output, EventEmitter } from 'ng-metadata/core';
+import { Component, Inject, Output, EventEmitter } from 'ng-metadata/core';
 import { UserModel, UserInstance } from '../../models/user/user.model';
 import template from './login.component.html';
 
@@ -7,7 +7,7 @@ import template from './login.component.html';
     selector: 'login',
     template: template,
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
     @Output() public loginSuccess: EventEmitter<UserInstance> = new EventEmitter();
     @Output() public signupSuccess: EventEmitter<UserInstance> = new EventEmitter();

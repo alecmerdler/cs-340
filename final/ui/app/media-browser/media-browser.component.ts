@@ -9,7 +9,6 @@ import template from './media-browser.component.html';
 })
 export class MediaBrowserComponent implements OnInit {
 
-    public currentUser: UserInstance;
     public mediaList: MediaInstance[] = [];
     public isLoading: boolean = true;
 
