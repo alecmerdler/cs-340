@@ -45,16 +45,15 @@
                          class="md-avatar" />
                 </div>
                 <div layout="column" flex="4" style="width: 100%">
-                    <md-input-container>
-                        <label>Stars</label>
-                        <!-- TODO: Stars picker -->
+                    <div layout="row">
+                        <span>Rating:</span>
                         <span class="star-picker"
                               ng-repeat="star in $ctrl.reviewStars track by $index"
                               ng-click="star = !star">
                             <i ng-if="!star" class="material-icons">star_border</i>
                             <i ng-if="star" class="material-icons">star</i>
                         </span>
-                    </md-input-container>
+                    </div>
 
                     <md-input-container>
                         <label>Description</label>
