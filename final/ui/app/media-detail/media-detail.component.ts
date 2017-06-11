@@ -7,7 +7,7 @@ import template from './media-detail.component.html';
     selector: 'media-detail',
     template: template,
 })
-export class MediaBrowserComponent implements OnInit, OnChanges {
+export class MediaDetailComponent implements OnInit, OnChanges {
 
     @Input() public media: MediaInstance;
     public isLoading: boolean = true;
