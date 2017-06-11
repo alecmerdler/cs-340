@@ -10,7 +10,12 @@ function handle_request($method) {
         switch($method) {
             case "GET":
                 http_response_code(200);
-                echo json_encode(list_reviews_for_user(intval($_GET['userID'])));
+                if (key_exists('userID', $_GET)) {
+                    echo json_encode(list_reviews_for_user(intval($_GET['userID'])));
+                }
+                else if (key_exists('mediaID', $_GET)) {
+                    echo json_encode(list_reviews_for_media(intval($_GET['mediaID'])));
+                }
                 break;
 
             case "POST":
@@ -74,7 +79,6 @@ function list_reviews_for_media($media_id) {
     $stmt->bind_param("i", $media_id);
     $stmt->execute();
 
-    var_dump($stmt->get_result());
     while ($row = $stmt->get_result()) {
         $data = $row->fetch_assoc();
         if ($data != null) {
