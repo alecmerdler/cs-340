@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
     @Output() public signupSuccess: EventEmitter<UserInstance> = new EventEmitter();
 
     public currentUser: UserInstance;
-    public isLoading: boolean = true;
+    public isLoading: boolean = false;
     public loginData: {username: string, password: string};
     public signupData: UserInstance;
 

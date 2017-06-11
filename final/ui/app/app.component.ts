@@ -21,12 +21,9 @@ export class AppComponent implements OnInit {
     public userList: UserInstance[] = [];
     public isLoading: boolean = true;
     public currentView: BehaviorSubject<string>;
-    public loginData: {username: string, password: string};
-    public signupData: UserInstance;
 
     private newRecommendation: RecommendationAttributes = {};
     private readonly mediaLimit: number = 6;
-    private loginAttempts: number = 0;
 
     constructor(@Inject(MediaModel) private mediaModel: MediaModel,
                 @Inject(UserModel) private userModel: UserModel,
@@ -85,12 +82,14 @@ export class AppComponent implements OnInit {
 
     }
 
-    public onLogin(event: any): void {
-        console.log(event);
+    public onLogin(user: UserInstance): void {
+        this.currentUser = user;
+        this.currentView.next('list');
     }
 
-    public onSignup(event: any): void {
-        console.log(event);
+    public onSignup(user: UserInstance): void {
+        this.currentUser = user;
+        this.currentView.next('list');
     }
 
     public logout(): void {
