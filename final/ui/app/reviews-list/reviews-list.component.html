@@ -31,7 +31,7 @@
 
             <md-divider></md-divider>
             <md-card-title>
-                <span class="md-headline">Reviews</span>
+                <span class="md-subhead">Add your review</span>
             </md-card-title>
 
             <!-- Anonymous User -->
@@ -50,8 +50,7 @@
                          class="md-avatar" />
                 </div>
                 <div layout="column" flex="4" style="width: 100%">
-                    <div layout="row">
-                        <span>Rating:</span>
+                    <div>
                         <span class="star-picker"
                               ng-repeat="star in $ctrl.reviewStars track by $index"
                               ng-click="star = !star">
