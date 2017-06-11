@@ -27,4 +27,15 @@ export class ReviewsListComponent implements OnInit, OnChanges {
     public ngOnChanges(changes: SimpleChanges): void {
 
     }
+
+    public submitReview(): void {
+        this.newReview.numStars = this.reviewStars.filter(star => star).length;
+        this.createReview.emit(this.newReview);
+    }
+
+    private setStars(index: number): void {
+        this.reviewStars = this.reviewStars.map((star, index) => {
+            return index <= index;
+        });
+    }
 }

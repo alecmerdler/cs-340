@@ -6,3 +6,7 @@
 .star-picker i:hover {
     opacity: 1;
 }
+
+.star-picker i.active {
+    opacity: 1;
+}

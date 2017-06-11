@@ -53,7 +53,7 @@
                     <div>
                         <span class="star-picker"
                               ng-repeat="star in $ctrl.reviewStars track by $index"
-                              ng-click="star = !star">
+                              ng-click="$ctrl.setStars($index)">
                             <i ng-if="!star" class="material-icons">star_border</i>
                             <i ng-if="star" class="material-icons">star</i>
                         </span>
