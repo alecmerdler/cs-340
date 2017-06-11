@@ -44,10 +44,9 @@ function list_reviews_for_user($user_id) {
                               AND Reviews.userID = Users.id");
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
-    $stmt->store_result();
 
-    if ($stmt->num_rows > 0) {
-        while ($row = $stmt->get_result()) {
+    while ($row = $stmt->get_result()) {
+        if ($row->fetch_assoc()) {
             array_push($response, $row->fetch_assoc());
         }
     }
@@ -73,10 +72,9 @@ function list_reviews_for_media($media_id) {
                               AND Reviews.userID = Users.id");
     $stmt->bind_param("i", $media_id);
     $stmt->execute();
-    $stmt->store_result();
 
-    if ($stmt->num_rows > 0) {
-        while ($row = $stmt->get_result()) {
+    while ($row = $stmt->get_result()) {
+        if ($row->fetch_assoc()) {
             array_push($response, $row->fetch_assoc());
         }
     }
