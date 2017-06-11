@@ -47,7 +47,7 @@ function list_recommendations($user_id) {
 
     while ($row = $stmt->get_result()) {
         $data = $row->fetch_assoc();
-        var_dump($data);
+        var_dump($data == null);
         array_push($response, $data);
     }
 
