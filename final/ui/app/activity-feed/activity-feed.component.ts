@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit, OnChanges, SimpleChanges } from 'ng-metadata/core';
 import { MediaModel, MediaInstance } from '../../models/media/media.model';
-import { ReviewAttributes, ReviewInstance, ReviewModel} from '../models/review/review.model';
+import { ReviewAttributes, ReviewInstance, ReviewModel} from '../../models/review/review.model';
 import { RecommendationModel, RecommendationInstance, RecommendationAttributes } from '../models/recommendation/recommendation.model';
 import template from './activity-feed.component.html';
 
