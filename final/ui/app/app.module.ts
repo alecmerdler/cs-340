@@ -5,6 +5,7 @@ import { MediaModel } from '../models/media/media.model';
 import { RecommendationModel } from '../models/recommendation/recommendation.model';
 import { ReviewModel } from '../models/review/review.model';
 import { LoginComponent }  from './login/login.component';
+import { MediaBrowserComponent } from './media-browser/media-browser.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { LoginComponent }  from './login/login.component';
     declarations: [
         AppComponent,
         LoginComponent,
+        MediaBrowserComponent,
     ],
     providers: [
         {provide: UserModel, useClass: UserModel},

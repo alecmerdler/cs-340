@@ -23,10 +23,6 @@ export class LoginComponent implements OnInit {
 
     }
 
-    public ngOnInit(): void {
-
-    }
-
     public login(): void {
         this.isLoading = true;
 

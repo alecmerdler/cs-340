@@ -223,48 +223,7 @@
         </div>
 
         <div flex="50">
-            <!-- Media List -->
-            <md-card>
-                <md-card-title>
-                    <span class="md-headline">New Media</span>
-                </md-card-title>
-                <md-card-content>
-                    <md-tabs md-dynamic-height>
-                        <md-tab label="Movies">
-                            <div layout="row" layout-align="space-around"
-                                 ng-if="$ctrl.isLoading">
-                                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-                            </div>
-
-                            <md-grid-list md-cols="3" md-row-height="300px"
-                                          ng-if="!$ctrl.isLoading">
-                                <md-grid-tile md-colspan="1" md-rowspan="1"
-                                              class="media-tile {{ ::$ctrl.tileClass($index) }}"
-                                              ng-repeat="media in $ctrl.mediaList | limitTo : $ctrl.mediaLimit">
-                                    <md-grid-tile-header>
-                                        <h3>{{ media.title }}</h3>
-                                    </md-grid-tile-header>
-                                    <div class="media-description" ng-cloak>
-                                        {{ media.description }}
-                                    </div>
-                                    <md-grid-tile-footer ng-if="$ctrl.currentUser">
-                                        <md-button ng-click="$ctrl.recommendMedia(media)">Recommend</md-button>
-                                        <md-button ng-click="$ctrl.reviewMedia(media)">Review</md-button>
-                                    </md-grid-tile-footer>
-                                </md-grid-tile>
-                            </md-grid-list>
-                        </md-tab>
-                        <md-tab label="Series">
-                            <div layout="row" layout-align="space-around"
-                                 ng-if="$ctrl.isLoading">
-                                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-                            </div>
-
-                            <!-- TODO: Filter series-->
-                        </md-tab>
-                    </md-tabs>
-                </md-card-content>
-            </md-card>
+            <media-browser></media-browser>
         </div>
     </div>
 </md-content>
