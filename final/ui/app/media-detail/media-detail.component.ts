@@ -13,7 +13,7 @@ export class MediaDetailComponent implements OnChanges {
     @Input() public media: MediaInstance;
     @Input() public canRecommend: boolean = false;
 
-    @Ouput() public createRecommendation: EventEmitter<RecommendationAttributes> = new EventEmitter();
+    @Output() public createRecommendation: EventEmitter<RecommendationAttributes> = new EventEmitter();
 
     public isLoading: boolean = true;
 
