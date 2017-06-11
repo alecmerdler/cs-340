@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
     public mediaList: MediaInstance[] = [];
     public recommendationsList: RecommendationInstance[] = [];
     public userReviews: {[userID: number]: ReviewInstance[]} = {};
+    public mediaReviews: {[mediaID: number]: ReviewInstance[]} = {};
     public userList: UserInstance[] = [];
     public isLoading: boolean = true;
     public currentView: BehaviorSubject<string>;
@@ -83,6 +84,11 @@ export class AppComponent implements OnInit {
     }
 
     public reviewMedia(media: MediaInstance): void {
+        this.reviewModel.listByMedia(media.id)
+            .then((reviewsList) => {
+                this.mediaReviews[media.id] = reviewsList;
+            });
+        
         this.newReview.mediaID = media.id;
         this.currentMedia = media;
         this.currentView.next('detail');

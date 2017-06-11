@@ -1,0 +1,33 @@
+<md-card>
+    <md-card-title>
+        <span class="md-headline">Reviews</span>
+    </md-card-title>
+    <md-card-content>
+        <div layout="row" layout-align="space-around"
+             ng-if="$ctrl.isLoading">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        </div>
+
+        <div ng-if="!$ctrl.isLoading">
+            <!-- Empty List -->
+            <div ng-if="$ctrl.reviews.length == 0"
+                 class="empty-list">
+                <i class="material-icons">forum</i> <span>There are no reviews</span>
+            </div>
+            <!-- Full List -->
+            <md-list>
+                <md-list-item class="md-3-line"
+                              ng-repeat="review in $ctrl.reviews"
+                              ng-click="null">
+                    <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
+                         class="md-avatar" />
+                    <div class="md-list-item-text" layout="column">
+                        <h3>{{ review.title }}</h3>
+                        <h4>{{ review.firstName }}</h4>
+                        <p>{{ review.description }}</p>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </div>
+    </md-card-content>
+</md-card>

@@ -7,6 +7,7 @@ import { ReviewModel } from '../models/review/review.model';
 import { LoginComponent }  from './login/login.component';
 import { MediaBrowserComponent } from './media-browser/media-browser.component';
 import { MediaDetailComponent } from './media-detail/media-detail.component';
+import { ReviewsListComponent } from './reviews-list/reviews-list.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { MediaDetailComponent } from './media-detail/media-detail.component';
         LoginComponent,
         MediaBrowserComponent,
         MediaDetailComponent,
+        ReviewsListComponent,
     ],
     providers: [
         {provide: UserModel, useClass: UserModel},

@@ -28,7 +28,6 @@
     <div layout="row" layout-xs="column" style="overflow-y: auto; height: 100%;"
          ng-if="$ctrl.currentView.getValue() != 'login' && $ctrl.currentView.getValue() != 'signup'">
         <div flex="50">
-            <!-- Detail View -->
             <media-detail ng-if="$ctrl.currentView.getValue() == 'detail'"
                           [media]="$ctrl.currentMedia"></media-detail>
 
@@ -227,8 +226,12 @@
         </div>
 
         <div flex="50">
-            <media-browser (review)="$ctrl.reviewMedia($event)"
+            <media-browser ng-if="$ctrl.currentView.getValue() == 'list'"
+                           (review)="$ctrl.reviewMedia($event)"
                            (recommend)="$ctrl.recommendMedia($event)"></media-browser>
+
+            <reviews-list ng-if="$ctrl.currentView.getValue() == 'detail'"
+                          [reviews]="$ctrl.mediaReviews[$ctrl.currentMedia.id]"></reviews-list>
         </div>
     </div>
 </md-content>
