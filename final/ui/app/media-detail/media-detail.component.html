@@ -13,29 +13,19 @@
 
         <!-- Anonymous User -->
         <div class="empty-list"
-             ng-if="!$ctrl.currentUser">
+             ng-if="!$ctrl.canRecommend">
             <i class="material-icons">account_circle</i> <span>Login to create recommendations</span>
         </div>
         <!-- Logged In User -->
         <form name="$ctrl.newRecommendationForm"
               flex layout="row"
-              ng-if="$ctrl.currentUser">
+              ng-if="$ctrl.canRecommend">
             <div layout="column" flex="1" style="padding: 10px;">
                 <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
                      height="50" width="50"
                      class="md-avatar" />
             </div>
             <div layout="column" flex="4" style="width: 100%">
-                <md-input-container>
-                    <label>Media</label>
-                    <md-select ng-model="$ctrl.newRecommendation.mediaID">
-                        <md-option ng-repeat="media in $ctrl.mediaList"
-                                   ng-value="media.id">
-                            {{ media.title }}
-                        </md-option>
-                    </md-select>
-                </md-input-container>
-
                 <md-input-container>
                     <label>For</label>
                     <md-select ng-model="$ctrl.newRecommendation.recommendedToID">

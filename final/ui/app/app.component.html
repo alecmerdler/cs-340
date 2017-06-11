@@ -31,6 +31,7 @@
             <media-detail ng-if="$ctrl.currentView.getValue() == 'detail'"
                           [media]="$ctrl.currentMedia"
                           [can-recommend]="$ctrl.currentUser"
+                          [user-list]="$ctrl.userList"
                           (create-recommendation)="$ctrl.onCreateRecommendation($event)"></media-detail>
 
             <!-- Reviews/Recommendations List -->
