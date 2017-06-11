@@ -65,6 +65,10 @@ export class AppComponent implements OnInit {
             });
     }
 
+    public createReview(): void {
+
+    }
+
     public refreshMediaList(): void {
         this.isLoading = true;
 
