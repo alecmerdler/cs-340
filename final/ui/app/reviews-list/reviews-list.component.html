@@ -31,10 +31,10 @@
 
             <!-- Anonymous User -->
             <div class="empty-list"
-                 ng-if="!$ctrl.currentUser">
+                 ng-if="!$ctrl.canReview">
                 <i class="material-icons">account_circle</i> <span>Login to create review</span>
             </div>
-
+            
             <!-- Logged In User -->
             <form name="$ctrl.newReviewForm"
                   flex layout="row"

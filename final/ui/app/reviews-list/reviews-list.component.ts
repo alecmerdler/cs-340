@@ -12,6 +12,8 @@ export class ReviewsListComponent implements OnInit, OnChanges {
     @Input() public reviews: ReviewInstance[] = [];
     @Input() public canReview: boolean = false;
 
+    @Output() public createReview: EventEmitter<ReviewAttributes> = new EventEmitter();
+
     private newReview: ReviewAttributes = {};
 
     public isLoading: boolean = false;

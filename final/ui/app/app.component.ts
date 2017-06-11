@@ -73,14 +73,15 @@ export class AppComponent implements OnInit {
             });
     }
 
-    public recommendMedia(media: MediaInstance): void {
-        this.newRecommendation.mediaID = media.id;
-        this.currentMedia = media;
-        window.sessionStorage.setItem('currentMedia', JSON.stringify(media));
-        this.currentView.next('detail');
+    public onCreateReview(review: ReviewAttributes): void {
+        review.userID = this.currentUser.id;
+        this.reviewModel.create(review)
+            .then((newReview) => {
+                console.log(newReview);
+            });
     }
 
-    public reviewMedia(media: MediaInstance): void {
+    public viewMediaDetail(media: MediaInstance): void {
         this.reviewModel.listByMedia(media.id)
             .then((reviewsList) => {
                 this.mediaReviews[media.id] = reviewsList;
