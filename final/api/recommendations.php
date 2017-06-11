@@ -45,9 +45,7 @@ function list_recommendations($user_id) {
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
 
-    var_dump($stmt->get_result());
-
-    if ($stmt->num_rows() > 0) {
+    if ($stmt->num_rows > 0) {
         while ($row = $stmt->get_result()) {
             array_push($response, $row->fetch_assoc());
         }

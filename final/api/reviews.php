@@ -45,7 +45,7 @@ function list_reviews_for_user($user_id) {
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
 
-    if ($stmt->num_rows() > 0) {
+    if ($stmt->num_rows > 0) {
         while ($row = $stmt->get_result()) {
             array_push($response, $row->fetch_assoc());
         }
@@ -73,7 +73,7 @@ function list_reviews_for_media($media_id) {
     $stmt->bind_param("i", $media_id);
     $stmt->execute();
 
-    if ($stmt->num_rows() > 0) {
+    if ($stmt->num_rows > 0) {
         while ($row = $stmt->get_result()) {
             array_push($response, $row->fetch_assoc());
         }
