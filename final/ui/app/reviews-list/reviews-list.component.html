@@ -22,14 +22,13 @@
                     <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
                          class="md-avatar" />
                     <div class="md-list-item-text" layout="column">
-                        <h3>{{ review.title }}</h3>
-                        <h4>{{ review.firstName }}</h4>
                         <div>
                             <span ng-repeat="star in $ctrl.setStars(review.numStars - 1) track by $index">
                                 <i ng-if="!star" class="material-icons">star_border</i>
                                 <i ng-if="star" class="material-icons">star</i>
                             </span>
                         </div>
+                        <h4>{{ review.firstName }}</h4>
                         <p>{{ review.description }}</p>
                     </div>
                 </md-list-item>
