@@ -1,12 +1,14 @@
 <md-card>
     <md-card-title>
         <md-card-title-text>
-            <span class="md-headline">{{ $ctrl.media.title }}</span>
+            <span class="md-headline">{{ ::$ctrl.media.title }}</span>
             <div layout="row">
                 <b style="padding: 0 10px;">{{ $ctrl.media.releaseYear }}</b>
                 <b style="padding: 0 10px;">{{ $ctrl.media.rating }}</b>
             </div>
-            <span class="md-subhead">{{ $ctrl.media.description }}</span>
+            <span class="md-subhead" style="padding: 10px;">
+                {{ $ctrl.media.description }}
+            </span>
         </md-card-title-text>
         <md-card-title-media style="width: 33%;">
             <div class="md-media-xl">
