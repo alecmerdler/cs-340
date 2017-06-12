@@ -18,7 +18,7 @@
     <!-- Login View -->
     <div layout="row" layout-align="center" style="overflow-y: auto; height: 100%;"
          ng-if="$ctrl.currentView.getValue() === 'login' || $ctrl.currentView.getValue() === 'signup'">
-        <div flex="33" flex-xs>
+        <div flex="33" flex-xs="100">
             <login (login-success)="$ctrl.onLogin($event)"
                    (signup-success)="$ctrl.onSignup($event)"></login>
         </div>
