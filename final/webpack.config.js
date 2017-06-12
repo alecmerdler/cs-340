@@ -5,7 +5,7 @@ var config = {
     entry: "./ui/main.ts",
     output: {
         path: path.resolve(__dirname, "ui/build"),
-        filename: "bundle.js"
+        filename: "bundle-[hash].js"
     },
     resolve: {
         extensions: [".ts", ".css", ".html", ".js"],
