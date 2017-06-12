@@ -17,10 +17,10 @@
                                   ng-repeat="media in $ctrl.mediaList"
                                   ng-if="media.type === 'movie'">
                         <md-grid-tile-header>
-                            <h3>{{ media.title }}</h3>
+                            <h3>{{ ::media.title }}</h3>
                         </md-grid-tile-header>
                         <div class="media-description" ng-cloak>
-                            {{ media.description }}
+                            {{ ::media.description }}
                         </div>
                         <md-grid-tile-footer>
                             <md-button ng-click="$ctrl.recommendMedia(media)">Recommend</md-button>
@@ -42,10 +42,10 @@
                                   ng-repeat="media in $ctrl.mediaList"
                                   ng-if="media.type === 'series'">
                         <md-grid-tile-header>
-                            <h3>{{ media.title }}</h3>
+                            <h3>{{ ::media.title }}</h3>
                         </md-grid-tile-header>
                         <div class="media-description" ng-cloak>
-                            {{ media.description }}
+                            {{ ::media.description }}
                         </div>
                         <md-grid-tile-footer>
                             <md-button ng-click="$ctrl.recommendMedia(media)">Recommend</md-button>
