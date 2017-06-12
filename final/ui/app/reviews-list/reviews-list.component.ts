@@ -32,8 +32,8 @@ export class ReviewsListComponent implements OnChanges {
         this.reviewStars = [false, false, false, false, false];
     }
 
-    private setStars(stars: number): void {
-        this.reviewStars = this.reviewStars.map((star, index) => {
+    private setStars(stars: number): boolean[] {
+        return this.reviewStars.map((star, index) => {
             return index <= stars;
         });
     }
