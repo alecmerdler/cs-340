@@ -2,8 +2,11 @@
     <md-card-title>
         <md-card-title-text>
             <span class="md-headline">{{ $ctrl.media.title }}</span>
-            <span class="md-subhead">{{ $ctrl.media.releaseYear }}</span>
-            <!--<span class="md-subhead">{{ $ctrl.media.description }}</span>-->
+            <div layout="row">
+                <span class="md-subhead">{{ $ctrl.media.releaseYear }}</span>
+                <span class="md-subhead">{{ $ctrl.media.rating }}</span>
+            </div>
+            <span class="md-subhead">{{ $ctrl.media.description }}</span>
         </md-card-title-text>
         <md-card-title-media>
             <div class="md-media-xl">
@@ -12,9 +15,6 @@
         </md-card-title-media>
     </md-card-title>
     <md-card-content>
-
-        <span>{{ $ctrl.media.description }}</span>
-
         <md-divider></md-divider>
         <md-card-title>
             <span class="md-subhead">Recommend to a friend</span>
