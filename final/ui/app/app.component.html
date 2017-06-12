@@ -15,8 +15,14 @@
                 </div>
             </div>
             <div class="md-toolbar-tools" hide-gt-xs>
-                <md-button>Home</md-button>
-                <md-button>New</md-button>
+                <md-button class="md-icon-button"
+                           ng-click="$ctrl.currentView.next('list')">
+                    <i class="material-icons">home</i>
+                </md-button>
+                <md-button class="md-icon-button"
+                           ng-click="$ctrl.currentView.next('list')">
+                    <i class="material-icons">movie</i>
+                </md-button>
             </div>
         </div>
     </md-toolbar>
