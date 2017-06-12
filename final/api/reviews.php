@@ -71,7 +71,7 @@ function list_reviews_for_media($media_id) {
     $response = array();
     $conn = create_db_connection();
 
-    $stmt = $conn->prepare("SELECT *
+    $stmt = $conn->prepare("SELECT Reviews.id, Reviews.description, numStars, title, firstName
                             FROM Reviews, Users, Media 
                             WHERE mediaID = ?
                               AND Media.id = mediaID 
