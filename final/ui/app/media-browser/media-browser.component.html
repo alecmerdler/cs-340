@@ -14,7 +14,7 @@
                               ng-if="!$ctrl.isLoading">
                     <md-grid-tile md-colspan="1" md-rowspan="1"
                                   class="media-tile {{ ::$ctrl.tileClass($index) }}"
-                                  ng-repeat="media in $ctrl.mediaList | limitTo : $ctrl.mediaLimit"
+                                  ng-repeat="media in $ctrl.mediaList"
                                   ng-if="media.type === 'movie'">
                         <md-grid-tile-header>
                             <h3>{{ media.title }}</h3>
@@ -39,7 +39,7 @@
                               ng-if="!$ctrl.isLoading">
                     <md-grid-tile md-colspan="1" md-rowspan="1"
                                   class="media-tile {{ ::$ctrl.tileClass($index) }}"
-                                  ng-repeat="media in $ctrl.mediaList | limitTo : $ctrl.mediaLimit"
+                                  ng-repeat="media in $ctrl.mediaList"
                                   ng-if="media.type === 'series'">
                         <md-grid-tile-header>
                             <h3>{{ media.title }}</h3>
