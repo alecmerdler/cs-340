@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit, Output, EventEmitter, Input } from 'ng-metadata/core';
 import { MediaModel, MediaInstance } from '../../models/media/media.model';
 import template from './media-browser.component.html';
+import './media-browser.component.css';
 
 
 @Component({
