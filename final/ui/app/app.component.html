@@ -1,8 +1,8 @@
 <md-content style="height: 100%; overflow: hidden;">
     <!-- Toolbar -->
     <md-toolbar class="md-hue-2" style="min-height: 50px; height: 50px;">
-        <div class="md-toolbar-tools" hide-xs>
-            <div layout="row">
+        <div layout="column">
+            <div class="md-toolbar-tools">
                 <div flex layout="row">
                     <span style="cursor: pointer;" ng-click="$ctrl.currentView.next('list')">TubeRoom</span>
                 </div>
@@ -14,8 +14,9 @@
                     <md-button ng-click="$ctrl.logout()">Logout</md-button>
                 </div>
             </div>
-            <div layout="row">
+            <div class="md-toolbar-tools" hide-gt-xs>
                 <md-button>Home</md-button>
+                <md-button>New</md-button>
             </div>
         </div>
     </md-toolbar>
