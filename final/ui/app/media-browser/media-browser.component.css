@@ -1,5 +1,10 @@
-.media-tile:hover {
+.media-tile md-grid-tile-footer {
+    visibility: hidden;
+    transition: visibility 0.5s;
+}
 
+.media-tile:hover md-grid-tile-footer {
+    visibility: visible;
 }
 
 .media-tile .media-description {
