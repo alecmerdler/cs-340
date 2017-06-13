@@ -10,7 +10,7 @@
                     <md-progress-circular md-mode="indeterminate"></md-progress-circular>
                 </div>
 
-                <md-grid-list md-cols="3" md-cols-xs="1" md-row-height="9:16" md-row-height-xs="200px"
+                <md-grid-list md-cols="3" md-cols-xs="1" md-row-height="300px" md-row-height-xs="200px"
                               ng-if="!$ctrl.isLoading">
                     <md-grid-tile md-colspan="1" md-rowspan="1"
                                   class="media-tile"
@@ -19,7 +19,7 @@
                         <md-grid-tile-header>
                             <h3>{{ ::media.title }}</h3>
                         </md-grid-tile-header>
-                        <img ng-src="/~merdlera/cs340/final/img/media/{{ ::media.id }}.jpg">
+                        <img style="height: 100%; width: 100%;" ng-src="/~merdlera/cs340/final/img/media/{{ ::media.id }}.jpg">
                         <md-grid-tile-footer>
                             <md-button ng-click="$ctrl.recommendMedia(media)">Recommend</md-button>
                             <md-button ng-click="$ctrl.reviewMedia(media)">Review</md-button>
