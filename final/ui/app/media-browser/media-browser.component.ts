@@ -37,10 +37,4 @@ export class MediaBrowserComponent implements OnInit {
     public reviewMedia(media: MediaInstance): void {
         this.review.emit(media);
     }
-
-    private tileClass(index: number): string {
-        const colors: string[] = ['grey', 'green', 'yellow', 'blue', 'purple', 'red'];
-
-        return colors[index % colors.length];
-    }
 }
