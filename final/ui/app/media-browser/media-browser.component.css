@@ -1,11 +1,5 @@
-.media-tile md-grid-tile-footer {
-    opacity: 0;
-    background: rgba(0, 0, 0, 0.8);
-    transition: all 0.4s ease-in-out;
-}
-
-.media-tile:hover md-grid-tile-footer {
-    opacity: 1;
+.media-tile:hover {
+    cursor: pointer;
 }
 
 .media-tile md-grid-tile-header {
@@ -16,13 +10,4 @@
 
 .media-tile:hover md-grid-tile-header {
     opacity: 1;
-}
-
-.media-tile .media-description {
-    text-overflow: ellipsis;
-    margin: 20px;
-}
-
-.media-tile md-grid-tile-header {
-
 }
