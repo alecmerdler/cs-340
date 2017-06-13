@@ -22,4 +22,9 @@ export class MediaDetailComponent implements OnChanges {
     public ngOnChanges(changes: SimpleChanges): void {
 
     }
+
+    public onCreateRecommendation(): void {
+        this.newRecommendation.mediaID = this.media.id;
+        this.createRecommendation.emit(this.newRecommendation);
+    }
 }
