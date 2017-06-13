@@ -10,7 +10,7 @@
                     <md-progress-circular md-mode="indeterminate"></md-progress-circular>
                 </div>
 
-                <md-grid-list md-cols="3" md-cols-xs="1" md-row-height="300px" md-row-height-xs="200px"
+                <md-grid-list md-cols="3" md-cols-xs="1" md-row-height="fit" md-row-height-xs="200px"
                               ng-if="!$ctrl.isLoading">
                     <md-grid-tile md-colspan="1" md-rowspan="1"
                                   class="media-tile {{ ::$ctrl.tileClass($index) }}"
@@ -19,9 +19,9 @@
                         <md-grid-tile-header>
                             <h3>{{ ::media.title }}</h3>
                         </md-grid-tile-header>
-                        <div class="media-description" ng-cloak>
-                            {{ ::media.description }}
-                        </div>
+                        <!--<div class="media-description" ng-cloak>-->
+                            <!--{{ ::media.description }}-->
+                        <!--</div>-->
                         <img src="/~merdlera/cs340/final/img/media/{{ ::media.id }}.jpg">
                         <md-grid-tile-footer>
                             <md-button ng-click="$ctrl.recommendMedia(media)">Recommend</md-button>
@@ -36,7 +36,7 @@
                     <md-progress-circular md-mode="indeterminate"></md-progress-circular>
                 </div>
 
-                <md-grid-list md-cols="3" md-cols-xs="1" md-row-height="300px" md-row-height-xs="200px"
+                <md-grid-list md-cols="3" md-cols-xs="1" md-row-height="fit" md-row-height-xs="200px"
                               ng-if="!$ctrl.isLoading">
                     <md-grid-tile md-colspan="1" md-rowspan="1"
                                   class="media-tile {{ ::$ctrl.tileClass($index) }}"
@@ -45,9 +45,9 @@
                         <md-grid-tile-header>
                             <h3>{{ ::media.title }}</h3>
                         </md-grid-tile-header>
-                        <div class="media-description" ng-cloak>
-                            {{ ::media.description }}
-                        </div>
+                        <!--<div class="media-description" ng-cloak>-->
+                            <!--{{ ::media.description }}-->
+                        <!--</div>-->
                         <img src="/~merdlera/cs340/final/img/media/{{ ::media.id }}.jpg">
                         <md-grid-tile-footer>
                             <md-button ng-click="$ctrl.recommendMedia(media)">Recommend</md-button>
