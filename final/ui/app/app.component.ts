@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     public currentView: BehaviorSubject<string>;
     public currentMedia: MediaInstance;
 
-    @HostListener('window:scroll', [event])
+    @HostListener('scroll', [event])
     public onWindowScroll(event): void {
         console.log(event);
     }
