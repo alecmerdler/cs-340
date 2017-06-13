@@ -26,5 +26,6 @@ export class MediaDetailComponent implements OnChanges {
     public onCreateRecommendation(): void {
         this.newRecommendation.mediaID = this.media.id;
         this.createRecommendation.emit(this.newRecommendation);
+        this.newRecommendation = {};
     }
 }
