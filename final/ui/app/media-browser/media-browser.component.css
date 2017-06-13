@@ -1,21 +1,21 @@
 .media-tile md-grid-tile-footer {
-    visibility: hidden;
+    opacity: 0;
     background: rgba(0, 0, 0, 0.8);
-    transition: all 0.4s ease-in;
+    transition: all 0.4s ease-in-out;
 }
 
 .media-tile:hover md-grid-tile-footer {
-    visibility: visible;
+    opacity: 1;
 }
 
 .media-tile md-grid-tile-header {
-    visibility: hidden;
+    opacity: 0;
     background: rgba(0, 0, 0, 0.8);
-    transition: all 0.4s ease-in;
+    transition: all 0.4s ease-in-out;
 }
 
 .media-tile:hover md-grid-tile-header {
-    visibility: visible;
+    opacity: 1;
 }
 
 .media-tile .media-description {
