@@ -19,7 +19,9 @@
                         <md-grid-tile-header>
                             <h3>{{ ::media.title }}</h3>
                         </md-grid-tile-header>
-                        <img style="height: 100%; width: 100%;" ng-src="/~merdlera/cs340/final/img/media/{{ ::media.id }}.jpg">
+                        <img hide-xs
+                             style="height: 100%; width: 100%;"
+                             ng-src="/~merdlera/cs340/final/img/media/{{ ::media.id }}.jpg">
                         <md-grid-tile-footer>
                             <md-button ng-click="$ctrl.recommendMedia(media)">Recommend</md-button>
                             <md-button ng-click="$ctrl.reviewMedia(media)">Review</md-button>
