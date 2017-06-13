@@ -15,16 +15,13 @@
                     <md-grid-tile md-colspan="1" md-rowspan="1"
                                   class="media-tile"
                                   ng-repeat="media in $ctrl.mediaList"
-                                  ng-if="media.type === 'movie'">
+                                  ng-if="media.type === 'movie'"
+                                  ng-click="$ctrl.reviewMedia(media)">
                         <md-grid-tile-header hide-xs>
                             <h3>{{ ::media.title }}</h3>
                         </md-grid-tile-header>
                         <img style="height: 100%; width: 100%;"
                              ng-src="/~merdlera/cs340/final/img/media/{{ ::media.id }}.jpg">
-                        <md-grid-tile-footer hide-xs>
-                            <md-button ng-click="$ctrl.recommendMedia(media)">Recommend</md-button>
-                            <md-button ng-click="$ctrl.reviewMedia(media)">Review</md-button>
-                        </md-grid-tile-footer>
                     </md-grid-tile>
                 </md-grid-list>
             </md-tab>
@@ -39,16 +36,13 @@
                     <md-grid-tile md-colspan="1" md-rowspan="1"
                                   class="media-tile"
                                   ng-repeat="media in $ctrl.mediaList"
-                                  ng-if="media.type === 'series'">
+                                  ng-if="media.type === 'series'"
+                                  ng-click="$ctrl.reviewMedia(media)">
                         <md-grid-tile-header hide-xs>
                             <h3>{{ ::media.title }}</h3>
                         </md-grid-tile-header>
                         <img style="height: 100%; width: 100%;"
                              ng-src="/~merdlera/cs340/final/img/media/{{ ::media.id }}.jpg">
-                        <md-grid-tile-footer hide-xs>
-                            <md-button ng-click="$ctrl.recommendMedia(media)">Recommend</md-button>
-                            <md-button ng-click="$ctrl.reviewMedia(media)">Review</md-button>
-                        </md-grid-tile-footer>
                     </md-grid-tile>
                 </md-grid-list>
             </md-tab>
