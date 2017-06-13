@@ -26,14 +26,16 @@ export class AppComponent implements OnInit {
     constructor(@Inject(MediaModel) private mediaModel: MediaModel,
                 @Inject(UserModel) private userModel: UserModel,
                 @Inject(RecommendationModel) private recommendationModel: RecommendationModel,
-                @Inject(ReviewModel) private reviewModel: ReviewModel) {
-        this.currentView = new BehaviorSubject(window.sessionStorage.getItem("currentView") || 'list');
+                @Inject(ReviewModel) private reviewModel: ReviewModel,
+                @Inject('$window') private $window: ng.IWindowService) {
+        this.currentView = new BehaviorSubject(this.$window.sessionStorage.getItem("currentView") || 'list');
         this.currentView.subscribe((view) => {
-            window.sessionStorage.setItem('currentView', view);
+            this.$window.sessionStorage.setItem('currentView', view);
+            this.$window.scroll(0, 0);
         });
 
-        this.currentUser = JSON.parse(window.sessionStorage.getItem('currentUser')) || null;
-        this.currentMedia = JSON.parse(window.sessionStorage.getItem('currentMedia')) || null;
+        this.currentUser = JSON.parse(this.$window.sessionStorage.getItem('currentUser')) || null;
+        this.currentMedia = JSON.parse(this.$window.sessionStorage.getItem('currentMedia')) || null;
     }
 
     public ngOnInit(): void {
@@ -95,7 +97,7 @@ export class AppComponent implements OnInit {
             });
 
         this.currentMedia = media;
-        window.sessionStorage.setItem('currentMedia', JSON.stringify(media));
+        this.$window.sessionStorage.setItem('currentMedia', JSON.stringify(media));
         this.currentView.next('detail');
     }
 
@@ -114,6 +116,6 @@ export class AppComponent implements OnInit {
     public logout(): void {
         this.currentView.next('login');
         this.currentUser = null;
-        window.sessionStorage.removeItem('currentUser');
+        this.$window.sessionStorage.removeItem('currentUser');
     }
 }
