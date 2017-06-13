@@ -10,7 +10,7 @@
                     <md-button ng-click="$ctrl.currentView.next('login')">Login</md-button>
                 </div>
                 <div ng-if="$ctrl.currentUser"
-                     layout="row" layout-align="center center"
+                     layout="row" layout-align="center center" class="user-menu-toggle"
                      ng-click="$ctrl.logout()">
                     <md-tooltip>Logout</md-tooltip>
                     <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"

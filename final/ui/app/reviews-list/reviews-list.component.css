@@ -10,3 +10,11 @@
 .star-picker i.active {
     opacity: 1;
 }
+
+.user-menu-toggle span {
+    padding: 10px;
+}
+
+.user-menu-toggle:hover {
+    cursor: pointer;
+}
