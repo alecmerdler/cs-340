@@ -10,32 +10,23 @@
                     <md-progress-circular md-mode="indeterminate"></md-progress-circular>
                 </div>
 
-                <!-- Desktop -->
                 <md-grid-list md-cols="3" md-cols-xs="2" md-row-height="300px" md-row-height-xs="200px"
                               ng-if="!$ctrl.isLoading">
                     <md-grid-tile md-colspan="1" md-rowspan="1"
                                   class="media-tile"
                                   ng-repeat="media in $ctrl.mediaList"
                                   ng-if="media.type === 'movie'">
-                        <md-grid-tile-header>
+                        <md-grid-tile-header hide-xs>
                             <h3>{{ ::media.title }}</h3>
                         </md-grid-tile-header>
                         <img style="height: 100%; width: 100%;"
                              ng-src="/~merdlera/cs340/final/img/media/{{ ::media.id }}.jpg">
-                        <md-grid-tile-footer>
+                        <md-grid-tile-footer hide-xs>
                             <md-button ng-click="$ctrl.recommendMedia(media)">Recommend</md-button>
                             <md-button ng-click="$ctrl.reviewMedia(media)">Review</md-button>
                         </md-grid-tile-footer>
                     </md-grid-tile>
                 </md-grid-list>
-                <!-- Mobile -->
-                <!--<md-list hide-gt-xs>-->
-                    <!--<md-list-item ng-repeat="media in $ctrl.mediaList"-->
-                                  <!--ng-if="media.type == 'movie'"-->
-                                  <!--ng-click="$ctrl.recommendMedia(media)">-->
-                        <!--<h3>{{ ::media.title }}</h3>-->
-                    <!--</md-list-item>-->
-                <!--</md-list>-->
             </md-tab>
             <md-tab label="Series">
                 <div layout="row" layout-align="space-around"
@@ -43,17 +34,18 @@
                     <md-progress-circular md-mode="indeterminate"></md-progress-circular>
                 </div>
 
-                <md-grid-list md-cols="3" md-cols-xs="1" md-row-height="4:3" md-row-height-xs="200px"
+                <md-grid-list md-cols="3" md-cols-xs="2" md-row-height="300px" md-row-height-xs="200px"
                               ng-if="!$ctrl.isLoading">
                     <md-grid-tile md-colspan="1" md-rowspan="1"
                                   class="media-tile"
                                   ng-repeat="media in $ctrl.mediaList"
                                   ng-if="media.type === 'series'">
-                        <md-grid-tile-header>
+                        <md-grid-tile-header hide-xs>
                             <h3>{{ ::media.title }}</h3>
                         </md-grid-tile-header>
-                        <img ng-src="/~merdlera/cs340/final/img/media/{{ ::media.id }}.jpg">
-                        <md-grid-tile-footer>
+                        <img style="height: 100%; width: 100%;"
+                             ng-src="/~merdlera/cs340/final/img/media/{{ ::media.id }}.jpg">
+                        <md-grid-tile-footer hide-xs>
                             <md-button ng-click="$ctrl.recommendMedia(media)">Recommend</md-button>
                             <md-button ng-click="$ctrl.reviewMedia(media)">Review</md-button>
                         </md-grid-tile-footer>
