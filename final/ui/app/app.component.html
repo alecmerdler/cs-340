@@ -9,7 +9,7 @@
                 <div ng-if="!$ctrl.currentUser">
                     <md-button ng-click="$ctrl.currentView.next('login')">Login</md-button>
                 </div>
-                <div ng-if="$ctrl.currentUser">
+                <div ng-if="$ctrl.currentUser" layout-align="center center">
                     <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
                          class="md-avatar" height="40" width="40">
                     <span>{{ $ctrl.currentUser.firstName }}</span>
