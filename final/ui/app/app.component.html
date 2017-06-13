@@ -10,6 +10,8 @@
                     <md-button ng-click="$ctrl.currentView.next('login')">Login</md-button>
                 </div>
                 <div ng-if="$ctrl.currentUser">
+                    <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
+                         class="md-avatar" />
                     <span>{{ $ctrl.currentUser.firstName }}</span>
                     <md-button ng-click="$ctrl.logout()">Logout</md-button>
                 </div>

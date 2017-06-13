@@ -20,7 +20,7 @@
                               ng-repeat="review in $ctrl.reviews"
                               ng-click="null">
                     <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
-                         class="md-avatar" />
+                         class="md-avatar">
                     <div class="md-list-item-text" layout="column">
                         <div>
                             <span ng-repeat="star in $ctrl.setStars(review.numStars - 1) track by $index">

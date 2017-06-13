@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from 'ng-metadata/core';
+import { Component, Inject, OnInit, HostListener } from 'ng-metadata/core';
 import { UserModel, UserInstance } from '../models/user/user.model';
 import { MediaModel, MediaInstance } from '../models/media/media.model';
 import { ReviewAttributes, ReviewInstance, ReviewModel} from '../models/review/review.model';
@@ -22,6 +22,11 @@ export class AppComponent implements OnInit {
     public userList: UserInstance[] = [];
     public currentView: BehaviorSubject<string>;
     public currentMedia: MediaInstance;
+
+    @HostListener('window:scroll', [event])
+    public onWindowScroll(event): void {
+        console.log(event);
+    }
 
     constructor(@Inject(MediaModel) private mediaModel: MediaModel,
                 @Inject(UserModel) private userModel: UserModel,
