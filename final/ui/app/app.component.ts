@@ -100,7 +100,7 @@ export class AppComponent implements OnInit {
         this.currentMedia = media;
         this.$window.sessionStorage.setItem('currentMedia', JSON.stringify(media));
 
-        this.userHasReviewed = this.userReviews[$ctrl.currentUser.id].find(review => review.mediaID == media.id);
+        this.userHasReviewed = !!this.userReviews[this.currentUser.id].find(review => review.mediaID == media.id);
 
         this.currentView.next('detail');
     }
