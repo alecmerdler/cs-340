@@ -15,6 +15,8 @@ export type ReviewInstance = {
     numStars: number;
     title: string;
     firstName: string;
+    userID: number;
+    mediaID: number;
 };
 
 

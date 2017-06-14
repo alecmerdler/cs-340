@@ -65,6 +65,7 @@
             <reviews-list ng-if="$ctrl.currentView.getValue() == 'detail'"
                           [reviews]="$ctrl.mediaReviews[$ctrl.currentMedia.id]"
                           [can-review]="$ctrl.currentUser"
+                          [has-reviewed]="$ctrl.userReviews[$ctrl.currentUser.id].find(review => review.mediaID == $ctrl.currentMedia.id)"
                           (create-review)="$ctrl.onCreateReview($event)"></reviews-list>
         </div>
     </div>

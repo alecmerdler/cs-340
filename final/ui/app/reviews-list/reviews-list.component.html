@@ -45,6 +45,12 @@
                 <i class="material-icons">account_circle</i> <span>Login to create review</span>
             </div>
 
+            <!-- Already Reviewed -->
+            <div class="empty-list"
+                 ng-if="$ctrl.canReview && $ctrl.hasReviewed">
+                <i class="material-icons">account_circle</i> <span>You have already reviewed this content</span>
+            </div>
+
             <!-- Logged In User -->
             <form name="$ctrl.newReviewForm"
                   flex layout="row"

@@ -12,6 +12,7 @@ export class ReviewsListComponent implements OnChanges {
 
     @Input() public reviews: ReviewInstance[] = [];
     @Input() public canReview: boolean = false;
+    @Input() public hasReviewed: boolean = false;
 
     @Output() public createReview: EventEmitter<ReviewAttributes> = new EventEmitter();
 
