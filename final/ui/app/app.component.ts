@@ -23,6 +23,8 @@ export class AppComponent implements OnInit {
     public currentView: BehaviorSubject<string>;
     public currentMedia: MediaInstance;
 
+    private userHasReviewed: boolean = false;
+
     constructor(@Inject(MediaModel) private mediaModel: MediaModel,
                 @Inject(UserModel) private userModel: UserModel,
                 @Inject(RecommendationModel) private recommendationModel: RecommendationModel,
@@ -70,7 +72,6 @@ export class AppComponent implements OnInit {
     }
 
     public onCreateReview(review: ReviewAttributes): void {
-        console.log(review);
         review.userID = this.currentUser.id;
         review.mediaID = this.currentMedia.id;
         this.reviewModel.create(review)
@@ -98,6 +99,9 @@ export class AppComponent implements OnInit {
 
         this.currentMedia = media;
         this.$window.sessionStorage.setItem('currentMedia', JSON.stringify(media));
+
+        this.userHasReviewed = this.userReviews[$ctrl.currentUser.id].find(review => review.mediaID == media.id);
+
         this.currentView.next('detail');
     }
 
