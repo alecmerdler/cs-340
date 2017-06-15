@@ -19,6 +19,7 @@ export class LoginComponent {
 
     private loginAttempts: number = 0;
     private signupForm: ng.IFormController;
+    private signupFormError: string = "";
 
     constructor(@Inject(UserModel) private userModel: UserModel) {
 
@@ -52,8 +53,7 @@ export class LoginComponent {
             })
             .catch((error) => {
                 this.isLoading = false;
-                this.signupForm['username'].$error = error.type;
-                this.signupForm['email'].$error = error.type;
+                this.signupFormError = error.type;
             });
     }
 }
