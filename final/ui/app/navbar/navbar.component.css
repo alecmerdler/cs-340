@@ -38,12 +38,12 @@ md-toolbar.toolbar-fade.ng-leave.ng-leave-active {
 }
 
 .search-icon:hover {
-    color: rgba(0, 0, 0, 0.8);
+    color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
 
 .search-toolbar {
-    box-shadow: 0px 2px 1px rgba(0,0,0,0.6);
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.6);
     background: #fff;
 }
 
@@ -62,4 +62,13 @@ md-toolbar.toolbar-fade.ng-leave.ng-leave-active {
 
 .search-container input:focus {
     outline: none;
+}
+
+.desktop-search {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.desktop-search:hover,
+.desktop-search input:focus {
+    background: rgba(255, 255, 255);
 }
