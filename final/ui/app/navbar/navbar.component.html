@@ -9,7 +9,7 @@
             <div ng-if="!$ctrl.currentUser">
                 <md-button ng-click="$ctrl.viewChange.emit('login')">Login</md-button>
             </div>
-            <div layout-align="center center" class="user-menu-toggle"
+            <div layout-align="center center" class="search-icon"
                  ng-click="$ctrl.showSearch = true">
                 <i class="material-icons">search</i>
             </div>
@@ -37,7 +37,7 @@
         <div class="md-toolbar-tools" hide-gt-xs
              ng-show="$ctrl.showSearch">
             <!-- Back button -->
-            <div layout="center center" class="user-menu-toggle"
+            <div layout="center center" class="search-back-btn"
                  ng-click="$ctrl.showSearch = false">
                 <i class="material-icons">arrow_back</i>
             </div>

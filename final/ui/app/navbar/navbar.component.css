@@ -8,6 +8,10 @@
     cursor: pointer;
 }
 
+.search-back-btn {
+    padding-right: 10px;
+}
+
 .search-icon {
     padding-right: 10px;
 }
