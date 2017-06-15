@@ -14,7 +14,7 @@
                      ng-click="$ctrl.toggleSearch()">
                     <i class="material-icons">search</i>
                 </div>
-                <div class="search-container" layout="column" layout-align="center center" flex>
+                <div class="search-container" layout="column" layout-align="center center" flex hide-xs>
                     <input type="text" placeholder="Search"
                            ng-model="$ctrl.searchText"
                            ng-change="$ctrl.search.emit($ctrl.searchText)">

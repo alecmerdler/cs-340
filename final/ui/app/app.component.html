@@ -113,6 +113,11 @@
                           [current-user]="$ctrl.currentUser"
                           (create-review)="$ctrl.onCreateReview($event)"></reviews-list>
         </div>
+        <!-- Search View -->
+        <div flex="100"
+             ng-if="$ctrl.currentView.getValue() == 'search'">
+            <!-- TODO -->
+        </div>
 
     </div>
 </md-content>

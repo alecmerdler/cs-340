@@ -57,6 +57,8 @@ md-toolbar.toolbar-fade.ng-leave.ng-leave-active {
     border: 0;
     appearance: none;
     width: 100%;
+    border-radius: 2px;
+    padding: 10px;
 }
 
 .search-container input:focus {
