@@ -38,14 +38,13 @@
             <md-tab label="Signup">
                 <form name="$ctrl.signupForm">
                     <div layout="column" layout-align="center center">
-                        {{ $ctrl.signupForm.$error }}
                         <md-input-container>
                             <label>Username</label>
                             <input name="username"
                                    type="text"
                                    ng-model="$ctrl.signupData.username"
                                    md-maxlength="20" required>
-                            <div ng-messages="$ctrl.signupForm.$error">
+                            <div ng-messages="$ctrl.signupForm.username.$error">
                                 <div ng-message="duplicate">This username/email has already been used.</div>
                             </div>
                         </md-input-container>
@@ -55,7 +54,7 @@
                                    type="text"
                                    ng-model="$ctrl.signupData.email"
                                    md-maxlength="40" required>
-                            <div ng-messages="$ctrl.signupForm.$error">
+                            <div ng-messages="$ctrl.signupForm.username.$error">
                                 <div ng-message="duplicate">This username/email has already been used.</div>
                             </div>
                         </md-input-container>

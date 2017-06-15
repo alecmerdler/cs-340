@@ -52,7 +52,8 @@ export class LoginComponent {
             })
             .catch((error) => {
                 this.isLoading = false;
-                this.signupForm.$error = error.error.type;
+                this.signupForm['username'].$error = error.type;
+                this.signupForm['email'].$error = error.type;
             });
     }
 }

@@ -27,7 +27,7 @@ export class UserModel {
                 return this.$q.resolve(response.data);
             })
             .catch((error) => {
-                return this.$q.reject(error.data);
+                return this.$q.reject(error.data['error']['error']);
             });
     }
 
@@ -37,7 +37,7 @@ export class UserModel {
                 return this.$q.resolve(response.data);
             })
             .catch((error) => {
-                return this.$q.reject(error.data);
+                return this.$q.reject(error.data['error']);
             });
     }
 
@@ -47,7 +47,7 @@ export class UserModel {
                 return this.$q.resolve();
             })
             .catch((error) => {
-                return this.$q.reject(error.data);
+                return this.$q.reject(error.data['error']);
             });
     }
 
@@ -59,7 +59,7 @@ export class UserModel {
                 return this.$q.resolve(response.data);
             })
             .catch((error) => {
-                return this.$q.reject(error.data);
+                return this.$q.reject(error.data['error']);
             });
     }
 }
