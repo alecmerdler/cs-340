@@ -102,6 +102,11 @@ export class AppComponent implements OnInit {
         this.currentView.next('detail');
     }
 
+    public onSearch(event: string): void {
+        console.log(event);
+        this.currentView.next('search');
+    }
+
     public onLogin(user: UserInstance): void {
         this.currentUser = user;
         this.ngOnInit();
