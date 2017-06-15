@@ -1,8 +1,8 @@
+<!-- Normal navbar -->
+<div class="toolbar-container"
+     ng-if="!$ctrl.showSearch">
 <md-toolbar class="md-hue-2">
     <div layout="column">
-        <!-- Normal navbar -->
-        <div class="toolbar-container"
-             ng-if="!$ctrl.showSearch">
             <div class="md-toolbar-tools">
                 <div flex layout="row">
                     <span style="cursor: pointer;" ng-click="$ctrl.viewChange.emit('list')">TubeRoom</span>
@@ -34,22 +34,22 @@
                 </md-button>
             </div>
         </div>
-        <!-- Search -->
-        <div class="toolbar-container"
-             ng-if="$ctrl.showSearch">
-            <div class="md-toolbar-tools search-toolbar" hide-gt-xs>
-                <!-- Back button -->
-                <div layout="column" layout="center center" class="search-back-btn"
-                     ng-click="$ctrl.showSearch = false">
-                    <i class="material-icons">arrow_back</i>
-                </div>
-                <!-- Search input -->
-                <div layout="column" layout-align="center center" flex="33" flex-xs class="search-container">
-                    <input type="text"
-                           placeholder="Search"
-                           ng-model="$ctrl.searchText">
-                </div>
-            </div>
+    </md-toolbar>
+</div>
+<!-- Search -->
+<div class="toolbar-container"
+     ng-if="$ctrl.showSearch">
+    <div class="md-toolbar-tools search-toolbar">
+        <!-- Back button -->
+        <div layout="column" layout="center center" class="search-back-btn"
+             ng-click="$ctrl.showSearch = false">
+            <i class="material-icons">arrow_back</i>
+        </div>
+        <!-- Search input -->
+        <div layout="column" layout-align="center center" flex="33" flex-xs class="search-container">
+            <input type="text"
+                   placeholder="Search"
+                   ng-model="$ctrl.searchText">
         </div>
     </div>
-</md-toolbar>
+</div>
