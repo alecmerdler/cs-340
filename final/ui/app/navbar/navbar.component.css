@@ -1,0 +1,24 @@
+.user-menu-toggle span {
+    padding: 10px;
+}
+
+.user-menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-icon {
+    padding-right: 10px;
+}
+
+.search-icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-container {
+    height: 100%;
+
+}

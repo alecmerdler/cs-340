@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from 'ng-metadata/core';
 import { UserInstance } from '../../models/user/user.model';
 import template from './navbar.component.html';
+import './navbar.component.css';
 
 
 @Component({
