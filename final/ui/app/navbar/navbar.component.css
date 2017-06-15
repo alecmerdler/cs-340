@@ -1,8 +1,9 @@
 md-toolbar.toolbar-slide {
-    transition: all 0.2s linear 0s;
+
 }
 
 md-toolbar.toolbar-slide.ng-enter {
+    transition: all 0.2s linear 0s;
     transform: translate(500px);
 }
 
@@ -11,7 +12,7 @@ md-toolbar.toolbar-slide.ng-enter.ng-enter-active {
 }
 
 md-toolbar.toolbar-slide.ng-leave {
-
+    transition: all 0.2s linear 0s;
 }
 
 md-toolbar.toolbar-slide.ng-leave.ng-leave-active {
