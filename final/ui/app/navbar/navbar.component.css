@@ -12,11 +12,11 @@ md-toolbar.toolbar-slide.ng-enter.ng-active {
 }
 
 md-toolbar.toolbar-slide.ng-leave {
-    transform: translate(-1000px);
     opacity: 1;
 }
 
 md-toolbar.toolbar-slide.ng-leave.ng-active {
+    transform: translate(-1000px);
     opacity: 0;
 }
 
