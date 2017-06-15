@@ -69,16 +69,18 @@
                            (recommend)="$ctrl.viewMediaDetail($event)"></media-browser>
         </div>
         <!-- Detail View -->
-        <div flex="100"
+        <div flex="100" layout="column"
              ng-if="$ctrl.currentView.getValue() == 'detail'">
+            <md-button ng-click="$ctrl.currentView.next('reviews')">Reviews</md-button>
             <media-detail [media]="$ctrl.currentMedia"
                           [can-recommend]="$ctrl.currentUser"
                           [user-list]="$ctrl.userList"
                           (create-recommendation)="$ctrl.onCreateRecommendation($event)"></media-detail>
         </div>
         <!-- Reviews List View -->
-        <div flex="100"
+        <div flex="100" layout="column"
              ng-if="$ctrl.currentView.getValue() == 'reviews'">
+            <md-button ng-click="$ctrl.currentView.next('detail')">{{ $ctrl.currentMedia.title }}</md-button>
             <reviews-list [reviews]="$ctrl.mediaReviews[$ctrl.currentMedia.id]"
                           [can-review]="$ctrl.currentUser"
                           [current-user]="$ctrl.currentUser"
