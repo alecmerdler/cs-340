@@ -18,6 +18,7 @@ export class LoginComponent {
     public signupData: UserInstance;
 
     private loginAttempts: number = 0;
+    private signupForm: ng.IFormController;
 
     constructor(@Inject(UserModel) private userModel: UserModel) {
 
@@ -51,6 +52,7 @@ export class LoginComponent {
             })
             .catch((error) => {
                 this.isLoading = false;
+                this.signupForm.$error = error.type;
             });
     }
 }

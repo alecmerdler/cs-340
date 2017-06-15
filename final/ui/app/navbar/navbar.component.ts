@@ -25,7 +25,6 @@ export class NavbarComponent implements OnInit {
         this.showSearch = !this.showSearch;
 
         if (this.showSearch) {
-            console.log(this.searchInput);
             this.searchInput.focus();
         }
     }

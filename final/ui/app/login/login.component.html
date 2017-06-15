@@ -44,6 +44,9 @@
                                    type="text"
                                    ng-model="$ctrl.signupData.username"
                                    md-maxlength="20" required>
+                            <div ng-messages="$ctrl.signupForm.$error">
+                                <div ng-message="duplicate">This username/email has already been used.</div>
+                            </div>
                         </md-input-container>
                         <md-input-container>
                             <label>Email</label>
@@ -51,6 +54,9 @@
                                    type="text"
                                    ng-model="$ctrl.signupData.email"
                                    md-maxlength="40" required>
+                            <div ng-messages="$ctrl.signupForm.$error">
+                                <div ng-message="duplicate">This username/email has already been used.</div>
+                            </div>
                         </md-input-container>
                         <md-input-container>
                             <label>First Name</label>
