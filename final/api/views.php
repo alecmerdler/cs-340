@@ -80,6 +80,7 @@ function list_views_for_media($media_id) {
     $stmt->execute();
 
     $result = $stmt->get_result();
+    $result->fetch_assoc();
     var_dump($result->fetch_assoc());
 
     while ($row = $stmt->get_result()) {
