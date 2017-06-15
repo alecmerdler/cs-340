@@ -14,8 +14,10 @@ export class MediaDetailComponent implements OnChanges {
     @Input() public media: MediaInstance;
     @Input() public canRecommend: boolean = false;
     @Input() public userList: UserInstance[] = [];
+    @Input() public timesViewed: number = 0;
 
     @Output() public createRecommendation: EventEmitter<RecommendationAttributes> = new EventEmitter();
+    @Output() public addView: EventEmitter<any> = new EventEmitter();
 
     private newRecommendation: RecommendationAttributes = {};
 
@@ -27,5 +29,9 @@ export class MediaDetailComponent implements OnChanges {
         this.newRecommendation.mediaID = this.media.id;
         this.createRecommendation.emit(this.newRecommendation);
         this.newRecommendation = {};
+    }
+
+    public onAddView(): void {
+        this.addView.emit();
     }
 }

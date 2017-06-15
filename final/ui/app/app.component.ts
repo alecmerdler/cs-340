@@ -3,6 +3,7 @@ import { UserModel, UserInstance } from '../models/user/user.model';
 import { MediaModel, MediaInstance } from '../models/media/media.model';
 import { ReviewAttributes, ReviewInstance, ReviewModel} from '../models/review/review.model';
 import { RecommendationModel, RecommendationInstance, RecommendationAttributes } from '../models/recommendation/recommendation.model';
+import { ViewAttributes, ViewInstance, ViewModel } from '../models/view/view.model';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import template from './app.component.html';
 import './app.component.css';
@@ -19,6 +20,8 @@ export class AppComponent implements OnInit {
     public userRecommendations: RecommendationInstance[] = [];
     public userReviews: {[userID: number]: ReviewInstance[]} = {};
     public mediaReviews: {[mediaID: number]: ReviewInstance[]} = {};
+    public userViews: {[userID: number]: ViewInstance[]} = {};
+    public mediaViews: {[mediaID: number]: ViewInstance[]} = {};
     public userList: UserInstance[] = [];
     public currentView: BehaviorSubject<string>;
     public currentMedia: MediaInstance;
@@ -30,6 +33,7 @@ export class AppComponent implements OnInit {
                 @Inject(UserModel) private userModel: UserModel,
                 @Inject(RecommendationModel) private recommendationModel: RecommendationModel,
                 @Inject(ReviewModel) private reviewModel: ReviewModel,
+                @Inject(ViewModel) private viewModel: ViewModel,
                 @Inject('$window') private $window: ng.IWindowService) {
         this.currentView = new BehaviorSubject(this.$window.sessionStorage.getItem("currentView") || 'home');
         this.currentView.subscribe((view) => {
@@ -70,6 +74,11 @@ export class AppComponent implements OnInit {
                 .then((reviewsList) => {
                     this.userReviews[this.currentUser.id] = reviewsList;
                 });
+
+            this.viewModel.listByUser(this.currentUser.id)
+                .then((viewsList) => {
+                    this.userViews[this.currentUser.id] = viewsList;
+                });
         }
     }
 
@@ -99,9 +108,22 @@ export class AppComponent implements OnInit {
                 this.mediaReviews[media.id] = reviewsList;
             });
 
+        this.viewsModel.listByMedia(this.currentMedia.id)
+            .then((viewsList) => {
+                this.mediaViews[this.currentMedia.id] = viewsList;
+            });
+
         this.currentMedia = media;
         this.$window.sessionStorage.setItem('currentMedia', JSON.stringify(media));
         this.currentView.next('detail');
+    }
+
+    public onAddView(): void {
+        const view: ViewAttributes = {userID: this.currentUser.id, mediaID: this.currentMedia.id};
+        this.viewModel.create(view)
+            .then((newView) => {
+                console.log(newView);
+            });
     }
 
     public onSearch(event: string): void {

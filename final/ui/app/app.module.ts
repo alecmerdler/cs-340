@@ -10,6 +10,7 @@ import { MediaDetailComponent } from './media-detail/media-detail.component';
 import { ReviewsListComponent } from './reviews-list/reviews-list.component';
 import { ActivityFeedComponent } from './activity-feed/activity-feed.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ViewModel } from '../models/view/view.model';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { NavbarComponent } from './navbar/navbar.component';
         {provide: MediaModel, useClass: MediaModel},
         {provide: RecommendationModel, useClass: RecommendationModel},
         {provide: ReviewModel, useClass: ReviewModel},
+        {provide: ViewModel, useClass: ViewModel},
     ]
 })
 export class AppModule {

@@ -35,6 +35,8 @@
                 <media-detail [media]="$ctrl.currentMedia"
                               [can-recommend]="$ctrl.currentUser"
                               [user-list]="$ctrl.userList"
+                              [times-viewed]="$ctrl.mediaViews[$ctrl.currentMedia.id].length"
+                              (add-view)="$ctrl.onAddView()"
                               (create-recommendation)="$ctrl.onCreateRecommendation($event)"></media-detail>
             </div>
             <!-- Reviews List View -->
@@ -75,6 +77,8 @@
             <media-detail [media]="$ctrl.currentMedia"
                           [can-recommend]="$ctrl.currentUser"
                           [user-list]="$ctrl.userList"
+                          [times-viewed]="$ctrl.timesViewed"
+                          (add-view)="$ctrl.onAddView()"
                           (create-recommendation)="$ctrl.onCreateRecommendation($event)"></media-detail>
         </div>
         <!-- Reviews List View -->
