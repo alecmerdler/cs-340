@@ -1,18 +1,18 @@
-.md-toolbar-tools.ng-enter {
+.toolbar-container.ng-enter {
     transition: 0.1s linear all;
     opacity: 0;
 }
 
-.md-toolbar-tools.ng-enter.ng-active {
+.toolbar-container.ng-enter.ng-active {
     opacity: 1;
 }
 
-.md-toolbar-tools.ng-leave {
+.toolbar-container.ng-leave {
     transition: 0.1s linear all;
     opacity: 1;
 }
 
-.md-toolbar-tools.ng-leave.ng-active {
+.toolbar-container.ng-leave.ng-active {
     opacity: 0;
 }
 
