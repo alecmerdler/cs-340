@@ -4,20 +4,18 @@ md-toolbar.toolbar-slide {
 
 md-toolbar.toolbar-slide.ng-enter {
     transform: translate(500px);
-    opacity: 0;
 }
 
 md-toolbar.toolbar-slide.ng-enter.ng-active {
-    opacity: 1;
+
 }
 
 md-toolbar.toolbar-slide.ng-leave {
-    transform: translate(500px);
-    opacity: 1;
+
 }
 
 md-toolbar.toolbar-slide.ng-leave.ng-active {
-    opacity: 0;
+    transform: translate(500px);
 }
 
 .user-menu-toggle span {
