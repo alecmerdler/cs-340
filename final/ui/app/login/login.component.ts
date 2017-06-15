@@ -53,6 +53,7 @@ export class LoginComponent {
             .catch((error) => {
                 this.isLoading = false;
                 this.signupForm.$error = error.error.type;
+                console.log(error.error);
             });
     }
 }
