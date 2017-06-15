@@ -70,5 +70,5 @@ md-toolbar.toolbar-fade.ng-leave.ng-leave-active {
 
 .desktop-search:hover input,
 .desktop-search input:focus {
-    background: rgba(255, 255, 255);
+    background: #fff;
 }
