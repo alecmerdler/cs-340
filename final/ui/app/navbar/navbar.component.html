@@ -9,7 +9,7 @@
             <div ng-if="!$ctrl.currentUser">
                 <md-button ng-click="$ctrl.viewChange.emit('login')">Login</md-button>
             </div>
-            <div layout-align="center center" class="search-icon"
+            <div layout="column" layout-align="center center" class="search-icon"
                  ng-click="$ctrl.showSearch = true">
                 <i class="material-icons">search</i>
             </div>
