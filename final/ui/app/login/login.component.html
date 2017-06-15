@@ -70,7 +70,8 @@
                                    md-maxlength="20" required>
                         </md-input-container>
                         <!-- Errors -->
-                        <div ng-if="$ctrl.signupFormError == 'duplicate'">
+                        <div ng-if="$ctrl.signupFormError == 'duplicate'"
+                             style="color: red;">
                             This username/email has already been used.
                         </div>
                     </div>

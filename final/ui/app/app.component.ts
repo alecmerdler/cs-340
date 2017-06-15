@@ -88,7 +88,7 @@ export class AppComponent implements OnInit {
         recommendation.recommenderID = this.currentUser.id;
         this.recommendationModel.create(recommendation)
             .then((newRecommendation) => {
-                console.log(newRecommendation);
+                this.currentView.next('home');
             });
     }
 

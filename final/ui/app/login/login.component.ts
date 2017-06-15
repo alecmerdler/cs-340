@@ -43,6 +43,7 @@ export class LoginComponent {
     }
 
     public signup(): void {
+        this.signupFormError = "";
         this.isLoading = true;
         this.userModel.create(this.signupData)
             .then((newUser: UserInstance) => {
