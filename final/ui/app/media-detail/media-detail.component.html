@@ -14,7 +14,8 @@
             <div class="md-media-xl">
                 <img ng-src="/~merdlera/cs340/final/img/media/{{ ::$ctrl.media.id }}.jpg">
             </div>
-            <md-button ng-click="$ctrl.onAddView()">
+            <md-button layout="row" layout-align="center center"
+                       ng-click="$ctrl.onAddView()">
                 <i class="material-icons">remove_red_eye</i> {{ $ctrl.views.length }} views
             </md-button>
         </md-card-title-media>
