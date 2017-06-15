@@ -10,7 +10,12 @@ function handle_request($method) {
         switch($method) {
             case "GET":
                 http_response_code(200);
-                echo list_media();
+                if (key_exists('search', $_GET)) {
+                    echo json_encode(search_media($_GET["search"]));
+                }
+                else {
+                    echo json_encode(list_media());
+                }
                 break;
 
             default:
@@ -43,7 +48,33 @@ function list_media() {
 
     $conn->close();
 
-    return json_encode($response);
+    return $response;
+}
+
+
+/*
+ * Search for media based on title.
+ */
+function search_media($search_title) {
+    $response = array();
+    $conn = create_db_connection();
+
+    $stmt = $conn->prepare("SELECT * from Media 
+                            WHERE title LIKE %?%");
+    $stmt->bind_param("s", $search_title);
+    $stmt->execute();
+
+    while ($row = $stmt->get_result()) {
+        $data = $row->fetch_assoc();
+        if ($data != null) {
+            array_push($response, $data);
+        }
+    }
+
+    $stmt->close();
+    $conn->close();
+
+    return $response;
 }
 
 

@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
     public userList: UserInstance[] = [];
     public currentView: BehaviorSubject<string>;
     public currentMedia: MediaInstance;
+    public searchResults: MediaInstance[] = [];
 
     private userHasReviewed: boolean = false;
 
@@ -103,8 +104,12 @@ export class AppComponent implements OnInit {
     }
 
     public onSearch(event: string): void {
-        console.log(event);
         this.currentView.next('search');
+
+        this.mediaModel.search(event)
+            .then((searchResults) => {
+                this.searchResults = searchResults;
+            });
     }
 
     public onLogin(user: UserInstance): void {

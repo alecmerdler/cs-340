@@ -85,8 +85,13 @@
         <!-- Search View -->
         <div flex="100"
              ng-if="$ctrl.currentView.getValue() == 'search'">
-            <!-- TODO -->
+            <!-- FIXME: Make into new component -->
+            <md-list>
+                <md-list-item ng-repeat="result in $ctrl.searchResults"
+                              ng-click="null">
+                    <span>{{ result.title }}</span>
+                </md-list-item>
+            </md-list>
         </div>
-
     </div>
 </md-content>
