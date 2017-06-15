@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from 'ng-metadata/core';
+import { Component, Input, Output, EventEmitter, ViewChild } from 'ng-metadata/core';
 import { UserInstance } from '../../models/user/user.model';
 import template from './navbar.component.html';
 import './navbar.component.css';
@@ -8,7 +8,7 @@ import './navbar.component.css';
     selector: 'navbar',
     template: template
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
 
     @Input() public currentUser: UserInstance;
 
@@ -16,6 +16,16 @@ export class NavbarComponent {
     @Output() public search: EventEmitter<string> = new EventEmitter();
     @Output() public logout: EventEmitter<any> = new EventEmitter();
 
+    @ViewChild('input') public searchInput: HTMLInputElement;
+
     private showSearch: boolean = false;
     private searchText: string = "";
+
+    public toggleSearch(): void {
+        this.showSearch = !this.showSearch;
+        
+        if (this.showSearch) {
+            this.searchInput.focus();
+        }
+    }
 }

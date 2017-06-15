@@ -10,7 +10,7 @@
                     <md-button ng-click="$ctrl.viewChange.emit('login')">Login</md-button>
                 </div>
                 <div layout="column" layout-align="center center" class="search-icon"
-                     ng-click="$ctrl.showSearch = true">
+                     ng-click="$ctrl.toggleSearch()">
                     <i class="material-icons">search</i>
                 </div>
                 <div ng-if="$ctrl.currentUser"
@@ -42,14 +42,14 @@
     <div class="md-toolbar-tools search-toolbar">
         <!-- Back button -->
         <div layout="column" layout="center center" class="search-back-btn"
-             ng-click="$ctrl.showSearch = false">
+             ng-click="$ctrl.toggleSearch()">
             <i class="material-icons">arrow_back</i>
         </div>
         <!-- Search input -->
-        <div layout="column" layout-align="center center" flex="33" flex-xs class="search-container">
-            <input type="text"
-                   placeholder="Search"
-                   ng-model="$ctrl.searchText">
+        <div class="search-container" layout="column" layout-align="center center" flex="33" flex-xs>
+            <input type="text" placeholder="Search"
+                   ng-model="$ctrl.searchText"
+                   ng-change="$ctrl.search.emit($ctrl.searchText)">
         </div>
     </div>
 </md-toolbar>
