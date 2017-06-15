@@ -36,18 +36,16 @@
         <!-- Search -->
         <div class="md-toolbar-tools" hide-gt-xs
              ng-show="$ctrl.showSearch">
-            <md-card>
-                <!-- Back button -->
-                <div layout="column" layout="center center" class="search-back-btn"
-                     ng-click="$ctrl.showSearch = false">
-                    <i class="material-icons">arrow_back</i>
-                </div>
-                <!-- Search input -->
-                <div layout="column" layout-align="center center" flex="33" flex-xs class="search-container">
-                    <input type="text"
-                           ng-model="$ctrl.searchText">
-                </div>
-            </md-card>
+            <!-- Back button -->
+            <div layout="column" layout="center center" class="search-back-btn"
+                 ng-click="$ctrl.showSearch = false">
+                <i class="material-icons">arrow_back</i>
+            </div>
+            <!-- Search input -->
+            <div layout="column" layout-align="center center" flex="33" flex-xs class="search-container">
+                <input type="text"
+                       ng-model="$ctrl.searchText">
+            </div>
         </div>
     </div>
 </md-toolbar>
