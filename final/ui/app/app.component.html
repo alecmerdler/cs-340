@@ -1,35 +1,9 @@
 <md-content style="height: 100%; overflow: hidden;">
     <!-- Toolbar -->
-    <md-toolbar class="md-hue-2">
-        <div layout="column">
-            <div class="md-toolbar-tools">
-                <div flex layout="row">
-                    <span style="cursor: pointer;" ng-click="$ctrl.currentView.next('list')">TubeRoom</span>
-                </div>
-                <div ng-if="!$ctrl.currentUser">
-                    <md-button ng-click="$ctrl.currentView.next('login')">Login</md-button>
-                </div>
-                <div ng-if="$ctrl.currentUser"
-                     layout="row" layout-align="center center" class="user-menu-toggle"
-                     ng-click="$ctrl.logout()">
-                    <md-tooltip>Logout</md-tooltip>
-                    <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
-                         class="md-avatar" height="40" width="40">
-                    <span>{{ $ctrl.currentUser.firstName }}</span>
-                </div>
-            </div>
-            <div class="md-toolbar-tools" hide-gt-xs>
-                <md-button class="md-icon-button" flex
-                           ng-click="$ctrl.currentView.next('list')">
-                    <i class="material-icons">home</i>
-                </md-button>
-                <md-button class="md-icon-button" flex
-                           ng-click="$ctrl.currentView.next('list')">
-                    <i class="material-icons">movie</i>
-                </md-button>
-            </div>
-        </div>
-    </md-toolbar>
+    <navbar [current-user]="$ctrl.currentUser"
+            (view-change)="$ctrl.onViewChange($event)"
+            (search)="$ctrl.onSearch($event)"
+            (logout)="$ctrl.onLogout()"></navbar>
 
     <!-- Login View -->
     <div layout="row" layout-align="center" style="overflow-y: auto; height: 100%;"
@@ -65,7 +39,7 @@
             <reviews-list ng-if="$ctrl.currentView.getValue() == 'detail'"
                           [reviews]="$ctrl.mediaReviews[$ctrl.currentMedia.id]"
                           [can-review]="$ctrl.currentUser"
-                          [has-reviewed]="$ctrl.userHasReviewed"
+                          [current-user]="$ctrl.currentUser"
                           (create-review)="$ctrl.onCreateReview($event)"></reviews-list>
         </div>
     </div>

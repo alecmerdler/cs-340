@@ -99,9 +99,6 @@ export class AppComponent implements OnInit {
 
         this.currentMedia = media;
         this.$window.sessionStorage.setItem('currentMedia', JSON.stringify(media));
-
-        this.userHasReviewed = !!this.userReviews[this.currentUser.id].find(review => review.mediaID == media.id);
-
         this.currentView.next('detail');
     }
 
@@ -117,7 +114,7 @@ export class AppComponent implements OnInit {
         this.currentView.next('list');
     }
 
-    public logout(): void {
+    public onLogout(): void {
         this.currentView.next('login');
         this.currentUser = null;
         this.$window.sessionStorage.removeItem('currentUser');
