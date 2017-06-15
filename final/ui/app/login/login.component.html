@@ -37,7 +37,6 @@
             </md-tab>
             <md-tab label="Signup">
                 <form name="$ctrl.signupForm">
-                    {{ $ctrl.signupFormError }}
                     <div layout="column" layout-align="center center">
                         <md-input-container>
                             <label>Username</label>
@@ -45,18 +44,15 @@
                                    type="text"
                                    ng-model="$ctrl.signupData.username"
                                    md-maxlength="20" required>
-                            <div ng-messages="$ctrl.signupFormError">
-                                <div ng-message="duplicate">This username/email has already been used.</div>
-                            </div>
                         </md-input-container>
                         <md-input-container>
                             <label>Email</label>
                             <input name="email"
                                    type="text"
                                    ng-model="$ctrl.signupData.email"
-                                   md-maxlength="40" required>
-                            <div ng-messages="$ctrl.signupFormError">
-                                <div ng-message="duplicate">This username/email has already been used.</div>
+                                   md-maxlength="40" ng-pattern="/^.+@.+\..+$/" required>
+                            <div ng-messages="$ctrl.signupForm.email.$error">
+                                <div ng-message="pattern">Please use a valid email address.</div>
                             </div>
                         </md-input-container>
                         <md-input-container>
@@ -73,6 +69,10 @@
                                    ng-model="$ctrl.signupData.password"
                                    md-maxlength="20" required>
                         </md-input-container>
+                        <!-- Errors -->
+                        <div ng-if="$ctrl.signupFormError == 'duplicate'">
+                            This username/email has already been used.
+                        </div>
                     </div>
                     <div layout="row">
                         <span flex></span>
