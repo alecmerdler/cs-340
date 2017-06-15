@@ -1,20 +1,26 @@
 <!-- Normal Navbar -->
-<md-toolbar class="md-hue-2 toolbar-fade"
+<md-toolbar class="md-hue-2"
             ng-if="!$ctrl.showSearch">
     <div layout="column">
             <div class="md-toolbar-tools">
-                <div flex layout="row">
-                    <span style="cursor: pointer;" ng-click="$ctrl.viewChange.emit('list')">TubeRoom</span>
+                <div layout="row" style="cursor: pointer;" flex>
+                    <span ng-click="$ctrl.viewChange.emit('list')">TubeRoom</span>
                 </div>
                 <div ng-if="!$ctrl.currentUser">
                     <md-button ng-click="$ctrl.viewChange.emit('login')">Login</md-button>
                 </div>
-                <div layout="column" layout-align="center center" class="search-icon"
+                <!-- Search -->
+                <div class="search-icon" layout="column" layout-align="center center" hide-gt-xs
                      ng-click="$ctrl.toggleSearch()">
                     <i class="material-icons">search</i>
                 </div>
+                <div class="search-container" layout="column" layout-align="center center" flex>
+                    <input type="text" placeholder="Search"
+                           ng-model="$ctrl.searchText"
+                           ng-change="$ctrl.search.emit($ctrl.searchText)">
+                </div>
                 <div ng-if="$ctrl.currentUser"
-                     layout="row" layout-align="center center" class="user-menu-toggle"
+                     class="user-menu-toggle" layout="row" layout-align="center center"
                      ng-click="$ctrl.logout.emit()">
                     <md-tooltip>Logout</md-tooltip>
                     <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
@@ -37,7 +43,7 @@
 </div>
 
 <!-- Mobile Search Bar -->
-<md-toolbar class="toolbar-fade"
+<md-toolbar class="toolbar-fade" hide-gt-xs
             ng-if="$ctrl.showSearch">
     <div class="md-toolbar-tools search-toolbar">
         <!-- Back button -->
@@ -46,7 +52,7 @@
             <i class="material-icons">arrow_back</i>
         </div>
         <!-- Search input -->
-        <div class="search-container" layout="column" layout-align="center center" flex="33" flex-xs>
+        <div class="search-container" layout="column" layout-align="center center" flex>
             <input type="text" placeholder="Search"
                    ng-model="$ctrl.searchText"
                    ng-change="$ctrl.search.emit($ctrl.searchText)">
