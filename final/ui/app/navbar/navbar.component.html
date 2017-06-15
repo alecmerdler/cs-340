@@ -1,11 +1,17 @@
 <md-toolbar class="md-hue-2">
     <div layout="column">
-        <div class="md-toolbar-tools">
+        <!-- Normal navbar -->
+        <div class="md-toolbar-tools"
+             ng-show="!$ctrl.showSearch">
             <div flex layout="row">
                 <span style="cursor: pointer;" ng-click="$ctrl.viewChange.emit('list')">TubeRoom</span>
             </div>
             <div ng-if="!$ctrl.currentUser">
                 <md-button ng-click="$ctrl.viewChange.emit('login')">Login</md-button>
+            </div>
+            <div layout-align="center center" class="user-menu-toggle"
+                 ng-click="$ctrl.showSearch = true">
+                <i class="material-icons">search</i>
             </div>
             <div ng-if="$ctrl.currentUser"
                  layout="row" layout-align="center center" class="user-menu-toggle"
@@ -16,7 +22,8 @@
                 <span>{{ $ctrl.currentUser.firstName }}</span>
             </div>
         </div>
-        <div class="md-toolbar-tools" hide-gt-xs>
+        <div class="md-toolbar-tools" hide-gt-xs
+             ng-show="!$ctrl.showSearch">
             <md-button class="md-icon-button" flex
                        ng-click="$ctrl.viewChange.emit('home')">
                 <i class="material-icons">home</i>
@@ -25,6 +32,20 @@
                        ng-click="$ctrl.viewChange.emit('browse')">
                 <i class="material-icons">movie</i>
             </md-button>
+        </div>
+        <!-- Search -->
+        <div class="md-toolbar-tools" hide-gt-xs
+             ng-show="$ctrl.showSearch">
+            <!-- Back button -->
+            <div layout="center center" class="user-menu-toggle"
+                 ng-click="$ctrl.showSearch = false">
+                <i class="material-icons">arrow_back</i>
+            </div>
+            <!-- Search input -->
+            <div layout-align="center center" flex="33" flex-xs>
+                <input type="text"
+                       ng-model="$ctrl.searchText">
+            </div>
         </div>
     </div>
 </md-toolbar>
