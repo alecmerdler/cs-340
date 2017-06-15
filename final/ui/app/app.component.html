@@ -25,18 +25,18 @@
                           (create-recommendation)="$ctrl.onCreateRecommendation($event)"></media-detail>
 
             <!-- Reviews/Recommendations List -->
-            <activity-feed ng-if="$ctrl.currentView.getValue() == 'list'"
+            <activity-feed ng-if="$ctrl.currentView.getValue() == 'list' || $ctrl.currentView.getValue() == 'home'"
                            [reviews]="$ctrl.userReviews[$ctrl.currentUser.id]"
                            [recommendations]="$ctrl.userRecommendations"
                            [is-anonymous]="!$ctrl.currentUser"></activity-feed>
         </div>
 
         <div flex="50" flex-xs="100">
-            <media-browser ng-if="$ctrl.currentView.getValue() == 'list'"
+            <media-browser ng-if="$ctrl.currentView.getValue() == 'browse' || $ctrl.currentView.getValue() == 'list'"
                            (review)="$ctrl.viewMediaDetail($event)"
                            (recommend)="$ctrl.viewMediaDetail($event)"></media-browser>
 
-            <reviews-list ng-if="$ctrl.currentView.getValue() == 'detail'"
+            <reviews-list ng-if="$ctrl.currentView.getValue() == 'detail' || $ctrl.currentView.getValue() == 'reviews'"
                           [reviews]="$ctrl.mediaReviews[$ctrl.currentMedia.id]"
                           [can-review]="$ctrl.currentUser"
                           [current-user]="$ctrl.currentUser"
