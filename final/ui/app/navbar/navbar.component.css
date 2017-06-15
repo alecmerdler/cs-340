@@ -1,5 +1,8 @@
+.toolbar-container {
+    transition: all 0.5s linear;
+}
+
 .toolbar-container.ng-enter {
-    transition: 0.5s linear all;
     transform: translate(1000px);
     opacity: 0;
 }
@@ -9,7 +12,6 @@
 }
 
 .toolbar-container.ng-leave {
-    transition: 0.5s linear all;
     opacity: 1;
 }
 
