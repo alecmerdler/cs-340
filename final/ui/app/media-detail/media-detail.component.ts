@@ -32,6 +32,6 @@ export class MediaDetailComponent implements OnChanges {
     }
 
     public onAddView(): void {
-        this.addView.emit();
+        this.addView.emit({});
     }
 }
