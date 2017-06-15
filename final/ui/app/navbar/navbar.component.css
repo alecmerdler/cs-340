@@ -64,11 +64,11 @@ md-toolbar.toolbar-fade.ng-leave.ng-leave-active {
     outline: none;
 }
 
-.desktop-search {
+.desktop-search input {
     background: rgba(0, 0, 0, 0.3);
 }
 
-.desktop-search:hover,
+.desktop-search:hover input,
 .desktop-search input:focus {
     background: rgba(255, 255, 255);
 }
