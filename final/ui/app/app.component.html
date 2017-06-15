@@ -1,7 +1,7 @@
 <md-content style="height: 100%; overflow: hidden;">
     <!-- Toolbar -->
     <navbar [current-user]="$ctrl.currentUser"
-            (view-change)="$ctrl.onViewChange($event)"
+            (view-change)="$ctrl.currentView.emit($event)"
             (search)="$ctrl.onSearch($event)"
             (logout)="$ctrl.onLogout()"></navbar>
 
