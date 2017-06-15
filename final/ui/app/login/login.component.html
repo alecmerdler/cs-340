@@ -38,6 +38,7 @@
             <md-tab label="Signup">
                 <form name="$ctrl.signupForm">
                     <div layout="column" layout-align="center center">
+                        {{ $ctrl.signupForm.$error }}
                         <md-input-container>
                             <label>Username</label>
                             <input name="username"
