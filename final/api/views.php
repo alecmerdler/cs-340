@@ -101,8 +101,8 @@ function create_view($view) {
     $conn = create_db_connection();
 
     $stmt = $conn->prepare("INSERT INTO Views (mediaID, userID) VALUES (?, ?)");
-    $stmt->bind_param("ii", $view["userID"],
-                            $view["mediaID"]);
+    $stmt->bind_param("ii", $view["mediaID"],
+                            $view["userID"]);
 
     if (!$stmt->execute()) {
         $error = array("message" => $stmt->error);
