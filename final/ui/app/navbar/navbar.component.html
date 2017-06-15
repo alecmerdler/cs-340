@@ -4,17 +4,20 @@
     <div layout="column">
             <div class="md-toolbar-tools">
                 <div layout="row" style="cursor: pointer;" flex>
-                    <span ng-click="$ctrl.viewChange.emit('list')">TubeRoom</span>
+                    <span ng-click="$ctrl.viewChange.emit('home')">TubeRoom</span>
                 </div>
                 <div ng-if="!$ctrl.currentUser">
                     <md-button ng-click="$ctrl.viewChange.emit('login')">Login</md-button>
                 </div>
                 <!-- Search -->
-                <div class="search-icon" layout="column" layout-align="center center"
+                <div class="search-icon" layout="column" layout-align="center center" hide-gt-xs
                      ng-click="$ctrl.toggleSearch()">
                     <i class="material-icons">search</i>
                 </div>
                 <div class="search-container" layout="column" layout-align="center center" flex hide-xs>
+                    <div class="search-icon">
+                        <i class="material-icons">search</i>
+                    </div>
                     <input type="text" placeholder="Search"
                            ng-model="$ctrl.searchText"
                            ng-change="$ctrl.search.emit($ctrl.searchText)">

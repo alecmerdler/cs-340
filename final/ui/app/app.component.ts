@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
                 @Inject(RecommendationModel) private recommendationModel: RecommendationModel,
                 @Inject(ReviewModel) private reviewModel: ReviewModel,
                 @Inject('$window') private $window: ng.IWindowService) {
-        this.currentView = new BehaviorSubject(this.$window.sessionStorage.getItem("currentView") || 'list');
+        this.currentView = new BehaviorSubject(this.$window.sessionStorage.getItem("currentView") || 'home');
         this.currentView.subscribe((view) => {
             this.$window.sessionStorage.setItem('currentView', view);
             this.$window.scroll(0, 0);
