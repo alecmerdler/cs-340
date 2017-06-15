@@ -1,7 +1,5 @@
-<!-- Normal navbar -->
-<div class="toolbar-container"
-     ng-if="!$ctrl.showSearch">
-<md-toolbar class="md-hue-2">
+<!-- Normal Navbar -->
+<md-toolbar class="md-hue-2" ng-if="!$ctrl.showSearch">
     <div layout="column">
             <div class="md-toolbar-tools">
                 <div flex layout="row">
@@ -36,7 +34,7 @@
         </div>
     </md-toolbar>
 </div>
-<!-- Search -->
+<!-- Mobile Search Bar -->
 <div class="toolbar-container"
      ng-if="$ctrl.showSearch">
     <div class="md-toolbar-tools search-toolbar">
