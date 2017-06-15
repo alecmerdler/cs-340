@@ -2,7 +2,7 @@
     <div layout="column">
         <div class="md-toolbar-tools">
             <div flex layout="row">
-                <span style="cursor: pointer;" ng-click="$ctrl.currentView.next('list')">TubeRoom</span>
+                <span style="cursor: pointer;" ng-click="$ctrl.viewChange.emit('list')">TubeRoom</span>
             </div>
             <div ng-if="!$ctrl.currentUser">
                 <md-button ng-click="$ctrl.viewChange.emit('login')">Login</md-button>
