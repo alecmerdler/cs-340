@@ -15,32 +15,52 @@
     </div>
 
     <!-- Main View-->
-    <div layout="row" layout-xs="column" style="overflow-y: auto; height: 100%;"
-         ng-if="$ctrl.currentView.getValue() != 'login' && $ctrl.currentView.getValue() != 'signup'">
-        <div flex="50" flex-xs="100">
-            <media-detail ng-if="$ctrl.currentView.getValue() == 'detail'"
-                          [media]="$ctrl.currentMedia"
-                          [can-recommend]="$ctrl.currentUser"
-                          [user-list]="$ctrl.userList"
-                          (create-recommendation)="$ctrl.onCreateRecommendation($event)"></media-detail>
+    <!--<div layout="row" layout-xs="column" style="overflow-y: auto; height: 100%;"-->
+         <!--ng-if="$ctrl.currentView.getValue() != 'login' && $ctrl.currentView.getValue() != 'signup'">-->
+        <!--<div flex="50" flex-xs="100">-->
+            <!--<media-detail ng-if="$ctrl.currentView.getValue() == 'detail'"-->
+                          <!--[media]="$ctrl.currentMedia"-->
+                          <!--[can-recommend]="$ctrl.currentUser"-->
+                          <!--[user-list]="$ctrl.userList"-->
+                          <!--(create-recommendation)="$ctrl.onCreateRecommendation($event)"></media-detail>-->
 
-            <!-- Reviews/Recommendations List -->
-            <activity-feed ng-if="$ctrl.currentView.getValue() == 'list' || $ctrl.currentView.getValue() == 'home'"
-                           [reviews]="$ctrl.userReviews[$ctrl.currentUser.id]"
-                           [recommendations]="$ctrl.userRecommendations"
-                           [is-anonymous]="!$ctrl.currentUser"></activity-feed>
+            <!--&lt;!&ndash; Reviews/Recommendations List &ndash;&gt;-->
+            <!--<activity-feed ng-if="$ctrl.currentView.getValue() == 'list' || $ctrl.currentView.getValue() == 'home'"-->
+                           <!--[reviews]="$ctrl.userReviews[$ctrl.currentUser.id]"-->
+                           <!--[recommendations]="$ctrl.userRecommendations"-->
+                           <!--[is-anonymous]="!$ctrl.currentUser"></activity-feed>-->
+        <!--</div>-->
+
+        <!--<div flex="50" flex-xs="100">-->
+            <!--<media-browser ng-if="$ctrl.currentView.getValue() == 'browse' || $ctrl.currentView.getValue() == 'list'"-->
+                           <!--(review)="$ctrl.viewMediaDetail($event)"-->
+                           <!--(recommend)="$ctrl.viewMediaDetail($event)"></media-browser>-->
+
+            <!--<reviews-list ng-if="$ctrl.currentView.getValue() == 'detail' || $ctrl.currentView.getValue() == 'reviews'"-->
+                          <!--[reviews]="$ctrl.mediaReviews[$ctrl.currentMedia.id]"-->
+                          <!--[can-review]="$ctrl.currentUser"-->
+                          <!--[current-user]="$ctrl.currentUser"-->
+                          <!--(create-review)="$ctrl.onCreateReview($event)"></reviews-list>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!-- Desktop -->
+    <div layout="row" style="overflow-y: auto; height: 100%;" hide-xs>
+        <!-- Login View -->
+        <div flex="33" flex-offset="33"
+             ng-if="$ctrl.currentView.getValue() === 'login' || $ctrl.currentView.getValue() === 'signup'">
+            <login (login-success)="$ctrl.onLogin($event)"
+                   (signup-success)="$ctrl.onSignup($event)"></login>
         </div>
+    </div>
 
-        <div flex="50" flex-xs="100">
-            <media-browser ng-if="$ctrl.currentView.getValue() == 'browse' || $ctrl.currentView.getValue() == 'list'"
-                           (review)="$ctrl.viewMediaDetail($event)"
-                           (recommend)="$ctrl.viewMediaDetail($event)"></media-browser>
-
-            <reviews-list ng-if="$ctrl.currentView.getValue() == 'detail' || $ctrl.currentView.getValue() == 'reviews'"
-                          [reviews]="$ctrl.mediaReviews[$ctrl.currentMedia.id]"
-                          [can-review]="$ctrl.currentUser"
-                          [current-user]="$ctrl.currentUser"
-                          (create-review)="$ctrl.onCreateReview($event)"></reviews-list>
+    <!-- Mobile -->
+    <div layout="column" style="overflow-y: auto; height: 100%;" hide-gt-xs>
+        <!-- Login View -->
+        <div flex="100"
+             ng-if="$ctrl.currentView.getValue() === 'login' || $ctrl.currentView.getValue() === 'signup'">
+            <login (login-success)="$ctrl.onLogin($event)"
+                   (signup-success)="$ctrl.onSignup($event)"></login>
         </div>
     </div>
 </md-content>
