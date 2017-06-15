@@ -12,7 +12,7 @@
         </md-card-title-text>
         <md-card-title-media style="width: 33%;">
             <div class="md-media-xl">
-                <img src="/~merdlera/cs340/final/img/media/{{ ::$ctrl.media.id }}.jpg">
+                <img ng-src="/~merdlera/cs340/final/img/media/{{ ::$ctrl.media.id }}.jpg">
             </div>
         </md-card-title-media>
     </md-card-title>
@@ -31,7 +31,7 @@
               flex layout="row"
               ng-if="$ctrl.canRecommend">
             <div layout="column" flex="1" style="padding: 10px;">
-                <img ng-src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
+                <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
                      height="50" width="50"
                      class="md-avatar" />
             </div>
