@@ -8,12 +8,10 @@
 }
 
 .toolbar-container.ng-enter.ng-active {
-    transform: translate(-1000px);
     opacity: 1;
 }
 
 .toolbar-container.ng-leave {
-    transform: translate(-1000px);
     opacity: 1;
 }
 
