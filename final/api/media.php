@@ -60,8 +60,7 @@ function search_media($search_title) {
     $conn = create_db_connection();
 
     $stmt = $conn->prepare("SELECT * from Media 
-                            WHERE title LIKE %?%");
-    var_dump($search_title);
+                            WHERE title LIKE CONCAT('%', ?, '%')");
     $stmt->bind_param("s", $search_title);
     $stmt->execute();
 
