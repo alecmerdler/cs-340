@@ -6,7 +6,7 @@ md-toolbar.toolbar-slide.ng-enter {
     transform: translate(500px);
 }
 
-md-toolbar.toolbar-slide.ng-enter.ng-active {
+md-toolbar.toolbar-slide.ng-enter.ng-enter-active {
 
 }
 
@@ -14,7 +14,7 @@ md-toolbar.toolbar-slide.ng-leave {
 
 }
 
-md-toolbar.toolbar-slide.ng-leave.ng-active {
+md-toolbar.toolbar-slide.ng-leave.ng-leave-active {
     transform: translate(500px);
 }
 
