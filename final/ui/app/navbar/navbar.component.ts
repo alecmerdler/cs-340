@@ -8,7 +8,7 @@ import './navbar.component.css';
     selector: 'navbar',
     template: template
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
     @Input() public currentUser: UserInstance;
     @Input() public showSearch: boolean = false;
