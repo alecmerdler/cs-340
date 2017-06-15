@@ -64,12 +64,6 @@ function search_media($search_title) {
     $stmt->bind_param("s", $search_title);
     $stmt->execute();
 
-//    while ($row = $stmt->get_result()) {
-//        $data = $row->fetch_assoc();
-//        if ($data != null) {
-//            array_push($response, $data);
-//        }
-//    }
     $result = $stmt->get_result();
     while ($row = $result->fetch_assoc()) {
         if ($row != null) {
