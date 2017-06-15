@@ -14,10 +14,10 @@
             <div class="md-media-xl">
                 <img ng-src="/~merdlera/cs340/final/img/media/{{ ::$ctrl.media.id }}.jpg">
             </div>
+            <md-button ng-click="$ctrl.onAddView()">
+                Seen it <span ng-if="$ctrl.timesViewed">{{ $ctrl.timesViewed > 0 }} times</span>
+            </md-button>
         </md-card-title-media>
-        <md-button ng-click="$ctrl.onAddView()">
-            Seen it <span ng-if="$ctrl.timesViewed">{{ $ctrl.timesViewed > 0 }} times</span>
-        </md-button>
     </md-card-title>
     <md-card-content>
         <md-divider></md-divider>
