@@ -2,7 +2,7 @@
     <div layout="column">
         <!-- Normal navbar -->
         <div class="md-toolbar-tools"
-             ng-show="!$ctrl.showSearch">
+             ng-if="!$ctrl.showSearch">
             <div flex layout="row">
                 <span style="cursor: pointer;" ng-click="$ctrl.viewChange.emit('list')">TubeRoom</span>
             </div>
@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="md-toolbar-tools" hide-gt-xs
-             ng-show="!$ctrl.showSearch">
+             ng-if="!$ctrl.showSearch">
             <md-button class="md-icon-button" flex
                        ng-click="$ctrl.viewChange.emit('home')">
                 <i class="material-icons">home</i>

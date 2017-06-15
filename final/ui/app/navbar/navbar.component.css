@@ -1,3 +1,12 @@
+.md-toolbar-tools.ng-enter {
+    transition: all 0.5s linear;
+    opacity: 0;
+}
+
+.md-toolbar-tools.ng-enter.ng-active {
+    opacity: 1;
+}
+
 .user-menu-toggle span {
     padding: 10px;
 }
@@ -24,7 +33,7 @@
 }
 
 .search-toolbar {
-    box-shadow: 0px 4px 1px rgba(0,0,0,0.6);
+    box-shadow: 0px 2px 1px rgba(0,0,0,0.6);
     background: #fff;
 }
 
