@@ -122,7 +122,10 @@ export class AppComponent implements OnInit {
         const view: ViewAttributes = {userID: this.currentUser.id, mediaID: this.currentMedia.id};
         this.viewModel.create(view)
             .then((newView) => {
-                console.log(newView);
+                return this.viewModel.listByMedia(this.currentMedia.id);
+            })
+            .then((viewsList) => {
+                this.mediaViews[this.currentMedia.id] = viewsList;
             });
     }
 
