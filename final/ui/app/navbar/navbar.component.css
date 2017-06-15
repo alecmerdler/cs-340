@@ -7,6 +7,15 @@
     opacity: 1;
 }
 
+.md-toolbar-tools.ng-leave {
+    transition: all 0.5s linear;
+    opacity: 1;
+}
+
+.md-toolbar-tools.ng-leave.ng-active {
+    opacity: 0;
+}
+
 .user-menu-toggle span {
     padding: 10px;
 }
