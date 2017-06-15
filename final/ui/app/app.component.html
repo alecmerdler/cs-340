@@ -43,15 +43,13 @@
             <login (login-success)="$ctrl.onLogin($event)"
                    (signup-success)="$ctrl.onSignup($event)"></login>
         </div>
-        <!-- List View -->
-        <div ng-if="$ctrl.currentView.getValue() == 'list'">
-            <!-- Activity View -->
+        <!-- Home View -->
+        <div ng-if="$ctrl.currentView.getValue() == 'home'">
             <div flex="50">
                 <activity-feed [reviews]="$ctrl.userReviews[$ctrl.currentUser.id]"
                                [recommendations]="$ctrl.userRecommendations"
                                [is-anonymous]="!$ctrl.currentUser"></activity-feed>
             </div>
-            <!-- Browse View -->
             <div flex="50">
                 <media-browser (review)="$ctrl.viewMediaDetail($event)"
                                (recommend)="$ctrl.viewMediaDetail($event)"></media-browser>
@@ -84,7 +82,7 @@
             <login (login-success)="$ctrl.onLogin($event)"
                    (signup-success)="$ctrl.onSignup($event)"></login>
         </div>
-        <!-- Activity View -->
+        <!-- Home View -->
         <div flex="100"
              ng-if="$ctrl.currentView.getValue() == 'home'">
             <activity-feed [reviews]="$ctrl.userReviews[$ctrl.currentUser.id]"
