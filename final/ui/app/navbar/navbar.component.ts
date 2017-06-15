@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
 
     public toggleSearch(): void {
         this.showSearch = !this.showSearch;
-        
+
         if (this.showSearch) {
             this.searchInput.focus();
         }
