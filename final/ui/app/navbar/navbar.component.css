@@ -3,7 +3,7 @@ md-toolbar.toolbar-slide {
 }
 
 md-toolbar.toolbar-slide.ng-enter {
-    transform: translate(1000px);
+    transform: translate(500px);
     opacity: 0;
 }
 
@@ -16,7 +16,7 @@ md-toolbar.toolbar-slide.ng-leave {
 }
 
 md-toolbar.toolbar-slide.ng-leave.ng-active {
-    transform: translate(-1000px);
+    transform: translate(-500px);
     opacity: 0;
 }
 
