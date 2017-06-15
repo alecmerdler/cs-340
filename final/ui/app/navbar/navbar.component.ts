@@ -11,6 +11,7 @@ import './navbar.component.css';
 export class NavbarComponent implements OnInit {
 
     @Input() public currentUser: UserInstance;
+    @Input() public showSearch: boolean = false;
 
     @Output() public viewChange: EventEmitter<string> = new EventEmitter();
     @Output() public search: EventEmitter<string> = new EventEmitter();
@@ -18,13 +19,13 @@ export class NavbarComponent implements OnInit {
 
     @ViewChild('input') public searchInput: HTMLInputElement;
 
-    private showSearch: boolean = false;
     private searchText: string = "";
 
     public toggleSearch(): void {
         this.showSearch = !this.showSearch;
 
         if (this.showSearch) {
+            console.log(this.searchInput);
             this.searchInput.focus();
         }
     }
