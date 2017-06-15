@@ -42,7 +42,7 @@ function list_reviews_for_user($user_id) {
     $response = array();
     $conn = create_db_connection();
 
-    $stmt = $conn->prepare("SELECT *
+    $stmt = $conn->prepare("SELECT Reviews.id, Reviews.description, numStars, title, firstName, mediaID, Reviews.userID
                             FROM Reviews, Users, Media 
                             WHERE userID = ?
                               AND Media.id = mediaID 
