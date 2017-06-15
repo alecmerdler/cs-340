@@ -1,5 +1,5 @@
 .md-toolbar-tools.ng-enter {
-    transition: all 0.2s linear;
+    transition: 0.1s linear all;
     opacity: 0;
 }
 
@@ -8,7 +8,7 @@
 }
 
 .md-toolbar-tools.ng-leave {
-    transition: all 0.2s linear;
+    transition: 0.1s linear all;
     opacity: 1;
 }
 
