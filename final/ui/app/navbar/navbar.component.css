@@ -3,7 +3,7 @@
 }
 
 .toolbar-container.ng-enter {
-    transform: translate(1000px);
+    transform: translate(0, 1000px);
     opacity: 0;
 }
 
@@ -12,11 +12,11 @@
 }
 
 .toolbar-container.ng-leave {
+    transform: translate(0, -1000px);
     opacity: 1;
 }
 
 .toolbar-container.ng-leave.ng-active {
-    transform: translate(1000px);
     opacity: 0;
 }
 
