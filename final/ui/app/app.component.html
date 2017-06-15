@@ -96,7 +96,8 @@
             <!-- FIXME: Make into new component -->
             <md-list>
                 <md-list-item ng-repeat="result in $ctrl.searchResults"
-                              ng-click="$ctrl.viewMediaDetail(result)">
+                              ng-click="$ctrl.viewMediaDetail(result)"
+                              style="padding: 2px 0;">
                     <img style="height: 100px; width: auto;"
                          ng-src="/~merdlera/cs340/final/img/media/{{ ::result.id }}.jpg">
                     <span style="padding: 10px;">{{ result.title }}</span>
