@@ -13,5 +13,5 @@ export class NavbarComponent {
 
     @Output() public viewChange: EventEmitter<string> = new EventEmitter();
     @Output() public search: EventEmitter<string> = new EventEmitter();
-    @Output() public logout: EventEmitter<void> = new EventEmitter();
+    @Output() public logout: EventEmitter<any> = new EventEmitter();
 }
