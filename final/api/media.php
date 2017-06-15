@@ -61,8 +61,8 @@ function search_media($search_title) {
 
     $stmt = $conn->prepare("SELECT * from Media 
                             WHERE title LIKE %?%");
-    $stmt->bind_param("s", $search_title);
     var_dump($search_title);
+    $stmt->bind_param("s", $search_title);
     $stmt->execute();
 
     while ($row = $stmt->get_result()) {
