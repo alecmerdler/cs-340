@@ -90,7 +90,7 @@
                 <md-list-item ng-repeat="result in $ctrl.searchResults"
                               style="height: 50px;"
                               ng-click="$ctrl.viewMediaDetail(result)">
-                    <img style="height: 100%; width: 100%;"
+                    <img style="height: 100%; width: auto;"
                          ng-src="/~merdlera/cs340/final/img/media/{{ ::result.id }}.jpg">
                     <span>{{ result.title }}</span>
                 </md-list-item>
