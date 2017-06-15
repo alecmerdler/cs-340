@@ -1,5 +1,6 @@
 <!-- Normal Navbar -->
-<md-toolbar class="md-hue-2" ng-if="!$ctrl.showSearch">
+<md-toolbar class="md-hue-2 toolbar-slide"
+            ng-if="!$ctrl.showSearch">
     <div layout="column">
             <div class="md-toolbar-tools">
                 <div flex layout="row">
@@ -34,9 +35,10 @@
         </div>
     </md-toolbar>
 </div>
+
 <!-- Mobile Search Bar -->
-<div class="toolbar-container"
-     ng-if="$ctrl.showSearch">
+<md-toolbar class="toolbar-slide"
+            ng-if="$ctrl.showSearch">
     <div class="md-toolbar-tools search-toolbar">
         <!-- Back button -->
         <div layout="column" layout="center center" class="search-back-btn"
@@ -50,4 +52,4 @@
                    ng-model="$ctrl.searchText">
         </div>
     </div>
-</div>
+</md-toolbar>

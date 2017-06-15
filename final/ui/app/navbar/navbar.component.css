@@ -1,22 +1,22 @@
-.toolbar-container {
+md-toolbar.toolbar-slide {
     transition: all 0.5s linear;
 }
 
-.toolbar-container.ng-enter {
+md-toolbar.toolbar-slide.ng-enter {
     transform: translate(0, 1000px);
     opacity: 0;
 }
 
-.toolbar-container.ng-enter.ng-active {
+md-toolbar.toolbar-slide.ng-enter.ng-active {
     opacity: 1;
 }
 
-.toolbar-container.ng-leave {
+md-toolbar.toolbar-slide.ng-leave {
     transform: translate(0, -1000px);
     opacity: 1;
 }
 
-.toolbar-container.ng-leave.ng-active {
+md-toolbar.toolbar-slide.ng-leave.ng-active {
     opacity: 0;
 }
 
