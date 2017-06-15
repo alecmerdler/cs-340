@@ -27,7 +27,7 @@ export class UserModel {
                 return this.$q.resolve(response.data);
             })
             .catch((error) => {
-                return this.$q.reject(error.data['error']['error']);
+                return this.$q.reject(error.data['error']);
             });
     }
 
