@@ -79,6 +79,9 @@ function list_views_for_media($media_id) {
     $stmt->bind_param("i", $media_id);
     $stmt->execute();
 
+    $result = $stmt->get_result();
+    var_dump($result->fetch_assoc());
+
     while ($row = $stmt->get_result()) {
         $data = $row->fetch_assoc();
         if ($data != null) {
