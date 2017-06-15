@@ -26,3 +26,12 @@
     height: 100%;
 
 }
+
+.search-container input {
+    border: 0;
+    appearance: none;
+}
+
+.search-container input:focus {
+    outline: none;
+}
