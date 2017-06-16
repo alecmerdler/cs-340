@@ -137,7 +137,6 @@ export class AppComponent implements OnInit {
     }
 
     public onSearch(event: string): void {
-        this.currentView.next('search');
         this.showSearchResults = true;
 
         this.mediaModel.search(event)
