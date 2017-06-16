@@ -50,6 +50,7 @@
         <!-- Search View -->
         <div class="search-results-container" flex="20"
              ng-if="$ctrl.showSearchResults">
+            <h3>Search results</h3>
             <md-list>
                 <md-list-item ng-repeat="result in $ctrl.searchResults"
                               ng-click="$ctrl.viewMediaDetail(result)"
