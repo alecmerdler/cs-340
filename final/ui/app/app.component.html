@@ -1,6 +1,6 @@
 <!-- Toolbar -->
 <navbar [current-user]="$ctrl.currentUser"
-        [show-search]="$ctrl.currentView.getValue() == 'search'"
+        [show-search]="$ctrl.showSearchResults"
         (view-change)="$ctrl.currentView.next($event)"
         (search)="$ctrl.onSearch($event)"
         (logout)="$ctrl.onLogout()"></navbar>

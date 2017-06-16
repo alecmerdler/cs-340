@@ -49,6 +49,7 @@ export class AppComponent implements OnInit {
     }
 
     public ngOnInit(): void {
+        this.showSearchResults = false;
         this.mediaModel.list()
             .then((mediaList) => {
                 this.mediaList = mediaList;
