@@ -15,7 +15,7 @@
                    (signup-success)="$ctrl.onSignup($event)"></login>
         </div>
         <!-- Home View -->
-        <div layout="row"
+        <div layout="row" flex
              ng-if="$ctrl.currentView.getValue() == 'home'">
             <div flex="50">
                 <activity-feed [reviews]="$ctrl.userReviews[$ctrl.currentUser.id]"
@@ -28,7 +28,7 @@
             </div>
         </div>
         <!-- Detail View -->
-        <div layout="row"
+        <div layout="row" flex
              ng-if="$ctrl.currentView.getValue() == 'detail'">
             <!-- Media Detail View -->
             <div flex="50">
