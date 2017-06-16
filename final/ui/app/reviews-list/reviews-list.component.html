@@ -82,7 +82,7 @@
         </div>
     </md-card-content>
     <md-card-actions layout="row" layout-align="end center"
-                     ng-if="$ctrl.canReview">
+                     ng-if="$ctrl.canReview && !$ctrl.hasReviewed">
         <md-button class="md-primary"
                    ng-click="$ctrl.submitReview()"
                    ng-disabled="$ctrl.newReviewForm.$invalid && $ctrl.newReviewForm.$dirty">
