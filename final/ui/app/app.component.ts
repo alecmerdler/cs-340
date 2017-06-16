@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
     public searchResults: MediaInstance[] = [];
 
     private userHasReviewed: boolean = false;
+    private showSearchResults: boolean = false;
 
     constructor(@Inject(MediaModel) private mediaModel: MediaModel,
                 @Inject(UserModel) private userModel: UserModel,
@@ -136,6 +137,7 @@ export class AppComponent implements OnInit {
 
     public onSearch(event: string): void {
         this.currentView.next('search');
+        this.showSearchResults = true;
 
         this.mediaModel.search(event)
             .then((searchResults) => {

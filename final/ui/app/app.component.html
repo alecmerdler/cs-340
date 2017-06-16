@@ -16,7 +16,7 @@
         </div>
         <!-- Home View -->
         <div layout="row" flex
-             ng-if="$ctrl.currentView.getValue() == 'home' || $ctrl.currentView.getValue() == 'search'">
+             ng-if="$ctrl.currentView.getValue() == 'home'">
             <div flex="50">
                 <activity-feed [reviews]="$ctrl.userReviews[$ctrl.currentUser.id]"
                                [recommendations]="$ctrl.userRecommendations"
@@ -29,7 +29,7 @@
         </div>
         <!-- Detail View -->
         <div layout="row" flex
-             ng-if="$ctrl.currentView.getValue() == 'detail' || $ctrl.currentView.getValue() == 'search'">
+             ng-if="$ctrl.currentView.getValue() == 'detail'">
             <!-- Media Detail View -->
             <div flex="50">
                 <media-detail [media]="$ctrl.currentMedia"
@@ -49,7 +49,7 @@
         </div>
         <!-- Search View -->
         <div class="search-results-container" flex="20"
-             ng-if="$ctrl.currentView.getValue() == 'search'">
+             ng-if="$ctrl.showSearchResults">
             <md-list>
                 <md-list-item ng-repeat="result in $ctrl.searchResults"
                               ng-click="$ctrl.viewMediaDetail(result)"
