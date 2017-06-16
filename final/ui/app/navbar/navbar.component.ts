@@ -25,6 +25,7 @@ export class NavbarComponent {
         this.showSearch = !this.showSearch;
 
         if (this.showSearch) {
+            this.searchText = "";
             this.searchInput.focus();
         }
     }
