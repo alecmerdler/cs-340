@@ -72,20 +72,20 @@
         </div>
         <!-- Home View -->
         <div flex="100"
-             ng-if="$ctrl.currentView.getValue() == 'home'">
+             ng-if="$ctrl.currentView.getValue() == 'home' && !$ctrl.showSearchResults">
             <activity-feed [reviews]="$ctrl.userReviews[$ctrl.currentUser.id]"
                            [recommendations]="$ctrl.userRecommendations"
                            [is-anonymous]="!$ctrl.currentUser"></activity-feed>
         </div>
         <!-- Browse View -->
         <div flex="100"
-             ng-if="$ctrl.currentView.getValue() == 'browse'">
+             ng-if="$ctrl.currentView.getValue() == 'browse' && !$ctrl.showSearchResults">
             <media-browser (review)="$ctrl.viewMediaDetail($event)"
                            (recommend)="$ctrl.viewMediaDetail($event)"></media-browser>
         </div>
         <!-- Detail View -->
         <div flex="100" layout="column"
-             ng-if="$ctrl.currentView.getValue() == 'detail'">
+             ng-if="$ctrl.currentView.getValue() == 'detail' && !$ctrl.showSearchResults">
             <md-button ng-click="$ctrl.currentView.next('reviews')">Reviews</md-button>
             <media-detail [media]="$ctrl.currentMedia"
                           [can-recommend]="$ctrl.currentUser"
@@ -96,7 +96,7 @@
         </div>
         <!-- Reviews List View -->
         <div flex="100" layout="column"
-             ng-if="$ctrl.currentView.getValue() == 'reviews'">
+             ng-if="$ctrl.currentView.getValue() == 'reviews' && !$ctrl.showSearchResults">
             <md-button ng-click="$ctrl.currentView.next('detail')">{{ $ctrl.currentMedia.title }}</md-button>
             <reviews-list [reviews]="$ctrl.mediaReviews[$ctrl.currentMedia.id]"
                           [can-review]="$ctrl.currentUser"
@@ -105,7 +105,7 @@
         </div>
         <!-- Search View -->
         <div flex="100"
-             ng-if="$ctrl.currentView.getValue() == 'search'">
+             ng-if="$ctrl.showSearchResults">
             <!-- FIXME: Make into new component -->
             <md-list>
                 <md-list-item ng-repeat="result in $ctrl.searchResults"

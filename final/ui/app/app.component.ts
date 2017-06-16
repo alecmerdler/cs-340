@@ -38,6 +38,7 @@ export class AppComponent implements OnInit {
                 @Inject('$window') private $window: ng.IWindowService) {
         this.currentView = new BehaviorSubject(this.$window.sessionStorage.getItem("currentView") || 'home');
         this.currentView.subscribe((view) => {
+            this.showSearchResults = false;
             this.ngOnInit();
             this.$window.sessionStorage.setItem('currentView', view);
             this.$window.scroll(0, 0);
