@@ -99,6 +99,7 @@ export class AppComponent implements OnInit {
                 return this.reviewModel.listByMedia(this.currentMedia.id);
             })
             .then((updatedReviews) => {
+                this.userHasReviewed = true;
                 this.mediaReviews[this.currentMedia.id] = updatedReviews;
             });
     }
