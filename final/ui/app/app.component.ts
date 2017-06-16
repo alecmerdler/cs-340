@@ -159,8 +159,8 @@ export class AppComponent implements OnInit {
     }
 
     public onLogout(): void {
-        this.currentView.next('login');
         this.currentUser = null;
+        this.currentView.next('login');
         this.$window.sessionStorage.removeItem('currentUser');
     }
 }
