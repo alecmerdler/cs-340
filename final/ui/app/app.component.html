@@ -48,7 +48,8 @@
             </div>
         </div>
         <!-- Search View -->
-        <div ng-if="$ctrl.currentView.getValue() == 'search'">
+        <div flex="20"
+             ng-if="$ctrl.currentView.getValue() == 'search'">
             <!-- FIXME: Make into new component -->
             <md-list>
                 <md-list-item ng-repeat="result in $ctrl.searchResults"

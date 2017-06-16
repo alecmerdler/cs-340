@@ -6,9 +6,6 @@
                 <div layout="row" style="cursor: pointer;" flex>
                     <span ng-click="$ctrl.viewChange.emit('home')">TubeRoom</span>
                 </div>
-                <div ng-if="!$ctrl.currentUser">
-                    <md-button ng-click="$ctrl.viewChange.emit('login')">Login</md-button>
-                </div>
                 <!-- Search -->
                 <div class="search-icon" layout="column" layout-align="center center" hide-gt-xs
                      ng-click="$ctrl.toggleSearch()">
@@ -22,6 +19,9 @@
                     <input type="text" placeholder="Search"
                            ng-model="$ctrl.searchText"
                            ng-change="$ctrl.search.emit($ctrl.searchText)">
+                </div>
+                <div ng-if="!$ctrl.currentUser">
+                    <md-button ng-click="$ctrl.viewChange.emit('login')">Login</md-button>
                 </div>
                 <div ng-if="$ctrl.currentUser"
                      class="user-menu-toggle" layout="row" layout-align="center center"
