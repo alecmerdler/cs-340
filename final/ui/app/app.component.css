@@ -10,7 +10,7 @@
 }
 
 .search-results-container {
-    transition: all 0.5s linear;
+    transition: all 0.2s linear;
 }
 
 .search-results-container.ng-enter {
@@ -26,5 +26,5 @@
 }
 
 .search-results-container.ng-leave-active {
-    transform: translate(-500px);
+    transform: translate(500px);
 }
