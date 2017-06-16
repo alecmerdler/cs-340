@@ -43,7 +43,7 @@
             <div flex="50">
                 <reviews-list [reviews]="$ctrl.mediaReviews[$ctrl.currentMedia.id]"
                               [can-review]="$ctrl.currentUser"
-                              [has-reviewed]="$ctrl.userReviews[$ctrl.currentUser.id]"
+                              [has-reviewed]="$ctrl.userReviews[$ctrl.currentUser.id] != undefined"
                               (create-review)="$ctrl.onCreateReview($event)"></reviews-list>
             </div>
         </div>
