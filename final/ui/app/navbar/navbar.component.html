@@ -1,18 +1,12 @@
-<!-- Normal Navbar -->
-<md-toolbar class="md-hue-2"
-            ng-if="!$ctrl.showSearch">
+<!-- Desktop Navbar -->
+<md-toolbar class="md-hue-2" hide-xs>
     <div layout="column">
             <div class="md-toolbar-tools">
                 <div layout="row" style="cursor: pointer;" flex>
                     <span ng-click="$ctrl.viewChange.emit('home')">TubeRoom</span>
                 </div>
-                <!-- Search -->
-                <div class="search-icon" layout="column" layout-align="center center" hide-gt-xs
-                     ng-click="$ctrl.toggleSearch()">
-                    <i class="material-icons">search</i>
-                </div>
                 <!-- Desktop Search Bar -->
-                <div class="search-container desktop-search" layout="row" layout-align="end center" flex hide-xs>
+                <div class="search-container desktop-search" layout="row" layout-align="end center" flex>
                     <div class="search-icon">
                         <i class="material-icons">search</i>
                     </div>
@@ -32,20 +26,49 @@
                     <span>{{ $ctrl.currentUser.firstName }}</span>
                 </div>
             </div>
-            <!-- Mobile Navigation Row -->
-            <div class="md-toolbar-tools" hide-gt-xs>
-                <md-button class="md-icon-button" flex
-                           ng-click="$ctrl.viewChange.emit('home')">
-                    <i class="material-icons">home</i>
-                </md-button>
-                <md-button class="md-icon-button" flex
-                           ng-click="$ctrl.viewChange.emit('browse')">
-                    <i class="material-icons">movie</i>
-                </md-button>
+        </div>
+    </div>
+</md-toolbar>
+
+<!-- Mobile Navbar -->
+<md-toolbar class="md-hue-2" hide-gt-xs
+            ng-if="!$ctrl.showSearch">
+    <div layout="column">
+        <div class="md-toolbar-tools">
+            <div layout="row" style="cursor: pointer;" flex>
+                <span ng-click="$ctrl.viewChange.emit('home')">TubeRoom</span>
+            </div>
+            <!-- Mobile Search -->
+            <div class="search-icon" layout="column" layout-align="center center"
+                 ng-click="$ctrl.toggleSearch()">
+                <i class="material-icons">search</i>
+            </div>
+            <div ng-if="!$ctrl.currentUser">
+                <md-button ng-click="$ctrl.viewChange.emit('login')">Login</md-button>
+            </div>
+            <div ng-if="$ctrl.currentUser"
+                 class="user-menu-toggle" layout="row" layout-align="center center"
+                 ng-click="$ctrl.logout.emit()">
+                <md-tooltip>Logout</md-tooltip>
+                <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
+                     class="md-avatar" height="40" width="40">
+                <span>{{ $ctrl.currentUser.firstName }}</span>
             </div>
         </div>
-    </md-toolbar>
-</div>
+        <!-- Mobile Navigation Row -->
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" flex
+                       ng-click="$ctrl.viewChange.emit('home')">
+                <i class="material-icons">home</i>
+            </md-button>
+            <md-button class="md-icon-button" flex
+                       ng-click="$ctrl.viewChange.emit('browse')">
+                <i class="material-icons">movie</i>
+            </md-button>
+        </div>
+    </div>
+    </div>
+</md-toolbar>
 
 <!-- Mobile Search Bar -->
 <md-toolbar class="toolbar-fade" hide-gt-xs
