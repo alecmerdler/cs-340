@@ -43,7 +43,7 @@
             <div flex="50">
                 <reviews-list [reviews]="$ctrl.mediaReviews[$ctrl.currentMedia.id]"
                               [can-review]="$ctrl.currentUser"
-                              [current-user]="$ctrl.currentUser"
+                              [has-reviewed]="$ctrl.userReviews[$ctrl.currentUser.id]"
                               (create-review)="$ctrl.onCreateReview($event)"></reviews-list>
             </div>
         </div>
@@ -101,7 +101,7 @@
             <md-button ng-click="$ctrl.currentView.next('detail')">{{ $ctrl.currentMedia.title }}</md-button>
             <reviews-list [reviews]="$ctrl.mediaReviews[$ctrl.currentMedia.id]"
                           [can-review]="$ctrl.currentUser"
-                          [current-user]="$ctrl.currentUser"
+                          [has-reviewed]="$ctrl.userReviews[$ctrl.currentUser.id]"
                           (create-review)="$ctrl.onCreateReview($event)"></reviews-list>
         </div>
         <!-- Search View -->
