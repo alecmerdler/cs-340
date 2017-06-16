@@ -8,3 +8,23 @@
 .empty-list span {
     padding: 10px;
 }
+
+.search-results-container {
+    transition: all 1.0s linear;
+}
+
+.search-results-container.ng-enter {
+   transform: translate(500px);
+}
+
+.search-results-container.ng-enter-active {
+
+}
+
+.search-results-container.ng-leave {
+
+}
+
+.search-results-container.ng-leave-active {
+    transform: translate(-500px);
+}
