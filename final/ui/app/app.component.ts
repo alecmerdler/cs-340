@@ -116,7 +116,6 @@ export class AppComponent implements OnInit {
             .then((reviewsList) => {
                 this.mediaReviews[media.id] = reviewsList;
                 this.userHasReviewed = this.mediaReviews[media.id].filter(review => review.userID == this.currentUser.id).length > 0;
-                console.log(this.mediaReviews[media.id]);
             });
 
         this.viewModel.listByMedia(this.currentMedia.id)
