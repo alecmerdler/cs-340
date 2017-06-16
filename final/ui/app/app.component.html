@@ -7,9 +7,9 @@
 
 <md-content style="height: 100%; overflow: hidden;">
     <!-- Desktop -->
-    <div style="overflow-y: auto; height: 100%;" hide-xs>
+    <div style="overflow-y: auto; height: 100%;" layout="row" layout-align="center" hide-xs>
         <!-- Login View -->
-        <div flex="33" flex-offset="33"
+        <div flex="33"
              ng-if="$ctrl.currentView.getValue() === 'login' || $ctrl.currentView.getValue() === 'signup'">
             <login (login-success)="$ctrl.onLogin($event)"
                    (signup-success)="$ctrl.onSignup($event)"></login>
@@ -46,6 +46,19 @@
                               [current-user]="$ctrl.currentUser"
                               (create-review)="$ctrl.onCreateReview($event)"></reviews-list>
             </div>
+        </div>
+        <!-- Search View -->
+        <div ng-if="$ctrl.currentView.getValue() == 'search'">
+            <!-- FIXME: Make into new component -->
+            <md-list>
+                <md-list-item ng-repeat="result in $ctrl.searchResults"
+                              ng-click="$ctrl.viewMediaDetail(result)"
+                              style="padding: 2px 0;">
+                    <img style="height: 100px; width: auto;"
+                         ng-src="/~merdlera/cs340/final/img/media/{{ ::result.id }}.jpg">
+                    <span style="padding: 10px;">{{ result.title }}</span>
+                </md-list-item>
+            </md-list>
         </div>
     </div>
 

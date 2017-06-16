@@ -14,6 +14,7 @@
                      ng-click="$ctrl.toggleSearch()">
                     <i class="material-icons">search</i>
                 </div>
+                <!-- Desktop Search Bar -->
                 <div class="search-container desktop-search" layout="row" layout-align="end center" flex hide-xs>
                     <div class="search-icon">
                         <i class="material-icons">search</i>
@@ -31,6 +32,7 @@
                     <span>{{ $ctrl.currentUser.firstName }}</span>
                 </div>
             </div>
+            <!-- Mobile Navigation Row -->
             <div class="md-toolbar-tools" hide-gt-xs>
                 <md-button class="md-icon-button" flex
                            ng-click="$ctrl.viewChange.emit('home')">
