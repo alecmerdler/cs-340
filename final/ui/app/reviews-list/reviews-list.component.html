@@ -54,7 +54,7 @@
             <!-- Logged In User -->
             <form name="$ctrl.newReviewForm"
                   flex layout="row"
-                  ng-if="$ctrl.canReview">
+                  ng-if="$ctrl.canReview && !$ctrl.hasReviewed">
                 <div layout="column" flex="1" style="padding: 10px;">
                     <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png"
                          height="50" width="50"
