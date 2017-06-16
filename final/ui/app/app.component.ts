@@ -138,12 +138,17 @@ export class AppComponent implements OnInit {
     }
 
     public onSearch(event: string): void {
-        this.showSearchResults = true;
+        if (event && event.length > 0) {
+            this.showSearchResults = true;
 
-        this.mediaModel.search(event)
-            .then((searchResults) => {
-                this.searchResults = searchResults;
-            });
+            this.mediaModel.search(event)
+                .then((searchResults) => {
+                    this.searchResults = searchResults;
+                });
+        }
+        else {
+            this.showSearchResults = false;
+        }
     }
 
     public onLogin(user: UserInstance): void {
